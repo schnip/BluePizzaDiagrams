@@ -1,3 +1,3 @@
 # BluePizzaDiagrams
 
-Our awesome project
+Our awesome project is cool
