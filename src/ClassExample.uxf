@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>40</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>_&lt;interface&gt;_
+Subject
+--
+registerObserver(Observer)
+removeObserver(Observer)
+notifyObserver()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>150</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Forecast Display
+--
+update()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>270</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>WeatherData
+--
+registerObserver(Observer)
+removeObserver(Observer)
+notifyObserver()
+getTemperature()
+getHumidity()
+getpressure()
+measurementsChanged()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>140</y>
+      <w>50</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>40</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_Interace_
+Observer
+--
+update</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>270</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>CurrentConditionsDisplay
+--
+update()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>240</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Statistics
+--
+update()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>100</y>
+      <w>110</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>60</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;30.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>100</y>
+      <w>50</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+</diagram>
