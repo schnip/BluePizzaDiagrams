@@ -82,4 +82,12 @@ public class ClassVolume {
 		this.interfaces = interfaces;
 	}
 
+	public List<MethodBook> getMethods() {
+		return methods;
+	}
+
+	public List<FieldPage> getFields() {
+		return fields;
+	}
+
 }
