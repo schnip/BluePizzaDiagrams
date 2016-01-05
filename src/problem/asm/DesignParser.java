@@ -8,9 +8,11 @@ import org.objectweb.asm.Opcodes;
 
 public class DesignParser {
 	public static void main(String[] args) throws IOException{
+		StaticLibraryHolder.initializeLibrary();
 		for (String className : args) {
+			StaticLibraryHolder.setClassname(className.replace('.', '/'));
 			// ASM's ClassReader does the heavy lifting of parsing the compiled Java class
-			ClassReader reader=new ClassReader(className);
+			ClassReader reader = new ClassReader(className);
 			
 			// make class declaration visitor to get superclass and interfaces
 			ClassVisitor decVisitor = new ClassDeclarationVisitor(Opcodes.ASM5);

@@ -8,7 +8,7 @@ public class FieldPage {
 	private String signature;
 	private Object value;
 	
-	public FieldPage(int a, String n, String d, String s, String v) {
+	public FieldPage(int a, String n, String d, String s, Object v) {
 		access = a;
 		name = n;
 		desc = d;

@@ -21,6 +21,7 @@ public class ClassFieldVisitor extends ClassVisitor {
 		String type = Type.getType(desc).getClassName();
 		
 		System.out.println("   "+type+" "+name);
+		StaticLibraryHolder.addField(new FieldPage(access, name, desc, signature, value));
 		
 		return toDecorate;
 	}
