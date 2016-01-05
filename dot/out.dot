@@ -1,0 +1,16 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+problemcarimplCar [
+label = "{problem.car.impl.Car|vin : java.lang.String\lmake : java.lang.String\lmodel : java.lang.String\lparts : java.util.Collection\l|+\<init\> : void\l+getVIN : java.lang.String\l+getMake : java.lang.String\l+getModel : java.lang.String\l+getParts : java.util.Collection\l+toString : java.lang.String\l+accept : void\l}"
+]
+}

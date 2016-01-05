@@ -25,7 +25,6 @@ public class ConsoleOutputer implements IOutputData {
 				System.out.println("     method " + symbol + returnType + " " + mb.getName() + " ");
 			}
 		}
-
 	}
 
 }

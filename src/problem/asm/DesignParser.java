@@ -26,7 +26,7 @@ public class DesignParser {
 			// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
 		}
-		IOutputData iod = new ConsoleOutputer();
+		IOutputData iod = new DiagramOutputer("dot/out.dot");
 		iod.outputData(StaticLibraryHolder.getLibrary());
 	}
 }
