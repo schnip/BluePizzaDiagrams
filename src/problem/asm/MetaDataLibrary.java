@@ -15,8 +15,24 @@ public class MetaDataLibrary {
 		this.classvolume.add(cv);
 	}
 
-	public List<ClassVolume> getClassvolume() {
+	public List<ClassVolume> getClassVolume() {
 		return classvolume;
+	}
+	
+	public void addMethod(MethodBook mb, String classname) {
+		for (ClassVolume cv : classvolume) {
+			if (cv.getName().equals(classname)) {
+				cv.addMethod(mb);
+			}
+		}
+	}
+	
+	public void addField(FieldPage fp, String classname) {
+		for (ClassVolume cv : classvolume) {
+			if (cv.getName().equals(classname)) {
+				cv.addField(fp);
+			}
+		}
 	}
 
 }
