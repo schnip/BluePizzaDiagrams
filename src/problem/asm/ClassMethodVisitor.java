@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
 public class ClassMethodVisitor extends ClassVisitor {
@@ -24,7 +23,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		MethodVisitor toDecorate = super.visitMethod(access, name, desc, signature, exceptions);
 		
-		String returnType = Type.getReturnType(desc).getClassName();
+		//String returnType = Type.getReturnType(desc).getClassName();
 		
 		Type[] argTypes = Type.getArgumentTypes(desc);
 		
@@ -35,10 +34,11 @@ public class ClassMethodVisitor extends ClassVisitor {
 			stypes.add(t.getClassName());
 		}
 		
+		/*
 		String symbol = "";
 		if ((access & Opcodes.ACC_PUBLIC) != 0) {
 			symbol = "+";
-		}
+		}*/
 		
 //		System.out.println("     method " + symbol + returnType + " " + name + " ");
 		StaticLibraryHolder.addMethod(new MethodBook(access, name, desc, signature, exceptions));

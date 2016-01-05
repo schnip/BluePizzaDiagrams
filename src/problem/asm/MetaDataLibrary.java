@@ -34,5 +34,14 @@ public class MetaDataLibrary {
 			}
 		}
 	}
+	
+	public boolean contains(String classname) {
+		for (ClassVolume cv : this.classvolume) {
+			if (classname.equals(cv.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 }

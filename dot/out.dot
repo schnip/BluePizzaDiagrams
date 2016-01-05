@@ -13,4 +13,14 @@ fontsize = 8
 problemcarimplCar [
 label = "{problem.car.impl.Car|vin : java.lang.String\lmake : java.lang.String\lmodel : java.lang.String\lparts : java.util.Collection\l|+\<init\> : void\l+getVIN : java.lang.String\l+getMake : java.lang.String\l+getModel : java.lang.String\l+getParts : java.util.Collection\l+toString : java.lang.String\l+accept : void\l}"
 ]
+problemcarimplBody [
+label = "{problem.car.impl.Body|type : java.lang.String\lmaterial : java.lang.String\l|+\<init\> : void\l+getType : java.lang.String\l+getMaterial : java.lang.String\l+toString : java.lang.String\l+accept : void\l}"
+]
+problemcarimplEngine [
+label = "{problem.car.impl.Engine|cylinder : int\lcapacity : float\l|+\<init\> : void\l+getCylinder : int\l+getCapacity : float\l+toString : java.lang.String\l+accept : void\l}"
+]
+problemcarimplWheel [
+label = "{problem.car.impl.Wheel|vendor : java.lang.String\lradius : float\lwidth : float\l|+\<init\> : void\l+getVendor : java.lang.String\l+getRadius : float\l+getWidth : float\l+toString : java.lang.String\l+accept : void\l}"
+]
+edge [ arrowhead = "empty" ]
 }
