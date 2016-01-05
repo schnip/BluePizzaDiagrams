@@ -83,7 +83,7 @@ public class DiagramOutputer implements IOutputData {
 			}
 			
 			// Draw interface arrows
-			writer.println("edge [ goblygook ]");
+			writer.println("edge [ arrowhead = \"empty\", style = \"dashed\" ]");
 			for (String s : this.interfaces) {
 				writer.println(s);
 			}

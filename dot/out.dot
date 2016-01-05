@@ -22,5 +22,10 @@ label = "{problem.car.impl.Engine|cylinder : int\lcapacity : float\l|+\<init\> :
 problemcarimplWheel [
 label = "{problem.car.impl.Wheel|vendor : java.lang.String\lradius : float\lwidth : float\l|+\<init\> : void\l+getVendor : java.lang.String\l+getRadius : float\l+getWidth : float\l+toString : java.lang.String\l+accept : void\l}"
 ]
+problemcarapiIWheel [
+label = "{problem.car.api.IWheel||+getVendor : java.lang.String\l+getRadius : float\l+getWidth : float\l}"
+]
 edge [ arrowhead = "empty" ]
+edge [ arrowhead = "empty", style = "dashed" ]
+problemcarimplWheel -> problemcarapiIWheel
 }
