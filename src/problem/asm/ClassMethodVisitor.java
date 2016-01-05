@@ -40,7 +40,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 			symbol = "+";
 		}
 		
-		System.out.println("     method " + symbol + returnType + " " + name + " ");
+//		System.out.println("     method " + symbol + returnType + " " + name + " ");
 		StaticLibraryHolder.addMethod(new MethodBook(access, name, desc, signature, exceptions));
 		stypes.toString();
 		
