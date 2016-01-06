@@ -6,7 +6,6 @@ import java.util.Collections;
 
 import problem.car.api.ICar;
 import problem.car.api.ICarPart;
-import problem.car.visitor.api.ITraverser;
 import problem.car.visitor.api.IVisitor;
 
 public class Car implements ICar {

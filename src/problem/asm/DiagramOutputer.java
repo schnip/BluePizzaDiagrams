@@ -12,6 +12,7 @@ public class DiagramOutputer implements IOutputData {
 	private String filePath;
 	private List<String> subclasses = new ArrayList<String>();
 	private List<String> interfaces = new ArrayList<String>();
+	private List<String> uses = new ArrayList<String>();
 
 	public DiagramOutputer(String s) {
 		filePath = s;
@@ -68,6 +69,9 @@ public class DiagramOutputer implements IOutputData {
 					}
 					String returnType = Type.getReturnType(mb.getDesc()).getClassName();
 					writer.print(symbol + specialSnowflake(mb.getName()) + " : " + returnType + "\\l");
+					
+					// Stash information for uses arrows
+					
 				}
 				
 				// Close the class block
@@ -85,6 +89,12 @@ public class DiagramOutputer implements IOutputData {
 			// Draw interface arrows
 			writer.println("edge [ arrowhead = \"empty\", style = \"dashed\" ]");
 			for (String s : this.interfaces) {
+				writer.println(s);
+			}
+			
+			// Draw uses arrows
+			writer.println("edge [ gibberish ]");
+			for (String s : this.uses) {
 				writer.println(s);
 			}
 			
