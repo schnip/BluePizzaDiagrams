@@ -61,8 +61,8 @@ public class DiagramOutputer implements IOutputData {
 					writer.print(fp.getName() + " : " + type + "\\l");
 					
 					// Stash information for association arrows
-					if (m.contains(type)) {
-						this.associates.add(v.getName().replaceAll("/", "") + " -> " + type.replaceAll("/", ""));
+					if (m.contains(type.replace('.', '/'))) {
+						this.associates.add(v.getName().replaceAll("/", "") + " -> " + type.replace(".", ""));
 					}
 				}
 				writer.print("|");
@@ -78,8 +78,8 @@ public class DiagramOutputer implements IOutputData {
 					
 					// Stash information for uses arrows
 					for (String type : mb.getArgTypes()) {
-						if (m.contains(type)) {
-							this.uses.add(v.getName().replaceAll("/", "") + " -> " + type.replaceAll("/", ""));
+						if (m.contains(type.replace('.', '/'))) {
+							this.uses.add(v.getName().replaceAll("/", "") + " -> " + type.replace(".", ""));
 						}
 					}
 				}
@@ -91,7 +91,7 @@ public class DiagramOutputer implements IOutputData {
 			}
 			
 			// Draw subclass arrows
-			writer.println("edge [ arrowhead = \"empty\" ]");
+			writer.println("edge [ arrowhead = \"empty\", style = \"none\" ]");
 			for (String s : this.subclasses) {
 				writer.println(s);
 			}
@@ -109,7 +109,7 @@ public class DiagramOutputer implements IOutputData {
 			}
 			
 			// Draw associate arrows
-			writer.println("edge [ arrowhead = \"vee\" ]");
+			writer.println("edge [ arrowhead = \"vee\", style = \"none\" ]");
 			for (String s : this.associates) {
 				writer.println(s);
 			}

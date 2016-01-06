@@ -1,8 +1,6 @@
 package problem.observer;
 
-import static java.nio.file.StandardWatchEventKinds.*;
-
-import java.io.IOException;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 public class ModifyHandler implements IDisplay{
 

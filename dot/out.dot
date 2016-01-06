@@ -10,24 +10,54 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemcarimplCar [
-label = "{problem.car.impl.Car|vin : java.lang.String\lmake : java.lang.String\lmodel : java.lang.String\lparts : java.util.Collection\l|+\<init\> : void\l+getVIN : java.lang.String\l+getMake : java.lang.String\l+getModel : java.lang.String\l+getParts : java.util.Collection\l+toString : java.lang.String\l+accept : void\l}"
+problemobserverAppData [
+label = "{problem.observer.AppData|hash : java.util.HashMap\levent : java.nio.file.WatchEvent\lapp : problem.observer.AppLauncher\lpath : java.nio.file.Path\l|+\<init\> : void\l+getEvent : java.nio.file.WatchEvent\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.util.HashMap\l}"
 ]
-problemcarimplBody [
-label = "{problem.car.impl.Body|type : java.lang.String\lmaterial : java.lang.String\l|+\<init\> : void\l+getType : java.lang.String\l+getMaterial : java.lang.String\l+toString : java.lang.String\l+accept : void\l}"
+problemobserverAppLauncher [
+label = "{problem.observer.AppLauncher|watcher : java.nio.file.WatchService\ldir : java.nio.file.Path\lstop : boolean\lprocesses : java.util.List\lreporter : problem.observer.AppReporter\l|\<init\> : void\l+addProcess : void\l+run : void\lclearEverything : void\l+stopGracefully : void\l+isRunning : boolean\l+getApplicationsCount : int\l+handleDirectoryEvent : void\l+main : void\l}"
 ]
-problemcarimplEngine [
-label = "{problem.car.impl.Engine|cylinder : int\lcapacity : float\l|+\<init\> : void\l+getCylinder : int\l+getCapacity : float\l+toString : java.lang.String\l+accept : void\l}"
+problemobserverAppReporter [
+label = "{problem.observer.AppReporter|displays : java.util.Collection\ldata : problem.observer.IAppData\l|+\<init\> : void\l+registerDisplay : void\l+removeDisplay : void\l+setData : void\l+notifyDisplays : void\l}"
 ]
-problemcarimplWheel [
-label = "{problem.car.impl.Wheel|vendor : java.lang.String\lradius : float\lwidth : float\l|+\<init\> : void\l+getVendor : java.lang.String\l+getRadius : float\l+getWidth : float\l+toString : java.lang.String\l+accept : void\l}"
+problemobserverCreateHandler [
+label = "{problem.observer.CreateHandler||+\<init\> : void\l+dataChanged : void\l}"
 ]
-problemcarapiIWheel [
-label = "{problem.car.api.IWheel||+getVendor : java.lang.String\l+getRadius : float\l+getWidth : float\l}"
+problemobserverDeleteHandler [
+label = "{problem.observer.DeleteHandler||+\<init\> : void\l+dataChanged : void\l}"
 ]
-edge [ arrowhead = "empty" ]
+problemobserverIAppData [
+label = "{problem.observer.IAppData||+getEvent : java.nio.file.WatchEvent\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.util.HashMap\l}"
+]
+problemobserverIAppReporter [
+label = "{problem.observer.IAppReporter||+registerDisplay : void\l+removeDisplay : void\l+setData : void\l+notifyDisplays : void\l}"
+]
+problemobserverIDisplay [
+label = "{problem.observer.IDisplay||+dataChanged : void\l}"
+]
+problemobserverModifyHandler [
+label = "{problem.observer.ModifyHandler||+\<init\> : void\l+dataChanged : void\l}"
+]
+edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
-problemcarimplWheel -> problemcarapiIWheel
+problemobserverAppData -> problemobserverIAppData
+problemobserverAppReporter -> problemobserverIAppReporter
+problemobserverCreateHandler -> problemobserverIDisplay
+problemobserverDeleteHandler -> problemobserverIDisplay
+problemobserverModifyHandler -> problemobserverIDisplay
 edge [ arrowhead = "vee", style = "dashed" ]
-edge [ arrowhead = "vee" ]
+problemobserverAppData -> problemobserverAppLauncher
+problemobserverAppReporter -> problemobserverIDisplay
+problemobserverAppReporter -> problemobserverIDisplay
+problemobserverAppReporter -> problemobserverIAppData
+problemobserverCreateHandler -> problemobserverIAppData
+problemobserverDeleteHandler -> problemobserverIAppData
+problemobserverIAppReporter -> problemobserverIDisplay
+problemobserverIAppReporter -> problemobserverIDisplay
+problemobserverIAppReporter -> problemobserverIAppData
+problemobserverIDisplay -> problemobserverIAppData
+problemobserverModifyHandler -> problemobserverIAppData
+edge [ arrowhead = "vee", style = "none" ]
+problemobserverAppData -> problemobserverAppLauncher
+problemobserverAppLauncher -> problemobserverAppReporter
+problemobserverAppReporter -> problemobserverIAppData
 }
