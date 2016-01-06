@@ -13,6 +13,7 @@ public class DiagramOutputer implements IOutputData {
 	private List<String> subclasses = new ArrayList<String>();
 	private List<String> interfaces = new ArrayList<String>();
 	private List<String> uses = new ArrayList<String>();
+	private List<String> associates = new ArrayList<String>();
 
 	public DiagramOutputer(String s) {
 		filePath = s;
@@ -58,6 +59,11 @@ public class DiagramOutputer implements IOutputData {
 				for (FieldPage fp : v.getFields()) {
 					String type = Type.getType(fp.getDesc()).getClassName();
 					writer.print(fp.getName() + " : " + type + "\\l");
+					
+					// Stash information for association arrows
+					if (m.contains(type)) {
+						this.associates.add(v.getName().replaceAll("/", "") + " -> " + type.replaceAll("/", ""));
+					}
 				}
 				writer.print("|");
 				
@@ -71,7 +77,11 @@ public class DiagramOutputer implements IOutputData {
 					writer.print(symbol + specialSnowflake(mb.getName()) + " : " + returnType + "\\l");
 					
 					// Stash information for uses arrows
-					
+					for (String type : mb.getArgTypes()) {
+						if (m.contains(type)) {
+							this.uses.add(v.getName().replaceAll("/", "") + " -> " + type.replaceAll("/", ""));
+						}
+					}
 				}
 				
 				// Close the class block
@@ -93,8 +103,14 @@ public class DiagramOutputer implements IOutputData {
 			}
 			
 			// Draw uses arrows
-			writer.println("edge [ gibberish ]");
+			writer.println("edge [ arrowhead = \"vee\", style = \"dashed\" ]");
 			for (String s : this.uses) {
+				writer.println(s);
+			}
+			
+			// Draw associate arrows
+			writer.println("edge [ arrowhead = \"vee\" ]");
+			for (String s : this.associates) {
 				writer.println(s);
 			}
 			

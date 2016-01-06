@@ -28,4 +28,6 @@ label = "{problem.car.api.IWheel||+getVendor : java.lang.String\l+getRadius : fl
 edge [ arrowhead = "empty" ]
 edge [ arrowhead = "empty", style = "dashed" ]
 problemcarimplWheel -> problemcarapiIWheel
+edge [ arrowhead = "vee", style = "dashed" ]
+edge [ arrowhead = "vee" ]
 }

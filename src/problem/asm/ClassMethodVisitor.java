@@ -32,6 +32,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 		List<String> stypes = new ArrayList<String>();
 		for (Type t : argTypes) {
 			stypes.add(t.getClassName());
+			
 		}
 		
 		/*
@@ -41,7 +42,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 		}*/
 		
 //		System.out.println("     method " + symbol + returnType + " " + name + " ");
-		StaticLibraryHolder.addMethod(new MethodBook(access, name, desc, signature, exceptions));
+		StaticLibraryHolder.addMethod(new MethodBook(access, name, desc, signature, exceptions, stypes));
 		stypes.toString();
 		
 		return toDecorate;
