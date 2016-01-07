@@ -1,4 +1,4 @@
-package problem.asm;
+package problem.asm.visitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,9 @@ import java.util.List;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
+
+import problem.asm.storage.MethodBook;
+import problem.asm.storage.StaticLibraryHolder;
 
 public class ClassMethodVisitor extends ClassVisitor {
 

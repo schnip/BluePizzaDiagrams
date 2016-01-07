@@ -1,7 +1,10 @@
-package problem.asm;
+package problem.asm.visitor;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
+
+import problem.asm.storage.FieldPage;
+import problem.asm.storage.StaticLibraryHolder;
 
 public class ClassFieldVisitor extends ClassVisitor {
 	

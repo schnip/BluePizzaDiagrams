@@ -1,4 +1,4 @@
-package problem.asm;
+package problem.asm.storage;
 
 public class StaticLibraryHolder {
 	

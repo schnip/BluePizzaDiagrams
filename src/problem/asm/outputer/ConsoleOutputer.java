@@ -1,9 +1,14 @@
-package problem.asm;
+package problem.asm.outputer;
 
 import java.util.Arrays;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
+
+import problem.asm.storage.ClassVolume;
+import problem.asm.storage.FieldPage;
+import problem.asm.storage.MetaDataLibrary;
+import problem.asm.storage.MethodBook;
 
 public class ConsoleOutputer implements IOutputData {
 

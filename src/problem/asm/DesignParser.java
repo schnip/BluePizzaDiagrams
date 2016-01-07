@@ -6,6 +6,13 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
+import problem.asm.outputer.DiagramOutputer;
+import problem.asm.outputer.IOutputData;
+import problem.asm.storage.StaticLibraryHolder;
+import problem.asm.visitor.ClassDeclarationVisitor;
+import problem.asm.visitor.ClassFieldVisitor;
+import problem.asm.visitor.ClassMethodVisitor;
+
 public class DesignParser {
 	public static void main(String[] args) throws IOException{
 		StaticLibraryHolder.initializeLibrary();

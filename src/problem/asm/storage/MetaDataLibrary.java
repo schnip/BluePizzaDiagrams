@@ -1,4 +1,4 @@
-package problem.asm;
+package problem.asm.storage;
 
 import java.util.ArrayList;
 import java.util.List;

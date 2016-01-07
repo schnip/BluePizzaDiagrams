@@ -1,4 +1,6 @@
-package problem.asm;
+package problem.asm.outputer;
+
+import problem.asm.storage.MetaDataLibrary;
 
 public interface IOutputData {
 	

@@ -1,6 +1,9 @@
-package problem.asm;
+package problem.asm.visitor;
 
 import org.objectweb.asm.ClassVisitor;
+
+import problem.asm.storage.ClassVolume;
+import problem.asm.storage.StaticLibraryHolder;
 
 public class ClassDeclarationVisitor extends ClassVisitor {
 
