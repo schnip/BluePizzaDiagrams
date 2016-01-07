@@ -39,24 +39,24 @@ label = "{problem.observer.ModifyHandler||+\<init\> : void\l+dataChanged : void\
 ]
 edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
-problemobserverAppReporter -> problemobserverIAppReporter
 problemobserverCreateHandler -> problemobserverIDisplay
-problemobserverAppData -> problemobserverIAppData
 problemobserverDeleteHandler -> problemobserverIDisplay
+problemobserverAppData -> problemobserverIAppData
 problemobserverModifyHandler -> problemobserverIDisplay
+problemobserverAppReporter -> problemobserverIAppReporter
 edge [ arrowhead = "vee", style = "dashed" ]
-problemobserverAppReporter -> problemobserverIAppData
+problemobserverModifyHandler -> problemobserverIAppData
+problemobserverIAppReporter -> problemobserverIAppData
+problemobserverIDisplay -> problemobserverIAppData
 problemobserverAppReporter -> problemobserverIDisplay
 problemobserverDeleteHandler -> problemobserverIAppData
-problemobserverModifyHandler -> problemobserverIAppData
-problemobserverCreateHandler -> problemobserverIAppData
-problemobserverIAppReporter -> problemobserverIAppData
 problemobserverIAppReporter -> problemobserverIDisplay
-problemobserverIDisplay -> problemobserverIAppData
 problemobserverAppData -> problemobserverAppLauncher
-edge [ arrowhead = "vee", style = "none" ]
 problemobserverAppReporter -> problemobserverIAppData
-problemobserverAppReporter -> problemobserverIDisplay
+problemobserverCreateHandler -> problemobserverIAppData
+edge [ arrowhead = "vee", style = "none" ]
 problemobserverAppLauncher -> problemobserverAppReporter
+problemobserverAppReporter -> problemobserverIDisplay
 problemobserverAppData -> problemobserverAppLauncher
+problemobserverAppReporter -> problemobserverIAppData
 }
