@@ -14,3 +14,6 @@ All contributions were pair programmed.  This can be seen in the commit messages
 Instructions on how to use your code
 
 In the run configurations for the design parser write the names of the classes you want parsed as arguments.  Then use graphviz to open the file that is generated from the run.
+
+IF YOU ARE USING LINUX:
+You can run test.sh and it will do everything for you.
