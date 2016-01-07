@@ -1,0 +1,24 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+problemobserverIAppData [
+label = "{problem.observer.IAppData||+getEvent : java.nio.file.Path\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.lang.String;Ljava.lang.String\l}"
+]
+problemobserverCreateHandler [
+label = "{problem.observer.CreateHandler||+\<init\> : void\l+dataChanged : void\l}"
+]
+edge [ arrowhead = "empty", style = "none" ]
+edge [ arrowhead = "empty", style = "dashed" ]
+edge [ arrowhead = "vee", style = "dashed" ]
+problemobserverCreateHandler -> problemobserverIAppData
+edge [ arrowhead = "vee", style = "none" ]
+}
