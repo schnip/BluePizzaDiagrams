@@ -11,13 +11,13 @@ fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
 problemobserverAppData [
-label = "{problem.observer.AppData|hash : java.util.HashMap\levent : java.nio.file.WatchEvent\lapp : problem.observer.AppLauncher\lpath : java.nio.file.Path\l|+\<init\> : void\l+getEvent : java.nio.file.WatchEvent\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.util.HashMap\l}"
+label = "{problem.observer.AppData|hash : java/lang/String;Ljava/lang/String\levent : java/nio/file/Path\lapp : problem.observer.AppLauncher\lpath : java.nio.file.Path\l|+\<init\> : java/nio/file/PathLproblem/observer/AppLauncher;Ljava/nio/file/Path;)V\l+getEvent : java/nio/file/Path\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java/lang/String;Ljava/lang/String\l}"
 ]
 problemobserverAppLauncher [
-label = "{problem.observer.AppLauncher|watcher : java.nio.file.WatchService\ldir : java.nio.file.Path\lstop : boolean\lprocesses : java.util.List\lreporter : problem.observer.AppReporter\l|\<init\> : void\l+addProcess : void\l+run : void\lclearEverything : void\l+stopGracefully : void\l+isRunning : boolean\l+getApplicationsCount : int\l+handleDirectoryEvent : void\l+main : void\l}"
+label = "{problem.observer.AppLauncher|watcher : java.nio.file.WatchService\ldir : java.nio.file.Path\lstop : boolean\lprocesses : java/lang/Process\lreporter : problem.observer.AppReporter\l|\<init\> : void\l+addProcess : void\l+run : void\lclearEverything : void\l+stopGracefully : void\l+isRunning : boolean\l+getApplicationsCount : int\l+handleDirectoryEvent : void\l+main : void\l}"
 ]
 problemobserverAppReporter [
-label = "{problem.observer.AppReporter|displays : java.util.Collection\ldata : problem.observer.IAppData\l|+\<init\> : void\l+registerDisplay : void\l+removeDisplay : void\l+setData : void\l+notifyDisplays : void\l}"
+label = "{problem.observer.AppReporter|displays : problem/observer/IDisplay\ldata : problem.observer.IAppData\l|+\<init\> : void\l+registerDisplay : void\l+removeDisplay : void\l+setData : void\l+notifyDisplays : void\l}"
 ]
 problemobserverCreateHandler [
 label = "{problem.observer.CreateHandler||+\<init\> : void\l+dataChanged : void\l}"
@@ -26,7 +26,7 @@ problemobserverDeleteHandler [
 label = "{problem.observer.DeleteHandler||+\<init\> : void\l+dataChanged : void\l}"
 ]
 problemobserverIAppData [
-label = "{problem.observer.IAppData||+getEvent : java.nio.file.WatchEvent\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.util.HashMap\l}"
+label = "{problem.observer.IAppData||+getEvent : java/nio/file/Path\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java/lang/String;Ljava/lang/String\l}"
 ]
 problemobserverIAppReporter [
 label = "{problem.observer.IAppReporter||+registerDisplay : void\l+removeDisplay : void\l+setData : void\l+notifyDisplays : void\l}"
@@ -59,5 +59,6 @@ problemobserverModifyHandler -> problemobserverIAppData
 edge [ arrowhead = "vee", style = "none" ]
 problemobserverAppData -> problemobserverAppLauncher
 problemobserverAppLauncher -> problemobserverAppReporter
+problemobserverAppReporter -> problem/observer/IDisplay
 problemobserverAppReporter -> problemobserverIAppData
 }

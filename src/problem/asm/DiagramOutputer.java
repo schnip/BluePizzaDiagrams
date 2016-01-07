@@ -58,6 +58,9 @@ public class DiagramOutputer implements IOutputData {
 				// Draw the fields
 				for (FieldPage fp : v.getFields()) {
 					String type = Type.getType(fp.getDesc()).getClassName();
+					if (fp.getSignature() != null) {
+						type = parseStringForT(fp.getSignature());
+					}
 					writer.print(fp.getName() + " : " + type + "\\l");
 					
 					// Stash information for association arrows
@@ -74,6 +77,10 @@ public class DiagramOutputer implements IOutputData {
 						symbol = "+";
 					}
 					String returnType = Type.getReturnType(mb.getDesc()).getClassName();
+					if (mb.getSignature() != null) {
+						returnType = parseStringForT(mb.getSignature());
+					}
+					
 					writer.print(symbol + specialSnowflake(mb.getName()) + " : " + returnType + "\\l");
 					
 					// Stash information for uses arrows
@@ -128,6 +135,10 @@ public class DiagramOutputer implements IOutputData {
 		ret = ret.replace("<", "\\<");
 		ret = ret.replace(">", "\\>");
 		return ret;
+	}
+	
+	private String parseStringForT(String s) {
+		return s.substring(s.indexOf('<')).replace("<L", "").replace(";>;", "");
 	}
 
 }
