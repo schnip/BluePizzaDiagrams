@@ -1,8 +1,8 @@
 package problem.asm;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
@@ -10,10 +10,10 @@ import org.objectweb.asm.Type;
 public class DiagramOutputer implements IOutputData {
 
 	private String filePath;
-	private List<String> subclasses = new ArrayList<String>();
-	private List<String> interfaces = new ArrayList<String>();
-	private List<String> uses = new ArrayList<String>();
-	private List<String> associates = new ArrayList<String>();
+	private Set<String> subclasses = new HashSet<String>();
+	private Set<String> interfaces = new HashSet<String>();
+	private Set<String> uses = new HashSet<String>();
+	private Set<String> associates = new HashSet<String>();
 
 	public DiagramOutputer(String s) {
 		filePath = s;
@@ -138,7 +138,7 @@ public class DiagramOutputer implements IOutputData {
 	}
 	
 	private String parseStringForT(String s) {
-		return s.substring(s.indexOf('<')).replace("<L", "").replace(";>;", "");
+		return s.substring(s.indexOf('<')).replace("<L", "").replace(";>;", "").replace('/', '.');
 	}
 
 }
