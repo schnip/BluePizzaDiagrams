@@ -10,15 +10,11 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemobserverIAppData [
-label = "{problem.observer.IAppData||+getEvent : java.nio.file.Path\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.lang.String;Ljava.lang.String\l}"
-]
-problemobserverCreateHandler [
-label = "{problem.observer.CreateHandler||+\<init\> : void\l+dataChanged : void\l}"
+problemobserverAppData [
+label = "{problem.observer.AppData|hash : java.lang.String;Ljava.lang.String\levent : java.nio.file.Path\lapp : problem.observer.AppLauncher\lpath : java.nio.file.Path\l|+\<init\> : java.nio.file.PathLproblem.observer.AppLauncher;Ljava.nio.file.Path;)V\l+getEvent : java.nio.file.Path\l+getApp : problem.observer.AppLauncher\l+getPath : java.nio.file.Path\l+getHash : java.lang.String;Ljava.lang.String\l}"
 ]
 edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
 edge [ arrowhead = "vee", style = "dashed" ]
-problemobserverCreateHandler -> problemobserverIAppData
 edge [ arrowhead = "vee", style = "none" ]
 }

@@ -11,6 +11,7 @@ import problem.asm.outputer.IOutputData;
 import problem.asm.storage.StaticLibraryHolder;
 import problem.asm.visitor.ClassDeclarationVisitor;
 import problem.asm.visitor.ClassFieldVisitor;
+import problem.asm.visitor.ClassInternalsVisitor;
 import problem.asm.visitor.ClassMethodVisitor;
 
 public class DesignParser {
@@ -27,8 +28,11 @@ public class DesignParser {
 			// DECORATE declaration visitor with field visitor
 			ClassVisitor fieldVisitor = new ClassFieldVisitor(Opcodes.ASM5, decVisitor);
 			
-			// DECORATE field visitor with method visitor
-			ClassVisitor methodVisitor = new ClassMethodVisitor(Opcodes.ASM5, fieldVisitor);
+			// DECORATE field visitor with internals visitor
+			ClassVisitor internalsVisitor = new ClassInternalsVisitor(Opcodes.ASM5, fieldVisitor);
+			
+			// DECORATE internals visitor with method visitor
+			ClassVisitor methodVisitor = new ClassMethodVisitor(Opcodes.ASM5, internalsVisitor);
 			// TODO: add more DECORATORS here in later milestones to accomplish specific tasks
 			// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
