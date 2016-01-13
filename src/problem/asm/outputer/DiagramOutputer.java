@@ -100,7 +100,7 @@ public class DiagramOutputer implements IOutputData {
 				// Stash information for the internal uses
 				for (UseSentence us : v.getUses()) {
 					if (m.contains(us.getName().replace('.', '/'))) {
-						this.uses.add(v.getName().replaceAll("/", "") + " -> " + us.getName().replace(".", ""));
+						this.uses.add(v.getName().replaceAll("/", "") + " -> " + us.getName().replace(".", "").replace("/", ""));
 					}
 				}
 				
