@@ -11,6 +11,7 @@ import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
 import problem.asm.storage.MethodBook;
+import problem.asm.storage.UseSentence;
 
 public class DiagramOutputer implements IOutputData {
 
@@ -93,6 +94,13 @@ public class DiagramOutputer implements IOutputData {
 						if (m.contains(type.replace('.', '/'))) {
 							this.uses.add(v.getName().replaceAll("/", "") + " -> " + type.replace(".", ""));
 						}
+					}
+				}
+				
+				// Stash information for the internal uses
+				for (UseSentence us : v.getUses()) {
+					if (m.contains(us.getName().replace('.', '/'))) {
+						this.uses.add(v.getName().replaceAll("/", "") + " -> " + us.getName().replace(".", ""));
 					}
 				}
 				
