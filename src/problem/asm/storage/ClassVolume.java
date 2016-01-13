@@ -7,6 +7,7 @@ public class ClassVolume {
 	
 	private List<MethodBook> methods;
 	private List<FieldPage> fields;
+	private List<UseSentence> uses;
 	private int version;
 	private int access;
 	private String name;
@@ -24,6 +25,7 @@ public class ClassVolume {
 		
 		this.methods = new ArrayList<MethodBook>();
 		this.fields = new ArrayList<FieldPage>();
+		this.uses = new ArrayList<UseSentence>();
 	}
 	
 	public void addMethod(MethodBook m) {
@@ -88,6 +90,14 @@ public class ClassVolume {
 
 	public List<FieldPage> getFields() {
 		return fields;
+	}
+
+	public void addUse(UseSentence us) {
+		this.uses.add(us);
+	}
+
+	public List<UseSentence> getUses() {
+		return uses;
 	}
 
 }

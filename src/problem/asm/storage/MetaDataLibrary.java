@@ -44,4 +44,12 @@ public class MetaDataLibrary {
 		return false;
 	}
 
+	public void addUse(UseSentence us, String classname) {
+		for (ClassVolume cv : classvolume) {
+			if (cv.getName().equals(classname)) {
+				cv.addUse(us);
+			}
+		}
+	}
+
 }

@@ -18,6 +18,7 @@ public class DesignParser {
 		StaticLibraryHolder.initializeLibrary();
 		for (String className : args) {
 			StaticLibraryHolder.setClassname(className.replace('.', '/'));
+			
 			// ASM's ClassReader does the heavy lifting of parsing the compiled Java class
 			ClassReader reader = new ClassReader(className);
 			

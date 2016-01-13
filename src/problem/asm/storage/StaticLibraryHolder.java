@@ -21,6 +21,10 @@ public class StaticLibraryHolder {
 		mdl.addField(fp, classname);
 	}
 	
+	public static void addUse(UseSentence us) {
+		mdl.addUse(us, classname);
+	}
+	
 	public static MetaDataLibrary getLibrary() {
 		return mdl;
 	}
