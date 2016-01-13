@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
 import problem.asm.storage.MethodBook;
@@ -48,7 +49,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 		StaticLibraryHolder.addMethod(new MethodBook(access, name, desc, signature, exceptions, stypes));
 		stypes.toString();
 		
-		return toDecorate;
+		return new MethodInternalsVisitor(Opcodes.ASM5, toDecorate);
 	}
 
 }
