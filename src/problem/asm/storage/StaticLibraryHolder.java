@@ -33,4 +33,9 @@ public class StaticLibraryHolder {
 		classname = cn;
 	}
 
+	public static void addMethodCall(MethodCallParagraph methodCallParagraph) {
+		mdl.addMethodCall(methodCallParagraph, classname);
+		
+	}
+
 }

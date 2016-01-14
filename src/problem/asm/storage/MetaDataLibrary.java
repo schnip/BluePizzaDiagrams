@@ -52,4 +52,12 @@ public class MetaDataLibrary {
 		}
 	}
 
+	public void addMethodCall(MethodCallParagraph mcp, String classname) {
+		for (ClassVolume cv : classvolume) {
+			if (cv.getName().equals(classname)) {
+				cv.addMethodCall(mcp);
+			}
+		}
+	}
+
 }
