@@ -4,10 +4,10 @@ problem/car/impl/Car:problem/car/impl/Car
 problem/car/impl/Wheel:problem/car/impl/Wheel
 problem/car/impl/Engine:problem/car/impl/Engine
 
-problem/car/app/CarApp:done=problem/car/impl/Body.<init>
-problem/car/app/CarApp:done=problem/car/impl/Engine.<init>
-problem/car/app/CarApp:done=problem/car/impl/Wheel.<init>
-problem/car/app/CarApp:done=problem/car/impl/Wheel.<init>
-problem/car/app/CarApp:done=problem/car/impl/Wheel.<init>
-problem/car/app/CarApp:done=problem/car/impl/Wheel.<init>
-problem/car/app/CarApp:done=problem/car/impl/Car.<init>
+problem/car/app/CarApp:void=problem/car/impl/Body.<init>
+problem/car/app/CarApp:void=problem/car/impl/Engine.<init>
+problem/car/app/CarApp:void=problem/car/impl/Wheel.<init>
+problem/car/app/CarApp:void=problem/car/impl/Wheel.<init>
+problem/car/app/CarApp:void=problem/car/impl/Wheel.<init>
+problem/car/app/CarApp:void=problem/car/impl/Wheel.<init>
+problem/car/app/CarApp:void=problem/car/impl/Car.<init>

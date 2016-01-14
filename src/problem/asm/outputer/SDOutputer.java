@@ -2,8 +2,11 @@ package problem.asm.outputer;
 
 import java.io.PrintWriter;
 
+import org.objectweb.asm.Type;
+
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.MetaDataLibrary;
+import problem.asm.storage.MethodBook;
 import problem.asm.storage.MethodCallParagraph;
 
 public class SDOutputer implements IOutputData{
@@ -45,13 +48,26 @@ public class SDOutputer implements IOutputData{
 				for (MethodCallParagraph mcp : cv.getMethodCall()) {
 					if (mcp.getMethodName().equals(methodHost)) {
 						if (mdl.contains(mcp.getOwner())) {
-							writer.println(cv.getName() + ":done=" + mcp.getOwner() + "." + mcp.getName());
+							writer.println(cv.getName() + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName());
 							recursiveSpitter(mcp.getOwner(), mcp.getName(), writer, mdl);
 						}
 					}
 				}
 			}
 		}
+	}
+
+	private String getReturnType(MetaDataLibrary mdl, String owner, String name) {
+		for (ClassVolume cv : mdl.getClassVolume()) {
+			if (cv.getName().equals(owner)) {
+				for (MethodBook mb : cv.getMethods()) {
+					if (mb.getName().equals(name)) {
+						return Type.getReturnType(mb.getDesc()).getClassName();
+					}
+				}
+			}
+		}
+		return null;
 	}
 
 }
