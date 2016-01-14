@@ -7,13 +7,15 @@ public class MethodCallParagraph {
 	private String name;
 	private String desc;
 	private boolean itf;
+	private String methodName;
 	
-	public MethodCallParagraph(int opcode, String owner, String name, String desc, boolean itf) {
+	public MethodCallParagraph(int opcode, String owner, String name, String desc, boolean itf, String methodName) {
 		this.opcode = opcode;
 		this.owner = owner;
 		this.name = name;
 		this.desc = desc;
 		this.itf = itf;
+		this.methodName = methodName;
 	}
 
 	public int getOpcode() {
@@ -34,6 +36,10 @@ public class MethodCallParagraph {
 
 	public boolean isItf() {
 		return itf;
+	}
+	
+	public String getMethodName() {
+		return methodName;
 	}
 	
 	
