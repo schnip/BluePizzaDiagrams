@@ -6,6 +6,7 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
+import problem.asm.outputer.ConsoleOutputer;
 import problem.asm.outputer.DiagramOutputer;
 import problem.asm.outputer.IOutputData;
 import problem.asm.storage.StaticLibraryHolder;
@@ -34,7 +35,9 @@ public class DesignParser {
 			// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
 		}
+		
 		IOutputData iod = new DiagramOutputer("dot/out.dot");
+//		IOutputData iod = new ConsoleOutputer();
 		iod.outputData(StaticLibraryHolder.getLibrary());
 	}
 }

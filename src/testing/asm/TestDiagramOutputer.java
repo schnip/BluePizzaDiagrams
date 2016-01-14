@@ -64,5 +64,33 @@ public class TestDiagramOutputer {
 			fail();
 		}
 	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testFactory1() throws IOException {
+		String [] args = {"problem.factory.pizzaaf.PizzaTestDrive", "problem.factory.pizzaaf.ChicagoPizzaStore"};
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		System.out.println(content);
+		if (content.contains("edge [ arrowhead = \"vee\", style = \"dashed\" ]\nproblemfactorypizzaafPizzaTestDrive -> problemfactorypizzaafChicagoPizzaStore")) {
+			// We're all good
+		} else {
+			fail();
+		}
+	}
+
+	@SuppressWarnings("resource")
+	@Test
+	public void testFactory2() throws IOException {
+		String [] args = {"problem.factory.pizzaaf.ChicagoPizzaStore", "problem.factory.pizzaaf.CheesePizza"};
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		System.out.println(content);
+		if (content.contains("edge [ arrowhead = \"vee\", style = \"dashed\" ]\nproblemfactorypizzaafChicagoPizzaStore -> problemfactorypizzaafCheesePizza")) {
+			// We're all good
+		} else {
+			fail();
+		}
+	}
 
 }

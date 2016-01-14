@@ -10,80 +10,15 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemasmFirstASM [
-label = "{problem.asm.FirstASM||+\<init\> : void\l+main : void\l}"
+problemfactorypizzaafChicagoPizzaStore [
+label = "{problem.factory.pizzaaf.ChicagoPizzaStore||+\<init\> : void\lcreatePizza : problem.factory.pizzaaf.Pizza\l}"
 ]
-problemasmoutputerConsoleOutputer [
-label = "{problem.asm.outputer.ConsoleOutputer||+\<init\> : void\l+outputData : void\l}"
-]
-problemasmoutputerDiagramOutputer [
-label = "{problem.asm.outputer.DiagramOutputer|filePath : java.lang.String\lsubclasses : java.lang.String\linterfaces : java.lang.String\luses : java.lang.String\lassociates : java.lang.String\l|+\<init\> : void\l+outputData : void\lspecialSnowflake : java.lang.String\lparseStringForT : java.lang.String\l}"
-]
-problemasmoutputerIOutputData [
-label = "{problem.asm.outputer.IOutputData||+outputData : void\l}"
-]
-problemasmstorageClassVolume [
-label = "{problem.asm.storage.ClassVolume|methods : problem.asm.storage.MethodBook\lfields : problem.asm.storage.FieldPage\luses : problem.asm.storage.UseSentence\lversion : int\laccess : int\lname : java.lang.String\lsignature : java.lang.String\lsuperName : java.lang.String\linterfaces : java.lang.String[]\l|+\<init\> : void\l+addMethod : void\l+addField : void\l+getVersion : int\l+setVersion : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getSignature : java.lang.String\l+setSignature : void\l+getSuperName : java.lang.String\l+setSuperName : void\l+getInterfaces : java.lang.String[]\l+setInterfaces : void\l+getMethods : problem.asm.storage.MethodBook\l+getFields : problem.asm.storage.FieldPage\l+addUse : void\l+getUses : problem.asm.storage.UseSentence\l}"
-]
-problemasmstorageFieldPage [
-label = "{problem.asm.storage.FieldPage|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lvalue : java.lang.Object\l|+\<init\> : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getValue : java.lang.Object\l+setValue : void\l}"
-]
-problemasmstorageMetaDataLibrary [
-label = "{problem.asm.storage.MetaDataLibrary|classvolume : problem.asm.storage.ClassVolume\l|+\<init\> : void\l+addClass : void\l+getClassVolume : problem.asm.storage.ClassVolume\l+addMethod : void\l+addField : void\l+contains : boolean\l+addUse : void\l}"
-]
-problemasmstorageMethodBook [
-label = "{problem.asm.storage.MethodBook|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lexceptions : java.lang.String[]\largTypes : java.lang.String\l|+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getExceptions : java.lang.String[]\l+setExceptions : void\l+\<init\> : java.lang.String)V\l+getArgTypes : java.lang.String\l+setArgTypes : java.lang.String)V\l}"
-]
-problemasmstorageStaticLibraryHolder [
-label = "{problem.asm.storage.StaticLibraryHolder|mdl : problem.asm.storage.MetaDataLibrary\lclassname : java.lang.String\l|+\<init\> : void\l+initializeLibrary : void\l+addClass : void\l+addMethod : void\l+addField : void\l+addUse : void\l+getLibrary : problem.asm.storage.MetaDataLibrary\l+setClassname : void\l}"
-]
-problemasmvisitorClassDeclarationVisitor [
-label = "{problem.asm.visitor.ClassDeclarationVisitor||+\<init\> : void\l+\<init\> : void\l+visit : void\l}"
-]
-problemasmvisitorClassFieldVisitor [
-label = "{problem.asm.visitor.ClassFieldVisitor||+\<init\> : void\l+\<init\> : void\l+visitField : org.objectweb.asm.FieldVisitor\l}"
-]
-problemasmvisitorClassMethodVisitor [
-label = "{problem.asm.visitor.ClassMethodVisitor||+\<init\> : void\l+\<init\> : void\l+visitMethod : org.objectweb.asm.MethodVisitor\l}"
-]
-problemasmvisitorMethodInternalsVisitor [
-label = "{problem.asm.visitor.MethodInternalsVisitor||+\<init\> : void\l+\<init\> : void\l+visitMethodInsn : void\l+visitTypeInsn : void\l}"
+problemfactorypizzaafCheesePizza [
+label = "{problem.factory.pizzaaf.CheesePizza|ingredientFactory : problem.factory.pizzaaf.PizzaIngredientFactory\l|+\<init\> : void\lprepare : void\l}"
 ]
 edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
-problemasmoutputerDiagramOutputer -> problemasmoutputerIOutputData
-problemasmoutputerConsoleOutputer -> problemasmoutputerIOutputData
 edge [ arrowhead = "vee", style = "dashed" ]
-problemasmoutputerDiagramOutputer -> problemasmstorageMethodBook
-problemasmstorageMetaDataLibrary -> problemasmstorageFieldPage
-problemasmoutputerConsoleOutputer -> problemasmstorageMethodBook
-problemasmstorageMetaDataLibrary -> problemasmstorageMethodBook
-problemasmvisitorMethodInternalsVisitor -> problemasmstorageStaticLibraryHolder
-problemasmvisitorClassDeclarationVisitor -> problemasmstorageStaticLibraryHolder
-problemasmvisitorClassFieldVisitor -> problemasmstorageStaticLibraryHolder
-problemasmstorageStaticLibraryHolder -> problemasmstorageMetaDataLibrary
-problemasmvisitorClassMethodVisitor -> problemasmvisitorMethodInternalsVisitor
-problemasmoutputerDiagramOutputer -> problemasmstorageMetaDataLibrary
-problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume
-problemasmstorageStaticLibraryHolder -> problemasmstorageFieldPage
-problemasmoutputerConsoleOutputer -> problemasmstorageMetaDataLibrary
-problemasmstorageStaticLibraryHolder -> problemasmstorageClassVolume
-problemasmoutputerDiagramOutputer -> problemasmstorageFieldPage
-problemasmvisitorClassDeclarationVisitor -> problemasmstorageClassVolume
-problemasmoutputerDiagramOutputer -> problemasmstorageClassVolume
-problemasmoutputerConsoleOutputer -> problemasmstorageFieldPage
-problemasmoutputerConsoleOutputer -> problemasmstorageClassVolume
-problemasmvisitorClassFieldVisitor -> problemasmstorageFieldPage
-problemasmvisitorClassMethodVisitor -> problemasmstorageMethodBook
-problemasmoutputerIOutputData -> problemasmstorageMetaDataLibrary
-problemasmstorageStaticLibraryHolder -> problemasmstorageMethodBook
-problemasmoutputerDiagramOutputer -> problemasmoutputerDiagramOutputer
-problemasmvisitorClassMethodVisitor -> problemasmstorageStaticLibraryHolder
-problemasmstorageClassVolume -> problemasmstorageFieldPage
-problemasmstorageClassVolume -> problemasmstorageMethodBook
+problemfactorypizzaafChicagoPizzaStore -> problemfactorypizzaafCheesePizza
 edge [ arrowhead = "vee", style = "none" ]
-problemasmstorageStaticLibraryHolder -> problemasmstorageMetaDataLibrary
-problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume
-problemasmstorageClassVolume -> problemasmstorageFieldPage
-problemasmstorageClassVolume -> problemasmstorageMethodBook
 }
