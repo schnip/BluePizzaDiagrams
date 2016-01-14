@@ -23,45 +23,49 @@ problemasmoutputerIOutputData [
 label = "{problem.asm.outputer.IOutputData||+outputData : void\l}"
 ]
 problemasmstorageClassVolume [
-label = "{problem.asm.storage.ClassVolume|methods : problem.asm.storage.MethodBook\lfields : problem.asm.storage.FieldPage\lversion : int\laccess : int\lname : java.lang.String\lsignature : java.lang.String\lsuperName : java.lang.String\linterfaces : java.lang.String[]\l|+\<init\> : void\l+addMethod : void\l+addField : void\l+getVersion : int\l+setVersion : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getSignature : java.lang.String\l+setSignature : void\l+getSuperName : java.lang.String\l+setSuperName : void\l+getInterfaces : java.lang.String[]\l+setInterfaces : void\l+getMethods : problem.asm.storage.MethodBook\l+getFields : problem.asm.storage.FieldPage\l}"
+label = "{problem.asm.storage.ClassVolume|methods : problem.asm.storage.MethodBook\lfields : problem.asm.storage.FieldPage\luses : problem.asm.storage.UseSentence\lversion : int\laccess : int\lname : java.lang.String\lsignature : java.lang.String\lsuperName : java.lang.String\linterfaces : java.lang.String[]\l|+\<init\> : void\l+addMethod : void\l+addField : void\l+getVersion : int\l+setVersion : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getSignature : java.lang.String\l+setSignature : void\l+getSuperName : java.lang.String\l+setSuperName : void\l+getInterfaces : java.lang.String[]\l+setInterfaces : void\l+getMethods : problem.asm.storage.MethodBook\l+getFields : problem.asm.storage.FieldPage\l+addUse : void\l+getUses : problem.asm.storage.UseSentence\l}"
 ]
 problemasmstorageFieldPage [
 label = "{problem.asm.storage.FieldPage|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lvalue : java.lang.Object\l|+\<init\> : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getValue : java.lang.Object\l+setValue : void\l}"
 ]
 problemasmstorageMetaDataLibrary [
-label = "{problem.asm.storage.MetaDataLibrary|classvolume : problem.asm.storage.ClassVolume\l|+\<init\> : void\l+addClass : void\l+getClassVolume : problem.asm.storage.ClassVolume\l+addMethod : void\l+addField : void\l+contains : boolean\l}"
+label = "{problem.asm.storage.MetaDataLibrary|classvolume : problem.asm.storage.ClassVolume\l|+\<init\> : void\l+addClass : void\l+getClassVolume : problem.asm.storage.ClassVolume\l+addMethod : void\l+addField : void\l+contains : boolean\l+addUse : void\l}"
 ]
 problemasmstorageMethodBook [
 label = "{problem.asm.storage.MethodBook|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lexceptions : java.lang.String[]\largTypes : java.lang.String\l|+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getExceptions : java.lang.String[]\l+setExceptions : void\l+\<init\> : java.lang.String)V\l+getArgTypes : java.lang.String\l+setArgTypes : java.lang.String)V\l}"
 ]
 problemasmstorageStaticLibraryHolder [
-label = "{problem.asm.storage.StaticLibraryHolder|mdl : problem.asm.storage.MetaDataLibrary\lclassname : java.lang.String\l|+\<init\> : void\l+initializeLibrary : void\l+addClass : void\l+addMethod : void\l+addField : void\l+getLibrary : problem.asm.storage.MetaDataLibrary\l+setClassname : void\l}"
+label = "{problem.asm.storage.StaticLibraryHolder|mdl : problem.asm.storage.MetaDataLibrary\lclassname : java.lang.String\l|+\<init\> : void\l+initializeLibrary : void\l+addClass : void\l+addMethod : void\l+addField : void\l+addUse : void\l+getLibrary : problem.asm.storage.MetaDataLibrary\l+setClassname : void\l}"
 ]
 problemasmvisitorClassDeclarationVisitor [
 label = "{problem.asm.visitor.ClassDeclarationVisitor||+\<init\> : void\l+\<init\> : void\l+visit : void\l}"
-]
-problemasmvisitorClassFieldVisitor [
-label = "{problem.asm.visitor.ClassFieldVisitor||+\<init\> : void\l+\<init\> : void\l+visitField : org.objectweb.asm.FieldVisitor\l}"
-]
-problemasmvisitorClassMethodVisitor [
-label = "{problem.asm.visitor.ClassMethodVisitor||+\<init\> : void\l+\<init\> : void\l+visitMethod : org.objectweb.asm.MethodVisitor\l}"
 ]
 edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
 problemasmoutputerDiagramOutputer -> problemasmoutputerIOutputData
 problemasmoutputerConsoleOutputer -> problemasmoutputerIOutputData
 edge [ arrowhead = "vee", style = "dashed" ]
-problemasmstorageMetaDataLibrary -> problemasmstorageFieldPage
-problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume
-problemasmstorageMetaDataLibrary -> problemasmstorageMethodBook
-problemasmoutputerIOutputData -> problemasmstorageMetaDataLibrary
-problemasmstorageClassVolume -> problemasmstorageFieldPage
 problemasmstorageStaticLibraryHolder -> problemasmstorageFieldPage
-problemasmoutputerDiagramOutputer -> problemasmstorageMetaDataLibrary
+problemasmstorageMetaDataLibrary -> problemasmstorageFieldPage
+problemasmoutputerDiagramOutputer -> problemasmstorageMethodBook
 problemasmoutputerConsoleOutputer -> problemasmstorageMetaDataLibrary
-problemasmstorageClassVolume -> problemasmstorageMethodBook
+problemasmstorageMetaDataLibrary -> problemasmstorageMethodBook
+problemasmoutputerConsoleOutputer -> problemasmstorageMethodBook
 problemasmstorageStaticLibraryHolder -> problemasmstorageClassVolume
+problemasmoutputerDiagramOutputer -> problemasmstorageFieldPage
+problemasmvisitorClassDeclarationVisitor -> problemasmstorageStaticLibraryHolder
+problemasmvisitorClassDeclarationVisitor -> problemasmstorageClassVolume
+problemasmoutputerDiagramOutputer -> problemasmstorageClassVolume
+problemasmoutputerConsoleOutputer -> problemasmstorageFieldPage
+problemasmoutputerConsoleOutputer -> problemasmstorageClassVolume
+problemasmoutputerIOutputData -> problemasmstorageMetaDataLibrary
+problemasmstorageStaticLibraryHolder -> problemasmstorageMetaDataLibrary
 problemasmstorageStaticLibraryHolder -> problemasmstorageMethodBook
+problemasmoutputerDiagramOutputer -> problemasmoutputerDiagramOutputer
+problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume
+problemasmoutputerDiagramOutputer -> problemasmstorageMetaDataLibrary
+problemasmstorageClassVolume -> problemasmstorageMethodBook
+problemasmstorageClassVolume -> problemasmstorageFieldPage
 edge [ arrowhead = "vee", style = "none" ]
 problemasmstorageStaticLibraryHolder -> problemasmstorageMetaDataLibrary
 problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume

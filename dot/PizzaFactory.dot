@@ -1,0 +1,24 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+problemfactorypizzaafChicagoPizzaStore [
+label = "{problem.factory.pizzaaf.ChicagoPizzaStore||+\<init\> : void\lcreatePizza : problem.factory.pizzaaf.Pizza\l}"
+]
+problemfactorypizzaafCheesePizza [
+label = "{problem.factory.pizzaaf.CheesePizza|ingredientFactory : problem.factory.pizzaaf.PizzaIngredientFactory\l|+\<init\> : void\lprepare : void\l}"
+]
+edge [ arrowhead = "empty", style = "none" ]
+edge [ arrowhead = "empty", style = "dashed" ]
+edge [ arrowhead = "vee", style = "dashed" ]
+problemfactorypizzaafChicagoPizzaStore -> problemfactorypizzaafCheesePizza
+edge [ arrowhead = "vee", style = "none" ]
+}
