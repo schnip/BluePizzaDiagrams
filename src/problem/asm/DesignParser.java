@@ -9,6 +9,7 @@ import org.objectweb.asm.Opcodes;
 import problem.asm.outputer.ConsoleOutputer;
 import problem.asm.outputer.DiagramOutputer;
 import problem.asm.outputer.IOutputData;
+import problem.asm.outputer.SDOutputer;
 import problem.asm.storage.StaticLibraryHolder;
 import problem.asm.visitor.ClassDeclarationVisitor;
 import problem.asm.visitor.ClassFieldVisitor;
@@ -36,8 +37,9 @@ public class DesignParser {
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
 		}
 		
-		IOutputData iod = new DiagramOutputer("dot/out.dot");
+//		IOutputData iod = new DiagramOutputer("dot/out.dot");
 //		IOutputData iod = new ConsoleOutputer();
+		IOutputData iod = new SDOutputer("sd/out.sd");
 		iod.outputData(StaticLibraryHolder.getLibrary());
 	}
 }
