@@ -6,8 +6,6 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
-import problem.asm.outputer.ConsoleOutputer;
-import problem.asm.outputer.DiagramOutputer;
 import problem.asm.outputer.IOutputData;
 import problem.asm.outputer.SDOutputer;
 import problem.asm.storage.StaticLibraryHolder;

@@ -110,6 +110,12 @@ public class DiagramOutputer implements IOutputData {
 				writer.println("]");
 			}
 			
+			for (String s : this.uses) {
+				if (this.associates.contains(s)) {
+					this.uses.remove(s);
+				}
+			}
+			
 			// Draw subclass arrows
 			writer.println("edge [ arrowhead = \"empty\", style = \"none\" ]");
 			for (String s : this.subclasses) {
