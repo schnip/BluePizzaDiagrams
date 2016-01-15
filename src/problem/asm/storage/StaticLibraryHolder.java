@@ -37,5 +37,13 @@ public class StaticLibraryHolder {
 		mdl.addMethodCall(methodCallParagraph, classname);
 		
 	}
+	
+	public static void parseClass(String className) {
+		mdl.parseClass(className);
+	}
+	
+	public static void setLibrary(MetaDataLibrary mdl) {
+		StaticLibraryHolder.mdl = mdl;
+	}
 
 }
