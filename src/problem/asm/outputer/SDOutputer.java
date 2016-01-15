@@ -1,7 +1,10 @@
 package problem.asm.outputer;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.objectweb.asm.Type;
 
@@ -18,7 +21,16 @@ public class SDOutputer implements IOutputData{
 	private List<String> startArgs;
 	private int depth;
 	
+	private Set<String> classes;
+	private List<String> calls;
+	
+	private SDOutputer() {
+		classes = new HashSet<String>();
+		calls = new ArrayList<String>();
+	}
+	
 	public SDOutputer(String filePath, String methodSig, String className, List<String> args) {
+		this();
 		this.filePath = filePath;
 		this.startMethod = methodSig;
 		this.depth = 5;
@@ -27,6 +39,7 @@ public class SDOutputer implements IOutputData{
 	}
 	
 	public SDOutputer(String filePath, String methodSig, String className, List<String> args, int depth) {
+		this();
 		this.filePath = filePath;
 		this.startMethod = methodSig;
 		this.depth = depth;
@@ -36,43 +49,28 @@ public class SDOutputer implements IOutputData{
 
 	@Override
 	public void outputData(MetaDataLibrary m) {
-		try {
-			// Setup the header
-			PrintWriter writer = new PrintWriter(this.filePath, "UTF-8");
-			for (ClassVolume cv : m.getClassVolume()) {
-				writer.println(cv.getName() + ":" + cv.getName());
-			}
-			writer.println("");
-			outerLoop:
-			for (ClassVolume cv : m.getClassVolume()) {
-				for (MethodCallParagraph mcp: cv.getMethodCall()) {
-					//System.out.println(mcp.getMethodName() + " " + mcp.getName() + " " + cv.getName());
-					if (mcp.getMethodName().equals("main")) {
-						recursiveSpitter(cv.getName(), "main", writer, m);
-						break outerLoop;
-					}
-				}
-			}
-			writer.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		this.classes.add(startClass + ":" + startClass);
 	}
 	
-	private void recursiveSpitter(String className, String methodHost, PrintWriter writer, MetaDataLibrary mdl) {
-		for (ClassVolume cv : mdl.getClassVolume()) {
-			if (cv.getName().equals(className)) {
-				for (MethodCallParagraph mcp : cv.getMethodCall()) {
-					if (mcp.getMethodName().equals(methodHost)) {
-						if (mdl.contains(mcp.getOwner())) {
-							writer.println(cv.getName() + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName());
-							recursiveSpitter(mcp.getOwner(), mcp.getName(), writer, mdl);
-						}
-					}
-				}
-			}
-		}
+	private void recursiveSpitter(String hostClass, String hostMethod, MetaDataLibrary mdl, int toGo) {
+		
 	}
+	
+//	private void recursiveSpitter(String className, String methodHost, MetaDataLibrary mdl, int toGo) {
+//		for (ClassVolume cv : mdl.getClassVolume()) {
+//			if (cv.getName().equals(className)) {
+//				for (MethodCallParagraph mcp : cv.getMethodCall()) {
+//					if (mcp.getMethodName().equals(methodHost)) {
+//						if (mdl.contains(mcp.getOwner())) {
+//							writer.println(cv.getName() + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName());
+//							if (toGo > 0)
+//								recursiveSpitter(mcp.getOwner(), mcp.getName(), mdl, toGo - 1);
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 
 	private String getReturnType(MetaDataLibrary mdl, String owner, String name) {
 		for (ClassVolume cv : mdl.getClassVolume()) {
@@ -85,6 +83,37 @@ public class SDOutputer implements IOutputData{
 			}
 		}
 		return null;
+	}
+	
+	private void write() {
+		try {
+			// Setup the header
+			PrintWriter writer = new PrintWriter(this.filePath, "UTF-8");
+			for (String s : this.classes) {
+				writer.println(s);
+			}
+			writer.println();
+			for (String s : this.calls) {
+				writer.println(s);
+			}
+//			for (ClassVolume cv : m.getClassVolume()) {
+//				writer.println(cv.getName() + ":" + cv.getName());
+//			}
+//			writer.println("");
+//			outerLoop:
+//			for (ClassVolume cv : m.getClassVolume()) {
+//				for (MethodCallParagraph mcp: cv.getMethodCall()) {
+//					//System.out.println(mcp.getMethodName() + " " + mcp.getName() + " " + cv.getName());
+//					if (mcp.getMethodName().equals("main")) {
+//						recursiveSpitter(cv.getName(), "main", writer, m);
+//						break outerLoop;
+//					}
+//				}
+//			}
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
