@@ -102,7 +102,7 @@ public class MetaDataLibrary {
 		for (ClassVolume cv : this.classvolume) {
 //			System.out.println(cv.getName());
 //			System.out.println(className);
-			if (cv.getName().replace('/', '.').equals(className)) {
+			if (cv.getName().equals(className.replace('.', '/'))) {
 //				System.out.println("mememe");
 				return cv;
 			}

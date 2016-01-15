@@ -1,2 +1,9 @@
+org/objectweb/asm/ClassReader:org/objectweb/asm/ClassReader
+org/objectweb/asm/util/TraceClassVisitor:org/objectweb/asm/util/TraceClassVisitor
+java/io/PrintWriter:java/io/PrintWriter
 problem.asm.FirstASM:problem.asm.FirstASM
 
+problem.asm.FirstASM:void=org/objectweb/asm/ClassReader.<init>
+problem.asm.FirstASM:void=java/io/PrintWriter.<init>
+problem.asm.FirstASM:void=org/objectweb/asm/util/TraceClassVisitor.<init>
+problem.asm.FirstASM:void=org/objectweb/asm/ClassReader.accept

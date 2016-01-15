@@ -59,7 +59,8 @@ public class SDOutputer implements IOutputData{
 	private void recursiveSpitter(String hostClass, String hostMethod, List<String> hostArgs, MetaDataLibrary mdl, int toGo) {
 //		System.out.println("time to spit");
 		for (MethodCallParagraph mcp: mdl.getClassByString(hostClass).getMethodCall()) {
-			if ((mcp.getMethodName().equals(hostMethod)) && (mcp.getMethodArgs().equals(hostArgs))) {
+//			if ((mcp.getMethodName().equals(hostMethod)) && (mcp.getMethodArgs().equals(hostArgs))) {
+			if (mcp.getMethodName().equals(hostMethod)) {
 				// We here know that we are at a method call that we are actually to consider
 				if (!mdl.contains(mcp.getOwner())) {
 					mdl.parseClass(mcp.getOwner());
