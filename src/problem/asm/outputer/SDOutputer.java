@@ -51,11 +51,13 @@ public class SDOutputer implements IOutputData{
 	public void outputData(MetaDataLibrary m) {
 		this.classes.add(startClass + ":" + startClass);
 		m.parseClass(startClass);
+//		System.out.println(m.getClassVolume().toString());
 		recursiveSpitter(startClass, startMethod, startArgs, m, depth);
 		write();
 	}
 	
 	private void recursiveSpitter(String hostClass, String hostMethod, List<String> hostArgs, MetaDataLibrary mdl, int toGo) {
+//		System.out.println("time to spit");
 		for (MethodCallParagraph mcp: mdl.getClassByString(hostClass).getMethodCall()) {
 			if ((mcp.getMethodName().equals(hostMethod)) && (mcp.getMethodArgs().equals(hostArgs))) {
 				// We here know that we are at a method call that we are actually to consider

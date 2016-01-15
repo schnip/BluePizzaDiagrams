@@ -1,21 +1,2 @@
-problem/asm/DesignParser:problem/asm/DesignParser
-problem/asm/FirstASM:problem/asm/FirstASM
-problem/asm/outputer/ConsoleOutputer:problem/asm/outputer/ConsoleOutputer
-problem/asm/outputer/DiagramOutputer:problem/asm/outputer/DiagramOutputer
-problem/asm/outputer/IOutputData:problem/asm/outputer/IOutputData
-problem/asm/storage/ClassVolume:problem/asm/storage/ClassVolume
-problem/asm/storage/FieldPage:problem/asm/storage/FieldPage
-problem/asm/storage/MetaDataLibrary:problem/asm/storage/MetaDataLibrary
-problem/asm/storage/MethodBook:problem/asm/storage/MethodBook
-problem/asm/storage/StaticLibraryHolder:problem/asm/storage/StaticLibraryHolder
-problem/asm/visitor/ClassDeclarationVisitor:problem/asm/visitor/ClassDeclarationVisitor
-problem/asm/visitor/MethodInternalsVisitor:problem/asm/visitor/MethodInternalsVisitor
+problem.asm.FirstASM:problem.asm.FirstASM
 
-problem/asm/DesignParser:void=problem/asm/storage/StaticLibraryHolder.initializeLibrary
-problem/asm/storage/StaticLibraryHolder:void=problem/asm/storage/MetaDataLibrary.<init>
-problem/asm/DesignParser:void=problem/asm/storage/StaticLibraryHolder.setClassname
-problem/asm/DesignParser:void=problem/asm/visitor/ClassDeclarationVisitor.<init>
-problem/asm/DesignParser:void=problem/asm/outputer/ConsoleOutputer.<init>
-problem/asm/DesignParser:void=problem/asm/outputer/DiagramOutputer.<init>
-problem/asm/DesignParser:problem.asm.storage.MetaDataLibrary=problem/asm/storage/StaticLibraryHolder.getLibrary
-problem/asm/DesignParser:void=problem/asm/outputer/IOutputData.outputData

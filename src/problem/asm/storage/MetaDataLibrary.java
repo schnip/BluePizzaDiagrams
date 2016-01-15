@@ -93,12 +93,17 @@ public class MetaDataLibrary {
 		// TODO: add more DECORATORS here in later milestones to accomplish specific tasks
 		// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 		reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
+		System.out.println("i get to run");
 	}
 
 	public ClassVolume getClassByString(String className) {
+		System.out.println("do sdalfkj;a");
 		// TODO Auto-generated method stub
 		for (ClassVolume cv : this.classvolume) {
-			if (cv.getName().equals(className)) {
+			System.out.println(cv.getName());
+			System.out.println(className);
+			if (cv.getName().replace('/', '.').equals(className)) {
+				System.out.println("mememe");
 				return cv;
 			}
 		}
