@@ -28,8 +28,36 @@ public class DesignParser {
 		}
 		
 		if (options.contains("-s")) {
-			iod = new SDOutputer("sd/out.sd");
+			List<String> startArgs = new ArrayList<String>();
+			for (String s : options) {
+				if (s.substring(0, 2).equals("-a")) {
+					startArgs.add(s.substring(2));
+				}
+			}
+			if (findStart(options, "--depth=") >= 0) {
+				iod = new SDOutputer("sd/out.sd", getArg(options, "--method="), getArg(options, "--class="), startArgs, Integer.parseInt(getArg(options, "--depth=")));
+			} else {
+				iod = new SDOutputer("sd/out.sd", getArg(options, "--method="), getArg(options, "--class="), startArgs);
+			}
 		}
+		
 		iod.outputData(StaticLibraryHolder.getLibrary());
+	}
+	
+	public static int findStart(List<String> ls, String start) {
+		for (int i = 0; i < ls.size(); i++) {
+			if (ls.get(i).substring(0, start.length()).equals(start)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public static String chopStart(String s, String start) {
+		return s.substring(start.length());
+	}
+	
+	public static String getArg(List<String> ls, String start) {
+		return chopStart(ls.get(findStart(ls, start)), start);
 	}
 }

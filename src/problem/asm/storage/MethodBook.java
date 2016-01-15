@@ -58,6 +58,7 @@ public class MethodBook {
 		this.signature = signature;
 		this.exceptions = exceptions;
 		this.argTypes = argTypes;
+		System.out.println(desc);
 	}
 
 	public List<String> getArgTypes() {

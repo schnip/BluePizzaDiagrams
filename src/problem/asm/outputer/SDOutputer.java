@@ -1,6 +1,7 @@
 package problem.asm.outputer;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import org.objectweb.asm.Type;
 
@@ -12,9 +13,25 @@ import problem.asm.storage.MethodCallParagraph;
 public class SDOutputer implements IOutputData{
 	
 	private String filePath;
+	private String startMethod;
+	private String startClass; 
+	private List<String> startArgs;
+	private int depth;
 	
-	public SDOutputer(String s) {
-		filePath = s;
+	public SDOutputer(String filePath, String methodSig, String className, List<String> args) {
+		this.filePath = filePath;
+		this.startMethod = methodSig;
+		this.depth = 5;
+		this.startClass = className;
+		this.startArgs = args;
+	}
+	
+	public SDOutputer(String filePath, String methodSig, String className, List<String> args, int depth) {
+		this.filePath = filePath;
+		this.startMethod = methodSig;
+		this.depth = depth;
+		this.startClass = className;
+		this.startArgs = args;
 	}
 
 	@Override
