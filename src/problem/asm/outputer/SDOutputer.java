@@ -52,7 +52,7 @@ public class SDOutputer implements IOutputData{
 		this.classes.add(startClass + ":" + startClass);
 		m.parseClass(startClass);
 //		System.out.println(m.getClassVolume().toString());
-		recursiveSpitter(startClass, startMethod, startArgs, m, depth);
+		recursiveSpitter(startClass, startMethod, startArgs, m, depth-1);
 		write();
 	}
 	
