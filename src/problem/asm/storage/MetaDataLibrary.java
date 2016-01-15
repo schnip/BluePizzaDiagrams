@@ -97,7 +97,7 @@ public class MetaDataLibrary {
 	}
 
 	public ClassVolume getClassByString(String className) {
-		System.out.println("do sdalfkj;a");
+//		System.out.println("do sdalfkj;a");
 		// TODO Auto-generated method stub
 		for (ClassVolume cv : this.classvolume) {
 //			System.out.println(cv.getName());
