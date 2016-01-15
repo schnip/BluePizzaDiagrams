@@ -50,6 +50,7 @@ public class SDOutputer implements IOutputData{
 	@Override
 	public void outputData(MetaDataLibrary m) {
 		this.classes.add(startClass + ":" + startClass);
+		m.parseClass(startClass);
 		recursiveSpitter(startClass, startMethod, startArgs, m, depth);
 		write();
 	}
