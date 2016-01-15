@@ -50,10 +50,24 @@ public class SDOutputer implements IOutputData{
 	@Override
 	public void outputData(MetaDataLibrary m) {
 		this.classes.add(startClass + ":" + startClass);
+		recursiveSpitter(startClass, startMethod, startArgs, m, depth);
+		write();
 	}
 	
-	private void recursiveSpitter(String hostClass, String hostMethod, MetaDataLibrary mdl, int toGo) {
-		
+	private void recursiveSpitter(String hostClass, String hostMethod, List<String> hostArgs, MetaDataLibrary mdl, int toGo) {
+		for (MethodCallParagraph mcp: mdl.getClassByString(hostClass).getMethodCall()) {
+			if ((mcp.getMethodName().equals(hostMethod)) && (mcp.getMethodArgs().equals(hostArgs))) {
+				// We here know that we are at a method call that we are actually to consider
+				if (!mdl.contains(mcp.getOwner())) {
+					mdl.parseClass(mcp.getOwner());
+				}
+				this.classes.add(mcp.getOwner() + ":" + mcp.getOwner());
+				this.calls.add(hostClass + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName());
+				if (toGo > 0) {
+					recursiveSpitter(mcp.getOwner(), mcp.getMethodName(), mcp.getMethodArgs(), mdl, toGo - 1);
+				}
+			}
+		}
 	}
 	
 //	private void recursiveSpitter(String className, String methodHost, MetaDataLibrary mdl, int toGo) {

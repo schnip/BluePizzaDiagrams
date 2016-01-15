@@ -49,7 +49,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 		StaticLibraryHolder.addMethod(new MethodBook(access, name, desc, signature, exceptions, stypes));
 		stypes.toString();
 		
-		return new MethodInternalsVisitor(Opcodes.ASM5, toDecorate, name);
+		return new MethodInternalsVisitor(Opcodes.ASM5, toDecorate, name, stypes);
 	}
 
 }

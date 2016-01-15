@@ -1,5 +1,7 @@
 package problem.asm.visitor;
 
+import java.util.List;
+
 import org.objectweb.asm.MethodVisitor;
 
 import com.sun.xml.internal.ws.org.objectweb.asm.Opcodes;
@@ -11,6 +13,7 @@ import problem.asm.storage.UseSentence;
 public class MethodInternalsVisitor extends MethodVisitor {
 	
 	private String methodName;
+	private List<String> methodArgs;
 
 	public MethodInternalsVisitor(int arg0) {
 		super(arg0);
@@ -22,16 +25,17 @@ public class MethodInternalsVisitor extends MethodVisitor {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MethodInternalsVisitor(int asm5, MethodVisitor toDecorate, String name) {
+	public MethodInternalsVisitor(int asm5, MethodVisitor toDecorate, String name, List<String> args) {
 		super(asm5, toDecorate);
 		methodName = name;
+		methodArgs = args;
 	}
 
 	@Override
 	public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
 		//System.out.println(owner + " banana " + name + " " + methodName);
 		StaticLibraryHolder.addUse(new UseSentence(owner));
-		StaticLibraryHolder.addMethodCall(new MethodCallParagraph(opcode, owner, name, desc, itf, methodName));
+		StaticLibraryHolder.addMethodCall(new MethodCallParagraph(opcode, owner, name, desc, itf, methodName, methodArgs));
 	}
 	
 	@Override

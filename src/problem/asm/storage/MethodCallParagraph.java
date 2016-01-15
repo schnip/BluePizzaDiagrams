@@ -1,5 +1,7 @@
 package problem.asm.storage;
 
+import java.util.List;
+
 public class MethodCallParagraph {
 	
 	private int opcode;
@@ -8,14 +10,16 @@ public class MethodCallParagraph {
 	private String desc;
 	private boolean itf;
 	private String methodName;
+	private List<String> methodArgs;
 	
-	public MethodCallParagraph(int opcode, String owner, String name, String desc, boolean itf, String methodName) {
+	public MethodCallParagraph(int opcode, String owner, String name, String desc, boolean itf, String methodName, List<String> methodArgs) {
 		this.opcode = opcode;
 		this.owner = owner;
 		this.name = name;
 		this.desc = desc;
 		this.itf = itf;
 		this.methodName = methodName;
+		this.methodArgs = methodArgs;
 	}
 
 	public int getOpcode() {
@@ -42,6 +46,8 @@ public class MethodCallParagraph {
 		return methodName;
 	}
 	
-	
+	public List<String> getMethodArgs() {
+		return methodArgs;
+	}
 
 }

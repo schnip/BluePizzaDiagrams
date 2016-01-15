@@ -95,4 +95,14 @@ public class MetaDataLibrary {
 		reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
 	}
 
+	public ClassVolume getClassByString(String className) {
+		// TODO Auto-generated method stub
+		for (ClassVolume cv : this.classvolume) {
+			if (cv.getName().equals(className)) {
+				return cv;
+			}
+		}
+		return null;
+	}
+
 }
