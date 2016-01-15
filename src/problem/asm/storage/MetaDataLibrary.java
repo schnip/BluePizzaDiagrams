@@ -59,5 +59,9 @@ public class MetaDataLibrary {
 			}
 		}
 	}
+	
+	public void parseClass(String className) {
+		
+	}
 
 }
