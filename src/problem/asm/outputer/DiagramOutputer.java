@@ -59,7 +59,8 @@ public class DiagramOutputer implements IOutputData {
 				writer.println(v.getName().replaceAll("/", "") + " [");
 				writer.print("label = \"{" + v.getName().replace('/', '.'));
 				
-				// If this is a singleton, do the work
+				// If this is a singleton, say so
+				this.patternfinders.get("singleton").write(v.getName().replace('/', '.'), writer);
 				
 				// Add the separator
 				writer.print("|");
