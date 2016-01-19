@@ -1,12 +1,16 @@
 package problem.asm.outputer;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
+import problem.asm.patternfinder.IFindPatterns;
+import problem.asm.patternfinder.SingletonFinder;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -20,6 +24,7 @@ public class DiagramOutputer implements IOutputData {
 	private Set<String> interfaces = new HashSet<String>();
 	private Set<String> uses = new HashSet<String>();
 	private Set<String> associates = new HashSet<String>();
+	private Map<String, IFindPatterns> patternfinders = new HashMap<String, IFindPatterns>();
 
 	public DiagramOutputer(String s) {
 		filePath = s;
@@ -27,6 +32,11 @@ public class DiagramOutputer implements IOutputData {
 
 	@Override
 	public void outputData(MetaDataLibrary m) {
+		this.patternfinders.put("singleton", new SingletonFinder());
+		for (String s : this.patternfinders.keySet()) {
+			this.patternfinders.get(s).intake(m);
+		}
+		
 		try {
 			// Setup the header
 			PrintWriter writer = new PrintWriter(this.filePath, "UTF-8");
@@ -47,7 +57,12 @@ public class DiagramOutputer implements IOutputData {
 			for (ClassVolume v : m.getClassVolume()) {
 				// Start the class box
 				writer.println(v.getName().replaceAll("/", "") + " [");
-				writer.print("label = \"{" + v.getName().replace('/', '.') + "|");
+				writer.print("label = \"{" + v.getName().replace('/', '.'));
+				
+				// If this is a singleton, do the work
+				
+				// Add the separator
+				writer.print("|");
 				
 				// Save superclass data
 				if (m.contains(v.getSuperName())) {
