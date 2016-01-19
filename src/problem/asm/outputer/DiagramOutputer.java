@@ -110,8 +110,8 @@ public class DiagramOutputer implements IOutputData {
 				writer.println("]");
 			}
 			
-			for (String s : this.uses) {
-				if (this.associates.contains(s)) {
+			for (String s : this.associates) {
+				if (this.uses.contains(s)) {
 					this.uses.remove(s);
 				}
 			}
