@@ -81,6 +81,11 @@ public class DiagramOutputer implements IOutputData {
 				for (FieldPage fp : v.getFields()) {
 					String type = Type.getType(fp.getDesc()).getClassName();
 					if (fp.getSignature() != null) {
+						System.out.println("fp sig:     " + fp.getSignature());
+						System.out.println("fp name:    " + fp.getName());
+						System.out.println("fp access:  " + fp.getAccess());
+						System.out.println("fp desc:    " + fp.getDesc());
+						System.out.println("fp value    " + fp.getValue());
 						type = parseStringForT(fp.getSignature());
 					}
 					writer.print(fp.getName() + " : " + type + "\\l");
