@@ -65,30 +65,30 @@ public class SDOutputer implements IOutputData{
 				if (!mdl.contains(mcp.getOwner())) {
 					mdl.parseClass(mcp.getOwner());
 				}
+				// Add the class if it is not already present
 				this.classes.add(mcp.getOwner() + ":" + mcp.getOwner());
-				this.calls.add(hostClass + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName());
+				
+				// Add the call
+				String build = hostClass + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName() + "(";
+				if (mcp.getMethodArgs().size() > 0) {
+					build += mcp.getMethodArgs().get(0);
+				}
+				if (mcp.getMethodArgs().size() > 1) {
+					for (int i = 1; i < mcp.getMethodArgs().size(); i++) {
+						build += ", ";
+						build += mcp.getMethodArgs().get(i);
+					}
+				}
+				build += ")";
+				this.calls.add(build);
+				
+				// Determine if we want to recurse or not
 				if (toGo > 0) {
 					recursiveSpitter(mcp.getOwner(), mcp.getMethodName(), mcp.getMethodArgs(), mdl, toGo - 1);
 				}
 			}
 		}
 	}
-	
-//	private void recursiveSpitter(String className, String methodHost, MetaDataLibrary mdl, int toGo) {
-//		for (ClassVolume cv : mdl.getClassVolume()) {
-//			if (cv.getName().equals(className)) {
-//				for (MethodCallParagraph mcp : cv.getMethodCall()) {
-//					if (mcp.getMethodName().equals(methodHost)) {
-//						if (mdl.contains(mcp.getOwner())) {
-//							writer.println(cv.getName() + ":" + getReturnType(mdl, mcp.getOwner(), mcp.getName()) + "=" + mcp.getOwner() + "." + mcp.getName());
-//							if (toGo > 0)
-//								recursiveSpitter(mcp.getOwner(), mcp.getName(), mdl, toGo - 1);
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
 
 	private String getReturnType(MetaDataLibrary mdl, String owner, String name) {
 		for (ClassVolume cv : mdl.getClassVolume()) {
