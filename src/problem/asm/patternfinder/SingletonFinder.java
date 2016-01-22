@@ -19,19 +19,54 @@ public class SingletonFinder implements IFindPatterns {
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
-		
-		for (ClassVolume v : mdl.getClassVolume()) {
-			
-			for (FieldPage fp : v.getFields()) {
-				if (Opcodes.ACC_STATIC != 0) {
-					if (fp.getName().contains(fp.getDesc()));
-				}
-				
+		for (ClassVolume cv : mdl.getClassVolume()) {
+			boolean field = checkPrivateStaticSameClass(cv);
+			boolean privateConstructor = checkPCandgetter(cv);
+			if (field && privateConstructor) {
+				this.singletons.add(cv.getName());
 			}
-			
+		} 
 
+	}
+	
+	private boolean checkPrivateStaticSameClass(ClassVolume cv) {
+		for (FieldPage fp : cv.getFields()) {
+			if ((fp.getAccess() | Opcodes.ACC_PRIVATE) != 0) {
+				if ((fp.getAccess() | Opcodes.ACC_STATIC) != 0) {
+					if (Type.getType(fp.getDesc()).getClassName().equals(cv.getName())) {
+						System.out.println("true");
+						return true;
+					}
+				}
+			}
 		}
-
+		return false;
+	}
+	
+	private boolean checkPCandgetter(ClassVolume cv) {
+		boolean hasPrivateConstructor = false;
+		boolean hasGetInstance = false;
+		for (MethodBook mb : cv.getMethods()) {
+			if ((mb.getAccess() | Opcodes.ACC_PUBLIC) != 0) {
+				if (Type.getReturnType(mb.getDesc()).getClassName().equals(cv.getName())) {
+					hasGetInstance = true;
+					if (hasPrivateConstructor) {
+						 System.out.println("checkPCandgetter -- in public get instance bit");
+						return true;
+					}
+				}
+			}
+			else if ((mb.getAccess() | Opcodes.ACC_PRIVATE) != 0) {
+				 if (mb.getName().equals("<init>")) {
+					 hasPrivateConstructor = true;
+					 if (hasGetInstance) {
+						 System.out.println("checkPCandgetter -- in priv contructor part");
+						 return true;
+					 }
+				 }
+			 }
+		}
+		return false;
 	}
 
 	@Override
