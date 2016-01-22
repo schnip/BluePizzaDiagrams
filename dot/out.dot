@@ -10,75 +10,17 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemasmDesignParser [
-label = "{problem.asm.DesignParser||+\<init\> : void\l+main : void\l+findStart : java.lang.StringLjava.lang.String;)I\l+chopStart : java.lang.String\l+getArg : java.lang.StringLjava.lang.String;)Ljava.lang.String;\l}"
+problemchocolatesingletonChocolateBoilerSingleton [
+label = "{problem.chocolate.singleton.ChocolateBoilerSingleton
+\<\<Singleton\>\>\l|empty : boolean\lboiled : boolean\lcb : problem.chocolate.singleton.ChocolateBoilerSingleton\l|\<init\> : void\l+getInstance : problem.chocolate.singleton.ChocolateBoilerSingleton\l+fill : void\l+drain : void\l+boil : void\l+isEmpty : boolean\l+isBoiled : boolean\l}"
 ]
-problemasmFirstASM [
-label = "{problem.asm.FirstASM||+\<init\> : void\l+main : void\l}"
-]
-problemasmoutputerConsoleOutputer [
-label = "{problem.asm.outputer.ConsoleOutputer||+\<init\> : void\l+outputData : void\l}"
-]
-problemasmoutputerDiagramOutputer [
-label = "{problem.asm.outputer.DiagramOutputer|filePath : java.lang.String\lsubclasses : java.lang.String\linterfaces : java.lang.String\luses : java.lang.String\lassociates : java.lang.String\lpatternfinders : java.lang.String;Lproblem.asm.patternfinder.IFindPatterns\l|+\<init\> : void\l+outputData : void\lspecialSnowflake : java.lang.String\lparseStringForT : java.lang.String\l}"
-]
-problemasmoutputerIOutputData [
-label = "{problem.asm.outputer.IOutputData||+outputData : void\l}"
-]
-problemasmstorageClassVolume [
-label = "{problem.asm.storage.ClassVolume|methods : problem.asm.storage.MethodBook\lfields : problem.asm.storage.FieldPage\luses : problem.asm.storage.UseSentence\lmethodcalls : problem.asm.storage.MethodCallParagraph\lversion : int\laccess : int\lname : java.lang.String\lsignature : java.lang.String\lsuperName : java.lang.String\linterfaces : java.lang.String[]\l|+\<init\> : void\l+addMethod : void\l+addField : void\l+getVersion : int\l+setVersion : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getSignature : java.lang.String\l+setSignature : void\l+getSuperName : java.lang.String\l+setSuperName : void\l+getInterfaces : java.lang.String[]\l+setInterfaces : void\l+getMethods : problem.asm.storage.MethodBook\l+getFields : problem.asm.storage.FieldPage\l+addUse : void\l+getUses : problem.asm.storage.UseSentence\l+addMethodCall : void\l+getMethodCall : problem.asm.storage.MethodCallParagraph\l}"
-]
-problemasmstorageFieldPage [
-label = "{problem.asm.storage.FieldPage|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lvalue : java.lang.Object\l|+\<init\> : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getValue : java.lang.Object\l+setValue : void\l}"
-]
-problemasmstorageMetaDataLibrary [
-label = "{problem.asm.storage.MetaDataLibrary|classvolume : problem.asm.storage.ClassVolume\l|+\<init\> : void\l+addClass : void\l+getClassVolume : problem.asm.storage.ClassVolume\l+addMethod : void\l+addField : void\l+contains : boolean\l+addUse : void\l+addMethodCall : void\l+parseClass : void\l+getClassByString : problem.asm.storage.ClassVolume\l}"
-]
-problemasmstorageMethodBook [
-label = "{problem.asm.storage.MethodBook|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lexceptions : java.lang.String[]\largTypes : java.lang.String\l|+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getExceptions : java.lang.String[]\l+setExceptions : void\l+\<init\> : java.lang.String)V\l+getArgTypes : java.lang.String\l+setArgTypes : java.lang.String)V\l}"
-]
-problemasmstorageStaticLibraryHolder [
-label = "{problem.asm.storage.StaticLibraryHolder|mdl : problem.asm.storage.MetaDataLibrary\lclassname : java.lang.String\l|+\<init\> : void\l+initializeLibrary : void\l+addClass : void\l+addMethod : void\l+addField : void\l+addUse : void\l+getLibrary : problem.asm.storage.MetaDataLibrary\l+setClassname : void\l+addMethodCall : void\l+parseClass : void\l+setLibrary : void\l}"
-]
-problemasmvisitorClassDeclarationVisitor [
-label = "{problem.asm.visitor.ClassDeclarationVisitor||+\<init\> : void\l+\<init\> : void\l+visit : void\l}"
-]
-problemasmvisitorMethodInternalsVisitor [
-label = "{problem.asm.visitor.MethodInternalsVisitor|methodName : java.lang.String\lmethodArgs : java.lang.String\l|+\<init\> : void\l+\<init\> : void\l+\<init\> : java.lang.String)V\l+visitMethodInsn : void\l+visitTypeInsn : void\l}"
+problemchocolatesingletonChocolateBoiler [
+label = "{problem.chocolate.singleton.ChocolateBoiler|empty : boolean\lboiled : boolean\l|+\<init\> : void\l+fill : void\l+drain : void\l+boil : void\l+isEmpty : boolean\l+isBoiled : boolean\l}"
 ]
 edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
-problemasmoutputerDiagramOutputer -> problemasmoutputerIOutputData
-problemasmoutputerConsoleOutputer -> problemasmoutputerIOutputData
 edge [ arrowhead = "vee", style = "dashed" ]
-problemasmoutputerDiagramOutputer -> problemasmstorageMethodBook
-problemasmstorageMetaDataLibrary -> problemasmstorageFieldPage
-problemasmoutputerConsoleOutputer -> problemasmstorageMethodBook
-problemasmstorageMetaDataLibrary -> problemasmstorageMethodBook
-problemasmvisitorMethodInternalsVisitor -> problemasmstorageStaticLibraryHolder
-problemasmvisitorClassDeclarationVisitor -> problemasmstorageStaticLibraryHolder
-problemasmoutputerDiagramOutputer -> problemasmstorageMetaDataLibrary
-problemasmstorageStaticLibraryHolder -> problemasmstorageFieldPage
-problemasmDesignParser -> problemasmoutputerConsoleOutputer
-problemasmoutputerConsoleOutputer -> problemasmstorageMetaDataLibrary
-problemasmDesignParser -> problemasmoutputerDiagramOutputer
-problemasmstorageStaticLibraryHolder -> problemasmstorageClassVolume
-problemasmoutputerDiagramOutputer -> problemasmstorageFieldPage
-problemasmDesignParser -> problemasmoutputerIOutputData
-problemasmvisitorClassDeclarationVisitor -> problemasmstorageClassVolume
-problemasmoutputerDiagramOutputer -> problemasmstorageClassVolume
-problemasmoutputerConsoleOutputer -> problemasmstorageFieldPage
-problemasmoutputerConsoleOutputer -> problemasmstorageClassVolume
-problemasmDesignParser -> problemasmstorageStaticLibraryHolder
-problemasmoutputerIOutputData -> problemasmstorageMetaDataLibrary
-problemasmstorageStaticLibraryHolder -> problemasmstorageMethodBook
-problemasmoutputerDiagramOutputer -> problemasmoutputerDiagramOutputer
-problemasmstorageMetaDataLibrary -> problemasmstorageStaticLibraryHolder
-problemasmDesignParser -> problemasmDesignParser
-problemasmstorageMetaDataLibrary -> problemasmvisitorClassDeclarationVisitor
+problemchocolatesingletonChocolateBoiler -> problemchocolatesingletonChocolateBoiler
 edge [ arrowhead = "vee", style = "none" ]
-problemasmstorageStaticLibraryHolder -> problemasmstorageMetaDataLibrary
-problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume
-problemasmstorageClassVolume -> problemasmstorageFieldPage
-problemasmstorageClassVolume -> problemasmstorageMethodBook
+problemchocolatesingletonChocolateBoilerSingleton -> problemchocolatesingletonChocolateBoilerSingleton
 }

@@ -1,50 +1,43 @@
-java.util.Collections:java.util.Collections
-java/util/Collections:java/util/Collections
+java/util/ArrayList:java/util/ArrayList
+java/lang/String:java/lang/String
+problem/asm/outputer/SDOutputer:problem/asm/outputer/SDOutputer
+problem/asm/storage/StaticLibraryHolder:problem/asm/storage/StaticLibraryHolder
 java/util/List:java/util/List
-java/util/ListIterator:java/util/ListIterator
-java/util/Random:java/util/Random
+problem/asm/outputer/ConsoleOutputer:problem/asm/outputer/ConsoleOutputer
+problem.asm.DesignParser:problem.asm.DesignParser
+problem/asm/outputer/DiagramOutputer:problem/asm/outputer/DiagramOutputer
+java/lang/Integer:java/lang/Integer
+java/util/Iterator:java/util/Iterator
+problem/asm/DesignParser:problem/asm/DesignParser
+problem/asm/outputer/IOutputData:problem/asm/outputer/IOutputData
+java/lang/Object:java/lang/Object
 
-java.util.Collections:void=java/util/Random.<init>(java.util.List)
-java.util.Collections:void=java/util/Collections.shuffle(java.util.List)
-java/util/Collections:void=java/util/Random.<init>(java.util.List)
-java/util/Collections:void=java/util/Collections.shuffle(java.util.List)
-java/util/Collections:int=java/util/List.size(java.util.List, java.util.Random)
-java/util/Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:java.lang.Object[]=java/util/List.toArray(java.util.List, java.util.Random)
-java/util/Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:java.util.ListIterator=java/util/List.listIterator(java.util.List, java.util.Random)
-java/util/Collections:java.lang.Object=java/util/ListIterator.next(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/ListIterator.set(java.util.List, java.util.Random)
-java.util.Collections:int=java/util/List.size(java.util.List, java.util.Random)
-java.util.Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java.util.Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Random.<init>(java.util.List)
-java/util/Collections:void=java/util/Collections.shuffle(java.util.List)
-java/util/Collections:int=java/util/List.size(java.util.List, java.util.Random)
-java/util/Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:java.lang.Object[]=java/util/List.toArray(java.util.List, java.util.Random)
-java/util/Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:java.util.ListIterator=java/util/List.listIterator(java.util.List, java.util.Random)
-java/util/Collections:java.lang.Object=java/util/ListIterator.next(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/ListIterator.set(java.util.List, java.util.Random)
-java.util.Collections:java.lang.Object[]=java/util/List.toArray(java.util.List, java.util.Random)
-java.util.Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java.util.Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Random.<init>(java.util.List)
-java/util/Collections:void=java/util/Collections.shuffle(java.util.List)
-java/util/Collections:int=java/util/List.size(java.util.List, java.util.Random)
-java/util/Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:java.lang.Object[]=java/util/List.toArray(java.util.List, java.util.Random)
-java/util/Collections:int=java/util/Random.nextInt(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)
-java/util/Collections:java.util.ListIterator=java/util/List.listIterator(java.util.List, java.util.Random)
-java/util/Collections:java.lang.Object=java/util/ListIterator.next(java.util.List, java.util.Random)
-java/util/Collections:void=java/util/ListIterator.set(java.util.List, java.util.Random)
-java.util.Collections:java.util.ListIterator=java/util/List.listIterator(java.util.List, java.util.Random)
-java.util.Collections:java.lang.Object=java/util/ListIterator.next(java.util.List, java.util.Random)
-java.util.Collections:void=java/util/ListIterator.set(java.util.List, java.util.Random)
+problem.asm.DesignParser:void=problem/asm/storage/StaticLibraryHolder.initializeLibrary(java.lang.String[])
+problem.asm.DesignParser:void=java/util/ArrayList.<init>(java.lang.String[])
+problem.asm.DesignParser:java.lang.CharSequence=java/lang/String.subSequence(java.lang.String[])
+problem.asm.DesignParser:boolean=java/lang/Object.equals(java.lang.String[])
+problem.asm.DesignParser:boolean=java/util/List.add(java.lang.String[])
+problem.asm.DesignParser:void=problem/asm/storage/StaticLibraryHolder.parseClass(java.lang.String[])
+problem.asm.DesignParser:void=problem/asm/outputer/ConsoleOutputer.<init>(java.lang.String[])
+problem.asm.DesignParser:boolean=java/util/List.contains(java.lang.String[])
+problem.asm.DesignParser:void=problem/asm/outputer/DiagramOutputer.<init>(java.lang.String[])
+problem.asm.DesignParser:boolean=java/util/List.contains(java.lang.String[])
+problem.asm.DesignParser:void=java/util/ArrayList.<init>(java.lang.String[])
+problem.asm.DesignParser:java.util.Iterator=java/util/List.iterator(java.lang.String[])
+problem.asm.DesignParser:java.lang.Object=java/util/Iterator.next(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=java/lang/String.substring(java.lang.String[])
+problem.asm.DesignParser:boolean=java/lang/String.equals(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=java/lang/String.substring(java.lang.String[])
+problem.asm.DesignParser:boolean=java/util/List.add(java.lang.String[])
+problem.asm.DesignParser:boolean=java/util/Iterator.hasNext(java.lang.String[])
+problem.asm.DesignParser:int=problem/asm/DesignParser.findStart(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=problem/asm/DesignParser.getArg(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=problem/asm/DesignParser.getArg(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=problem/asm/DesignParser.getArg(java.lang.String[])
+problem.asm.DesignParser:int=java/lang/Integer.parseInt(java.lang.String[])
+problem.asm.DesignParser:void=problem/asm/outputer/SDOutputer.<init>(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=problem/asm/DesignParser.getArg(java.lang.String[])
+problem.asm.DesignParser:java.lang.String=problem/asm/DesignParser.getArg(java.lang.String[])
+problem.asm.DesignParser:void=problem/asm/outputer/SDOutputer.<init>(java.lang.String[])
+problem.asm.DesignParser:problem.asm.storage.MetaDataLibrary=problem/asm/storage/StaticLibraryHolder.getLibrary(java.lang.String[])
+problem.asm.DesignParser:void=problem/asm/outputer/IOutputData.outputData(java.lang.String[])

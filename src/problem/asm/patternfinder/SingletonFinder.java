@@ -23,7 +23,7 @@ public class SingletonFinder implements IFindPatterns {
 			boolean field = checkPrivateStaticSameClass(cv);
 			boolean privateConstructor = checkPCandgetter(cv);
 			if (field && privateConstructor) {
-				this.singletons.add(cv.getName());
+				this.singletons.add(cv.getName().replace("/", "."));
 			}
 		} 
 
@@ -31,12 +31,11 @@ public class SingletonFinder implements IFindPatterns {
 	
 	private boolean checkPrivateStaticSameClass(ClassVolume cv) {
 		for (FieldPage fp : cv.getFields()) {
-			if ((fp.getAccess() | Opcodes.ACC_PRIVATE) != 0) {
-				if ((fp.getAccess() | Opcodes.ACC_STATIC) != 0) {
-					if (Type.getType(fp.getDesc()).getClassName().equals(cv.getName())) {
-						System.out.println("true");
+			if ((fp.getAccess() & Opcodes.ACC_PRIVATE) != 0) {
+				if ((fp.getAccess() & Opcodes.ACC_STATIC) != 0) {
+					if (Type.getType(fp.getDesc()).getClassName().equals(cv.getName().replace("/", "."))) {
 						return true;
-					}
+					} 
 				}
 			}
 		}
@@ -47,20 +46,20 @@ public class SingletonFinder implements IFindPatterns {
 		boolean hasPrivateConstructor = false;
 		boolean hasGetInstance = false;
 		for (MethodBook mb : cv.getMethods()) {
-			if ((mb.getAccess() | Opcodes.ACC_PUBLIC) != 0) {
-				if (Type.getReturnType(mb.getDesc()).getClassName().equals(cv.getName())) {
+			if ((mb.getAccess() & Opcodes.ACC_PUBLIC) != 0) {
+//				System.out.println(mb.getName());
+				if (Type.getReturnType(mb.getDesc()).getClassName().equals(cv.getName().replace("/", "."))) {
 					hasGetInstance = true;
 					if (hasPrivateConstructor) {
-						 System.out.println("checkPCandgetter -- in public get instance bit");
 						return true;
 					}
 				}
 			}
-			else if ((mb.getAccess() | Opcodes.ACC_PRIVATE) != 0) {
+			else if ((mb.getAccess() & Opcodes.ACC_PRIVATE) != 0) {
+				System.out.println("mb names:   " + mb.getName());
 				 if (mb.getName().equals("<init>")) {
 					 hasPrivateConstructor = true;
 					 if (hasGetInstance) {
-						 System.out.println("checkPCandgetter -- in priv contructor part");
 						 return true;
 					 }
 				 }
@@ -72,6 +71,8 @@ public class SingletonFinder implements IFindPatterns {
 	@Override
 	public void write(String className, PrintWriter writer) {
 		if (singletons.contains(className)) {
+			System.out.println("inner being called");
+			writer.println();
 			writer.print("\\<\\<Singleton\\>\\>\\l");
 		}
 	}
