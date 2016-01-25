@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import problem.asm.DesignParser;
@@ -18,7 +19,20 @@ public class TestPatternFinders {
 		String [] args = {"-d", "problem.chocolate.singleton.ChocolateBoilerSingleton"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
-		if (content.contains("<<Singleton>>")) {
+		if (content.contains("\\<\\<Singleton\\>\\>\\")) {
+			// We're all good
+		} else {
+			fail();
+		}
+	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testEagerSingleton() throws IOException {
+		String [] args = {"-d", "problem.chocolate.singleton.ChocolateBoilerEagerSingleton"};
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		if (content.contains("\\<\\<Singleton\\>\\>\\")) {
 			// We're all good
 		} else {
 			fail();
@@ -31,7 +45,7 @@ public class TestPatternFinders {
 		String [] args = {"-d", "problem.chocolate.singleton.ChocolateBoiler"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
-		if (content.contains("<<Singleton>>")) {
+		if (content.contains("\\<\\<Singleton\\>\\>\\")) {
 			fail();
 		} else {
 			// We're all good
@@ -44,7 +58,7 @@ public class TestPatternFinders {
 		String [] args = {"-d", "java.awt.Desktop"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
-		if (content.contains("<<Singleton>>")) {
+		if (!content.contains("\\<\\<Singleton\\>\\>\\")) {
 			// We're all good
 		} else {
 			fail();
@@ -57,10 +71,10 @@ public class TestPatternFinders {
 		String [] args = {"-d", "java.util.Calendar"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
-		if (content.contains("<<Singleton>>")) {
-			// We're all good
-		} else {
+		if (content.contains("\\<\\<Singleton\\>\\>\\")) {
 			fail();
+		} else {
+			// We're all good
 		}
 	}
 	
@@ -70,10 +84,11 @@ public class TestPatternFinders {
 		String [] args = {"-d", "java.io.FilterInputStream"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
-		if (content.contains("<<Singleton>>")) {
+		if (content.contains("\\<\\<Singleton\\>\\>\\")) {
+			fail();
 			// We're all good
 		} else {
-			fail();
+			
 		}
 	}
 	

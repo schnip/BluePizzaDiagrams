@@ -33,6 +33,7 @@ public class SingletonFinder implements IFindPatterns {
 			if ((fp.getAccess() & Opcodes.ACC_PRIVATE) != 0) {
 				if ((fp.getAccess() & Opcodes.ACC_STATIC) != 0) {
 					if (Type.getType(fp.getDesc()).getClassName().equals(cv.getName().replace("/", "."))) {
+						System.out.println("sumthin");
 						return true;
 					} 
 				}
@@ -57,6 +58,7 @@ public class SingletonFinder implements IFindPatterns {
 			else if ((mb.getAccess() & Opcodes.ACC_PRIVATE) != 0) {
 				System.out.println("mb names:   " + mb.getName());
 				 if (mb.getName().equals("<init>")) {
+					 System.out.println("Picks up private constructor");
 					 hasPrivateConstructor = true;
 					 if (hasGetInstance) {
 						 return true;
