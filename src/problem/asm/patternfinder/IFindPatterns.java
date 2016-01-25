@@ -13,4 +13,6 @@ public interface IFindPatterns {
 	// Will be given the className with '.' between the parts
 	public void write(String className, PrintWriter writer);
 	
+	public void writeAttributes(String className, PrintWriter writer);
+	
 }

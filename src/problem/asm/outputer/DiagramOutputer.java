@@ -55,6 +55,11 @@ public class DiagramOutputer implements IOutputData {
 			for (ClassVolume v : m.getClassVolume()) {
 				// Start the class box
 				writer.println(v.getName().replaceAll("/", "") + " [");
+				
+				for (IFindPatterns p : this.patternfinders) {
+					p.writeAttributes(v.getName().replace('/', '.'), writer);
+				}
+				
 				writer.print("label = \"{" + v.getName().replace('/', '.'));
 				
 				// Print any patterns this class participates in
