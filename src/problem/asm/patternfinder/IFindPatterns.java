@@ -8,6 +8,8 @@ public interface IFindPatterns {
 
 	public void intake(MetaDataLibrary mdl);
 	
+	public String getName();
+	
 	// Will be given the className with '.' between the parts
 	public void write(String className, PrintWriter writer);
 	

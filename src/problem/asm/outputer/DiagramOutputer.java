@@ -1,9 +1,7 @@
 package problem.asm.outputer;
 
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import org.objectweb.asm.Opcodes;
@@ -24,7 +22,7 @@ public class DiagramOutputer implements IOutputData {
 	private Set<String> interfaces = new HashSet<String>();
 	private Set<String> uses = new HashSet<String>();
 	private Set<String> associates = new HashSet<String>();
-	private Map<String, IFindPatterns> patternfinders = new HashMap<String, IFindPatterns>();
+	private Set<IFindPatterns> patternfinders = new HashSet<IFindPatterns>();
 
 	public DiagramOutputer(String s) {
 		filePath = s;
@@ -32,9 +30,9 @@ public class DiagramOutputer implements IOutputData {
 
 	@Override
 	public void outputData(MetaDataLibrary m) {
-		this.patternfinders.put("singleton", new SingletonFinder());
-		for (String s : this.patternfinders.keySet()) {
-			this.patternfinders.get(s).intake(m);
+		this.patternfinders.add(new SingletonFinder());
+		for (IFindPatterns s : this.patternfinders) {
+			s.intake(m);
 		}
 		
 		try {
@@ -59,8 +57,13 @@ public class DiagramOutputer implements IOutputData {
 				writer.println(v.getName().replaceAll("/", "") + " [");
 				writer.print("label = \"{" + v.getName().replace('/', '.'));
 				
+				// Print any patterns this class participates in
+				for (IFindPatterns p : this.patternfinders) {
+					p.write(v.getName().replace('/', '.'), writer);
+				}
+				
 				// If this is a singleton, say so
-				this.patternfinders.get("singleton").write(v.getName().replace('/', '.'), writer);
+				//this.patternfinders.get("singleton").write(v.getName().replace('/', '.'), writer);
 				
 				// Add the separator
 				writer.print("|");
@@ -165,7 +168,6 @@ public class DiagramOutputer implements IOutputData {
 			writer.println("}");
 			writer.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -11,7 +11,6 @@ import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
 import problem.asm.storage.MethodBook;
-import problem.asm.storage.UseSentence;
 
 public class SingletonFinder implements IFindPatterns {
 	
@@ -75,6 +74,11 @@ public class SingletonFinder implements IFindPatterns {
 			writer.println();
 			writer.print("\\<\\<Singleton\\>\\>\\l");
 		}
+	}
+
+	@Override
+	public String getName() {
+		return "singleton";
 	}
 
 }
