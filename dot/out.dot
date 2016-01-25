@@ -10,17 +10,17 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemchocolatesingletonChocolateBoilerSingleton [
-label = "{problem.chocolate.singleton.ChocolateBoilerSingleton
-\<\<Singleton\>\>\l|empty : boolean\lboiled : boolean\lcb : problem.chocolate.singleton.ChocolateBoilerSingleton\l|\<init\> : void\l+getInstance : problem.chocolate.singleton.ChocolateBoilerSingleton\l+fill : void\l+drain : void\l+boil : void\l+isEmpty : boolean\l+isBoiled : boolean\l}"
+problemobserverAppLauncher [
+label = "{problem.observer.AppLauncher|watcher : java.nio.file.WatchService\ldir : java.nio.file.Path\lstop : boolean\lprocesses : java.lang.Process\lreporter : problem.observer.AppReporter\l|\<init\> : void\l+addProcess : void\l+run : void\lclearEverything : void\l+stopGracefully : void\l+isRunning : boolean\l+getApplicationsCount : int\l+handleDirectoryEvent : void\l+main : void\l}"
 ]
-problemchocolatesingletonChocolateBoiler [
-label = "{problem.chocolate.singleton.ChocolateBoiler|empty : boolean\lboiled : boolean\l|+\<init\> : void\l+fill : void\l+drain : void\l+boil : void\l+isEmpty : boolean\l+isBoiled : boolean\l}"
+problemobserverAppReporter [
+label = "{problem.observer.AppReporter|displays : problem.observer.IDisplay\ldata : problem.observer.IAppData\l|+\<init\> : void\l+registerDisplay : void\l+removeDisplay : void\l+setData : void\l+notifyDisplays : void\l}"
 ]
 edge [ arrowhead = "empty", style = "none" ]
 edge [ arrowhead = "empty", style = "dashed" ]
 edge [ arrowhead = "vee", style = "dashed" ]
-problemchocolatesingletonChocolateBoiler -> problemchocolatesingletonChocolateBoiler
+problemobserverAppLauncher -> problemobserverAppLauncher
+problemobserverAppReporter -> problemobserverAppReporter
 edge [ arrowhead = "vee", style = "none" ]
-problemchocolatesingletonChocolateBoilerSingleton -> problemchocolatesingletonChocolateBoilerSingleton
+problemobserverAppLauncher -> problemobserverAppReporter
 }
