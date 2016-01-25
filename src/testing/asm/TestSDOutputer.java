@@ -15,7 +15,7 @@ public class TestSDOutputer {
 	@SuppressWarnings("resource")
 	@Test
 	public void testSDbasic() throws IOException {
-		String [] args = {"-s --class=java.util.Collections --method=shuffle -ajava.util.Collections --depth=2"};
+		String [] args = {"-s", "--class=java.util.Collections", "--method=shuffle", "-ajava.util.Collections", "--depth=2"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("sd/out.sd")).useDelimiter("\\Z").next();
 		if (content.contains("java.util.Collections:void=java/util/Random.<init>(java.util.List)\njava.util.Collections:void=java/util/Collections.shuffle(java.util.List)")) {
@@ -28,7 +28,7 @@ public class TestSDOutputer {
 	@SuppressWarnings("resource")
 	@Test
 	public void testSDEdge2() throws IOException {
-		String [] args = {"-s --class=java.util.Collections --method=shuffle -ajava.util.Collections --depth=2"};
+		String [] args = {"-s", "--class=java.util.Collections", "--method=shuffle", "-ajava.util.Collections", "--depth=2"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("sd/out.sd")).useDelimiter("\\Z").next();
 		if (content.contains("java/util/Collections:void=java/util/Collections.swap(java.util.List, java.util.Random)\n"
@@ -47,7 +47,7 @@ public class TestSDOutputer {
 	@SuppressWarnings("resource")
 	@Test
 	public void testSD2Edge1() throws IOException {
-		String [] args = {"-s --class=java.util.Collections --method=shuffle -ajava.util.Collections --depth=2"};
+		String [] args = {"-s", "--class=java.util.Collections", "--method=shuffle", "-ajava.util.Collections", "--depth=2"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("sd/out.sd")).useDelimiter("\\Z").next();
 		if (content.contains("java.util.Collections:java.util.Collections\njava/util/Collections:java/util/Collections\njava/util/List:java/util/List\n"
@@ -62,7 +62,7 @@ public class TestSDOutputer {
 	@SuppressWarnings("resource")
 	@Test
 	public void testSD2ContainsCorrectEdges() throws IOException {
-		String [] args = {"-s --class=java.util.Collections --method=shuffle -ajava.util.Collections --depth=2"};
+		String [] args = {"-s", "--class=java.util.Collections", "--method=shuffle", "-ajava.util.Collections", "--depth=2"};
 		DesignParser.main(args);
 		String content = new Scanner(new File("sd/out.sd")).useDelimiter("\\Z").next();
 		String checkString = "List.size(java.util.List, java.util.Random)";
