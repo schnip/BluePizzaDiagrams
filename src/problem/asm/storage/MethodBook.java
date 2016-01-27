@@ -2,6 +2,8 @@ package problem.asm.storage;
 
 import java.util.List;
 
+import org.objectweb.asm.Type;
+
 public class MethodBook {
 
 	private int access;
@@ -66,6 +68,10 @@ public class MethodBook {
 
 	public void setArgTypes(List<String> argTypes) {
 		this.argTypes = argTypes;
+	}
+	
+	public void getReturnType() {
+		Type.getReturnType(this.getDesc()).getClassName();
 	}
 	
 }

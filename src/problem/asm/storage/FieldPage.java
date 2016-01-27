@@ -1,5 +1,7 @@
 package problem.asm.storage;
 
+import org.objectweb.asm.Type;
+
 public class FieldPage {
 	
 	private int access;
@@ -59,6 +61,10 @@ public class FieldPage {
 
 	public void setValue(Object value) {
 		this.value = value;
+	}
+	
+	public String getType() {
+		return Type.getType(this.getDesc()).getClassName();
 	}
 
 }
