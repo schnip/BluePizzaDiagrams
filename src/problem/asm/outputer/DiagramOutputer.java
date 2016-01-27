@@ -150,26 +150,34 @@ public class DiagramOutputer implements IOutputData {
 			}
 			
 			// Draw subclass arrows
-			writer.println("edge [ arrowhead = \"empty\", style = \"none\" ]");
 			for (String s : this.subclasses) {
+				writer.print("edge [ arrowhead = \"empty\", style = \"none\" "); 
+				labelEdge(s, writer);
+				writer.println(" ]");
 				writer.println(s);
 			}
 			
 			// Draw interface arrows
-			writer.println("edge [ arrowhead = \"empty\", style = \"dashed\" ]");
 			for (String s : this.interfaces) {
+				writer.println("edge [ arrowhead = \"empty\", style = \"dashed\" ");
+				labelEdge(s, writer);
+				writer.println(" ]");
 				writer.println(s);
 			}
 			
 			// Draw uses arrows
-			writer.println("edge [ arrowhead = \"vee\", style = \"dashed\" ]");
 			for (String s : this.uses) {
+				writer.println("edge [ arrowhead = \"vee\", style = \"dashed\" ");
+				labelEdge(s, writer);
+				writer.println(" ]");
 				writer.println(s);
 			}
 			
 			// Draw associate arrows
-			writer.println("edge [ arrowhead = \"vee\", style = \"none\" ]");
 			for (String s : this.associates) {
+				writer.println("edge [ arrowhead = \"vee\", style = \"none\"]");
+				labelEdge(s, writer);
+				writer.println(" ]");
 				writer.println(s);
 			}
 			
@@ -190,6 +198,12 @@ public class DiagramOutputer implements IOutputData {
 	
 	private String parseStringForT(String s) {
 		return s.substring(s.indexOf('<')).replace("<L", "").replace(";>;", "").replace('/', '.');
+	}
+	
+	public void labelEdge(String edgeDescription, PrintWriter writer) {
+		for (IFindPatterns ifp : patternfinders) {
+			ifp.labelEdge(edgeDescription, writer);
+		}
 	}
 
 }
