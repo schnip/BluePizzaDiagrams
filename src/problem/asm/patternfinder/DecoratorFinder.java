@@ -19,29 +19,20 @@ public class DecoratorFinder implements IFindPatterns {
 	@Override
 	public void intake(MetaDataLibrary mdl) {
 		for (ClassVolume cv : mdl.getClassVolume()) {
-			if (superInClassVolume(cv)) {
 				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv)) {
 					if (constructorTakesType(cv)) {
 						
 					}
 				}
-			}
 		}
 
-	}
-
-	public boolean superInClassVolume(ClassVolume c) {
-		if (!c.getSuperName().equals("java.lang.object")) {
-			return true;
-		}
-		return false;
 	}
 	
 	public boolean constructorTakesType(ClassVolume cv) {
 		for (MethodBook mb : cv.getMethods()) {
 			if (mb.getName().equals("<init>")) {
-				List<String> li = mb.getArgTypes();
-				for (String arg : li) {
+//				List<String> li = mb.getArgTypes();
+				for (String arg : mb.getArgTypes()) {
 					String comp = cv.getSuperName();
 					String[] intcomp = cv.getInterfaces();
 					if (arg.equals(comp) || arg.equals(intcomp)) {
