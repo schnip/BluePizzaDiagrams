@@ -72,7 +72,7 @@ public class SingletonFinder implements IFindPatterns {
 	@Override
 	public void write(String className, PrintWriter writer) {
 		if (singletons.contains(className)) {
-			System.out.println("inner being called");
+			//System.out.println("inner being called");
 			writer.println();
 			writer.print("\\<\\<Singleton\\>\\>\\l");
 		}
@@ -86,7 +86,7 @@ public class SingletonFinder implements IFindPatterns {
 	@Override
 	public void writeAttributes(String className, PrintWriter writer) {
 		if (singletons.contains(className)) {
-			System.out.println("inner being called");
+			//System.out.println("inner being called");
 			writer.print("color = blue,");
 			writer.println();
 		}

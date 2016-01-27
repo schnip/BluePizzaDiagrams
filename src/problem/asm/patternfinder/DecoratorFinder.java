@@ -1,10 +1,14 @@
 package problem.asm.patternfinder;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import problem.asm.storage.MetaDataLibrary;
 
 public class DecoratorFinder implements IFindPatterns {
+	
+	private Map<String, String> classToSpecial = new HashMap<String, String>();
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
@@ -14,20 +18,23 @@ public class DecoratorFinder implements IFindPatterns {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "decorator";
 	}
 
 	@Override
 	public void write(String className, PrintWriter writer) {
-		// TODO Auto-generated method stub
-
+		if (classToSpecial.keySet().contains(className)) {
+			writer.println();
+			writer.print("\\<\\<" + classToSpecial.get(className) + "\\>\\>\\l");
+		}
 	}
 
 	@Override
 	public void writeAttributes(String className, PrintWriter writer) {
-		// TODO Auto-generated method stub
-
+		if (classToSpecial.keySet().contains(className)) {
+			writer.print("fillcolor=green, style=filled,");
+			writer.println();
+		}
 	}
 
 }
