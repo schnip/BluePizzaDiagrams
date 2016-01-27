@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import problem.asm.DesignParser;
@@ -89,6 +88,20 @@ public class TestPatternFinders {
 			// We're all good
 		} else {
 			
+		}
+	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testSingletonRuntime() throws IOException {
+		String [] args = {"-d", "java.lang.Runtime"};
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		if (content.contains("\\<\\<Singleton\\>\\>\\")) {
+			//fail();
+		} else {
+			// We're all good
+			fail();
 		}
 	}
 	
