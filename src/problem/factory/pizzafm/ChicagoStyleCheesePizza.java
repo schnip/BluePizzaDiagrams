@@ -2,6 +2,7 @@ package problem.factory.pizzafm;
 
 public class ChicagoStyleCheesePizza extends Pizza {
 
+	@SuppressWarnings("unchecked")
 	public ChicagoStyleCheesePizza() { 
 		name = "Chicago Style Deep Dish Cheese Pizza";
 		dough = "Extra Thick Crust Dough";

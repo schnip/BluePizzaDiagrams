@@ -1,6 +1,7 @@
 package problem.factory.pizzas;
 
 public class PepperoniPizza extends Pizza {
+	@SuppressWarnings("unchecked")
 	public PepperoniPizza() {
 		name = "Pepperoni Pizza";
 		dough = "Crust";

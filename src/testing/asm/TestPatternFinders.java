@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import problem.asm.DesignParser;
 
+@SuppressWarnings("unused")
 public class TestPatternFinders {
 
 	@SuppressWarnings("resource")
