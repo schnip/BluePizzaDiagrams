@@ -33,6 +33,8 @@ public class DecoratorFinder implements IFindPatterns {
 					}
 				}
 		}
+		System.out.println("classToSpecial:     " + this.classToSpecial.toString());
+		System.out.println("edgeToLabel:        " + this.edgeToLabel.toString());
 
 	}
 	
@@ -57,11 +59,10 @@ public class DecoratorFinder implements IFindPatterns {
 		if (cv.getSuperName() != "java.lang.object"){
 			comp = cv.getSuperName();
 		}
-		System.out.println("cv name:   " + cv.getName());
-		System.out.println(cv.getFields().toString());
+//		System.out.println("cv name:   " + cv.getName());
 		for (FieldPage fp : cv.getFields()) {
-			System.out.println(fp.getDesc());
-			if (fp.getValue().toString().equals(comp)) {
+//			System.out.println(fp.getType());
+			if (fp.getType().equals(comp)) {
 				return true;
 			}
 		}
