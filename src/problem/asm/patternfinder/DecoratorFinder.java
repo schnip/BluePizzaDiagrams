@@ -41,7 +41,7 @@ public class DecoratorFinder implements IFindPatterns {
 	@Override
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
 		if (edgeToLabel.keySet().contains(edgeDescription)) {
-			writer.print("label = \"" + edgeToLabel.get(edgeDescription) + "\"");
+			writer.print(", label = \"" + edgeToLabel.get(edgeDescription) + "\"");
 		}
 		
 	}
