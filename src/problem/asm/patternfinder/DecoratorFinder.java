@@ -57,7 +57,10 @@ public class DecoratorFinder implements IFindPatterns {
 		if (cv.getSuperName() != "java.lang.object"){
 			comp = cv.getSuperName();
 		}
+		System.out.println("cv name:   " + cv.getName());
+		System.out.println(cv.getFields().toString());
 		for (FieldPage fp : cv.getFields()) {
+			System.out.println(fp.getDesc());
 			if (fp.getValue().toString().equals(comp)) {
 				return true;
 			}

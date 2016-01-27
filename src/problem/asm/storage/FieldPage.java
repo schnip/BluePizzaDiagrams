@@ -23,7 +23,12 @@ public class FieldPage {
 	public void setAccess(int access) {
 		this.access = access;
 	}
-
+	
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 	public String getName() {
 		return name;
 	}
