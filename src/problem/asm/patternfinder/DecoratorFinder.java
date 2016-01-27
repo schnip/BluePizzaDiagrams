@@ -9,6 +9,7 @@ import problem.asm.storage.MetaDataLibrary;
 public class DecoratorFinder implements IFindPatterns {
 	
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
+	private Map<String, String> edgeToLabel = new HashMap<String, String>();
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
@@ -39,7 +40,9 @@ public class DecoratorFinder implements IFindPatterns {
 
 	@Override
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
-		// TODO Auto-generated method stub
+		if (edgeToLabel.keySet().contains(edgeDescription)) {
+			writer.print("label = \"" + edgeToLabel.get(edgeDescription) + "\"");
+		}
 		
 	}
 
