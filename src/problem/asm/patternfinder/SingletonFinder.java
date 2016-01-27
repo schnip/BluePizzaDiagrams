@@ -92,4 +92,9 @@ public class SingletonFinder implements IFindPatterns {
 		}
 	}
 
+	@Override
+	public void labelEdge(String edgeDescription, PrintWriter writer) {
+		// This does nothing		
+	}
+
 }

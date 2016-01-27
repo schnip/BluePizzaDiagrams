@@ -15,4 +15,6 @@ public interface IFindPatterns {
 	
 	public void writeAttributes(String className, PrintWriter writer);
 	
+	public void labelEdge(String edgeDescription, PrintWriter writer);
+	
 }

@@ -37,4 +37,10 @@ public class DecoratorFinder implements IFindPatterns {
 		}
 	}
 
+	@Override
+	public void labelEdge(String edgeDescription, PrintWriter writer) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
