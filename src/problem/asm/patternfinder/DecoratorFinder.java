@@ -15,13 +15,21 @@ public class DecoratorFinder implements IFindPatterns {
 
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
+	private List<String> comp;
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
 		for (ClassVolume cv : mdl.getClassVolume()) {
+			this.comp = new ArrayList<String>();
 				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv)) {
 					if (constructorTakesType(cv)) {
-						
+						List<String> component = null;
+						component = this.comp;
+						for (String c : component) {
+							classToSpecial.put(cv.getName().replace('/', '.'), "decorator");
+							classToSpecial.put(c, "component");
+							edgeToLabel.put(cv.getName().replace("/", "").replace(".", "") + " -> " + c.replace("/", "").replace(".", ""), "decorates");
+						}
 					}
 				}
 		}
@@ -31,11 +39,11 @@ public class DecoratorFinder implements IFindPatterns {
 	public boolean constructorTakesType(ClassVolume cv) {
 		for (MethodBook mb : cv.getMethods()) {
 			if (mb.getName().equals("<init>")) {
-//				List<String> li = mb.getArgTypes();
 				for (String arg : mb.getArgTypes()) {
 					String comp = cv.getSuperName();
 					String[] intcomp = cv.getInterfaces();
 					if (arg.equals(comp) || arg.equals(intcomp)) {
+						this.comp.add(arg);
 						return true;
 					}
 				}
