@@ -7,6 +7,8 @@ import java.util.Set;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
+import problem.asm.patternfinder.AdapterFinder;
+import problem.asm.patternfinder.DecoratorFinder;
 import problem.asm.patternfinder.IFindPatterns;
 import problem.asm.patternfinder.SingletonFinder;
 import problem.asm.storage.ClassVolume;
@@ -31,6 +33,8 @@ public class DiagramOutputer implements IOutputData {
 	@Override
 	public void outputData(MetaDataLibrary m) {
 		this.patternfinders.add(new SingletonFinder());
+		this.patternfinders.add(new AdapterFinder());
+		this.patternfinders.add(new DecoratorFinder());
 		for (IFindPatterns s : this.patternfinders) {
 			s.intake(m);
 		}

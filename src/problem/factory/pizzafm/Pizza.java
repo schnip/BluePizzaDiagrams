@@ -6,6 +6,7 @@ public abstract class Pizza {
 	String name;
 	String dough;
 	String sauce;
+	@SuppressWarnings("rawtypes")
 	ArrayList toppings = new ArrayList();
  
 	void prepare() {
