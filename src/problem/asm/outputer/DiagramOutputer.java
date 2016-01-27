@@ -175,7 +175,7 @@ public class DiagramOutputer implements IOutputData {
 			
 			// Draw associate arrows
 			for (String s : this.associates) {
-				writer.println("edge [ arrowhead = \"vee\", style = \"none\"]");
+				writer.println("edge [ arrowhead = \"vee\", style = \"none\" ");
 				labelEdge(s, writer);
 				writer.println(" ]");
 				writer.println(s);
