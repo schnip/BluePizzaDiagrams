@@ -22,6 +22,7 @@ public class DecoratorFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			this.comp = new ArrayList<String>();
 				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv)) {
+					System.out.println("grape");
 					if (constructorTakesType(cv)) {
 						List<String> component = null;
 						component = this.comp;
@@ -61,6 +62,9 @@ public class DecoratorFinder implements IFindPatterns {
 		}
 //		System.out.println("cv name:   " + cv.getName());
 		for (FieldPage fp : cv.getFields()) {
+			System.out.println("jello");
+			System.out.println(comp);
+			System.out.println(fp.getType());
 //			System.out.println(fp.getType());
 			if (fp.getType().equals(comp)) {
 				return true;
@@ -70,8 +74,10 @@ public class DecoratorFinder implements IFindPatterns {
 	}
 
 	public boolean hasInterfaceAsField(ClassVolume cv) {
+		//System.out.println("fries");
 		String[] check = cv.getInterfaces();
 		if (check.length == 0) return false;
+		System.out.println("pudding");
 		for (String c : check) {
 			for (FieldPage fp : cv.getFields()) {
 				if (fp.getValue().toString().equals(c)) {
