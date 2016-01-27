@@ -202,7 +202,7 @@ public class DiagramOutputer implements IOutputData {
 	
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
 		for (IFindPatterns ifp : patternfinders) {
-			ifp.labelEdge(edgeDescription, writer);
+			ifp.labelEdge(edgeDescription.replace('/', '.'), writer);
 		}
 	}
 
