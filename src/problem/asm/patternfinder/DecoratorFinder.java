@@ -16,12 +16,14 @@ public class DecoratorFinder implements IFindPatterns {
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
 	private List<String> comp;
+	private MetaDataLibrary mdl;
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
+		this.mdl = mdl;
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			this.comp = new ArrayList<String>();
-				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv)) {
+				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv, cv.getSuperName())) {
 					System.out.println("grape");
 					if (constructorTakesType(cv)) {
 						List<String> component = null;
@@ -55,18 +57,21 @@ public class DecoratorFinder implements IFindPatterns {
 		return false;
 	}
 	
-	public boolean hasSuperClassAsField(ClassVolume cv) {
-		String comp = "";
-		if (cv.getSuperName() != "java.lang.object"){
-			comp = cv.getSuperName();
-		}
+	public boolean hasSuperClassAsField(ClassVolume cv, String superName) {
+		System.out.println(" pasta " + cv.getName());
+		//String comp = cv.getSuperName();
 		for (FieldPage fp : cv.getFields()) {
 			System.out.println("jello");
-			System.out.println(comp);
-			System.out.println(fp.getType());
-			if (fp.getType().equals(comp)) {
+			System.out.println("peanut" + superName.replace('/', '.'));
+			System.out.println("salt  " + fp.getType());
+			if (fp.getType().equals(superName.replace('/', '.'))) {
+				System.out.println("jamjam");
 				return true;
 			}
+		}
+		if (cv.getSuperName() != "java.lang.object" && mdl.getClassByString(superName) != null){
+			System.out.println("recurse!" + comp);
+			return hasSuperClassAsField(cv, mdl.getClassByString(superName).getSuperName());
 		}
 		return false;
 	}
