@@ -96,10 +96,10 @@ public class DecoratorFinder implements IFindPatterns {
 		//System.out.println("fries");
 		String[] check = cv.getInterfaces();
 		if (check.length == 0) return false;
-		System.out.println("pudding");
+		//System.out.println("pudding");
 		for (String c : check) {
 			for (FieldPage fp : cv.getFields()) {
-				if (fp.getValue().toString().equals(c)) {
+				if (StU.ehhEquals(c, fp.getType())) {
 					return true;
 				}
 			}
