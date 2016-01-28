@@ -11,10 +11,10 @@ import problem.asm.storage.MetaDataLibrary;
 import problem.asm.storage.StU;
 
 public class AdapterFinder implements IFindPatterns {
-	
+
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
-	//private List<String> comp;
+	// private List<String> comp;
 	private String adaptee;
 
 	@Override
@@ -22,8 +22,9 @@ public class AdapterFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			String[] inters = cv.getInterfaces();
 			String choseninter = "";
-			if (inters.length > 0) choseninter = inters[0];
-			//this.comp = new ArrayList<String>();
+			if (inters.length > 0)
+				choseninter = inters[0];
+			// this.comp = new ArrayList<String>();
 			if (hasAdaptee(mdl, cv)) {
 				classToSpecial.put(choseninter, "target");
 				classToSpecial.put(StU.toDot(cv.getName()), "adapter");
@@ -31,26 +32,29 @@ public class AdapterFinder implements IFindPatterns {
 				edgeToLabel.put(StU.toClean(cv.getName()) + " -> " + StU.toClean(adaptee), "adapts");
 			}
 		}
-		
+
 	}
-	
+
 	public boolean hasAdaptee(MetaDataLibrary mdl, ClassVolume cv) {
 		ArrayList<String> fields = new ArrayList<String>();
 		for (FieldPage fp : cv.getFields()) {
-			fields.add(fp.getName());
+			fields.add(fp.getType());
 		}
 		for (ClassVolume c : mdl.getClassVolume()) {
-			for (String field : fields) {
-				if (StU.ehhEquals(field, c.getName())) {
-					adaptee = field;
-					return true;
+			if (!c.getName().equals(cv.getName())) {
+				for (String field : fields) {
+					// System.out.println("field: " + field);
+					// System.out.println("cname: " + c.getName());
+					if (StU.ehhEquals(field, c.getName())) {
+						System.out.println("ffdkj");
+						adaptee = field;
+						return true;
+					}
 				}
 			}
 		}
 		return false;
 	}
-	
-	
 
 	@Override
 	public String getName() {
@@ -78,7 +82,7 @@ public class AdapterFinder implements IFindPatterns {
 		if (edgeToLabel.keySet().contains(edgeDescription)) {
 			writer.print(", label = \"" + edgeToLabel.get(edgeDescription) + "\"");
 		}
-		
+
 	}
 
 }
