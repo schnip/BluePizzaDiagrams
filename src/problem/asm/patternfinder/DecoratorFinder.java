@@ -38,8 +38,8 @@ public class DecoratorFinder implements IFindPatterns {
 					}
 				}
 		}
-		System.out.println("classToSpecial:     " + this.classToSpecial.toString());
-		System.out.println("edgeToLabel:        " + this.edgeToLabel.toString());
+		//System.out.println("classToSpecial:     " + this.classToSpecial.toString());
+		//System.out.println("edgeToLabel:        " + this.edgeToLabel.toString());
 
 	}
 	
