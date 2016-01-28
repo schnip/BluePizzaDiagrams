@@ -17,7 +17,9 @@ headfirstdecoratorioLowerCaseInputStream [
 label = "{headfirst.decorator.io.LowerCaseInputStream||+\<init\> : void\l+read : int\l+read : int\l}"
 ]
 headfirstdecoratorstarbuzzBeverage [
-label = "{headfirst.decorator.starbuzz.Beverage|description : java.lang.String\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Beverage
+\<\<component\>\>\l|description : java.lang.String\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
 headfirstdecoratorstarbuzzCondimentDecorator [
 label = "{headfirst.decorator.starbuzz.CondimentDecorator||+\<init\> : void\l+getDescription : java.lang.String\l}"
@@ -35,19 +37,27 @@ headfirstdecoratorstarbuzzHouseBlend [
 label = "{headfirst.decorator.starbuzz.HouseBlend||+\<init\> : void\l+cost : double\l}"
 ]
 headfirstdecoratorstarbuzzMilk [
-label = "{headfirst.decorator.starbuzz.Milk|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Milk
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
 headfirstdecoratorstarbuzzMocha [
-label = "{headfirst.decorator.starbuzz.Mocha|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Mocha
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
 headfirstdecoratorstarbuzzSoy [
-label = "{headfirst.decorator.starbuzz.Soy|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Soy
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
 headfirstdecoratorstarbuzzStarbuzzCoffee [
 label = "{headfirst.decorator.starbuzz.StarbuzzCoffee||+\<init\> : void\l+main : void\l}"
 ]
 headfirstdecoratorstarbuzzWhip [
-label = "{headfirst.decorator.starbuzz.Whip|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Whip
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
 edge [ arrowhead = "empty", style = "none"  ]
 headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzCondimentDecorator
@@ -119,15 +129,15 @@ edge [ arrowhead = "vee", style = "dashed"
  ]
 headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzCondimentDecorator
 edge [ arrowhead = "vee", style = "none" 
- ]
+, label = "decorates" ]
 headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "none" 
- ]
+, label = "decorates" ]
 headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "none" 
- ]
+, label = "decorates" ]
 headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "none" 
- ]
+, label = "decorates" ]
 headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzBeverage
 }

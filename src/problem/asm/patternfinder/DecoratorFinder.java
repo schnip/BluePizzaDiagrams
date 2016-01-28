@@ -2,6 +2,7 @@ package problem.asm.patternfinder;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
 import problem.asm.storage.MethodBook;
+import problem.asm.storage.StU;
 
 public class DecoratorFinder implements IFindPatterns {
 
@@ -24,7 +26,7 @@ public class DecoratorFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			this.comp = new ArrayList<String>();
 				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv, cv.getSuperName())) {
-					System.out.println("grape");
+					//System.out.println("grape");
 					if (constructorTakesType(cv)) {
 						List<String> component = null;
 						component = this.comp;
@@ -42,35 +44,49 @@ public class DecoratorFinder implements IFindPatterns {
 	}
 	
 	public boolean constructorTakesType(ClassVolume cv) {
+		//System.out.println("yah");
 		for (MethodBook mb : cv.getMethods()) {
 			if (mb.getName().equals("<init>")) {
 				for (String arg : mb.getArgTypes()) {
 					String comp = cv.getSuperName();
 					String[] intcomp = cv.getInterfaces();
-					if (arg.equals(comp) || arg.equals(intcomp)) {
+					if (superConstructorTakesTypeLooperHelper(comp, arg) || StU.ehhContains(Arrays.asList(intcomp), arg)) {
 						this.comp.add(arg);
 						return true;
 					}
 				}
 			}
 		}
+		//System.out.println("nah");
+		return false;
+	}
+	
+	public boolean superConstructorTakesTypeLooperHelper(String superName, String arg) {
+		//System.out.println("fried fish");
+		if (StU.ehhEquals(arg, superName)) {
+			//System.out.println("watermellon");
+			return true;
+		}
+		if (mdl.getClassByString(superName) != null) {
+			return superConstructorTakesTypeLooperHelper(mdl.getClassByString(superName).getSuperName(), arg);
+		}
 		return false;
 	}
 	
 	public boolean hasSuperClassAsField(ClassVolume cv, String superName) {
-		System.out.println(" pasta " + cv.getName());
+		//System.out.println(" pasta " + cv.getName());
 		//String comp = cv.getSuperName();
 		for (FieldPage fp : cv.getFields()) {
-			System.out.println("jello");
-			System.out.println("peanut" + superName.replace('/', '.'));
-			System.out.println("salt  " + fp.getType());
+			//System.out.println("jello");
+			//System.out.println("peanut" + superName.replace('/', '.'));
+			//System.out.println("salt  " + fp.getType());
 			if (fp.getType().equals(superName.replace('/', '.'))) {
-				System.out.println("jamjam");
+				//System.out.println("jamjam");
 				return true;
 			}
 		}
 		if (cv.getSuperName() != "java.lang.object" && mdl.getClassByString(superName) != null){
-			System.out.println("recurse!" + comp);
+			//System.out.println("recurse!" + comp);
 			return hasSuperClassAsField(cv, mdl.getClassByString(superName).getSuperName());
 		}
 		return false;
