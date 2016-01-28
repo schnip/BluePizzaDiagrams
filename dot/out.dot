@@ -60,41 +60,41 @@ label = "{headfirst.decorator.starbuzz.Whip
 \<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
 edge [ arrowhead = "empty", style = "none"  ]
-headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzCondimentDecorator
+headfirstdecoratorstarbuzzEspresso -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "empty", style = "none"  ]
 headfirstdecoratorstarbuzzDecaf -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "empty", style = "none"  ]
-headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzCondimentDecorator
-edge [ arrowhead = "empty", style = "none"  ]
-headfirstdecoratorstarbuzzEspresso -> headfirstdecoratorstarbuzzBeverage
-edge [ arrowhead = "empty", style = "none"  ]
-headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzCondimentDecorator
-edge [ arrowhead = "empty", style = "none"  ]
-headfirstdecoratorstarbuzzDarkRoast -> headfirstdecoratorstarbuzzBeverage
-edge [ arrowhead = "empty", style = "none"  ]
-headfirstdecoratorstarbuzzHouseBlend -> headfirstdecoratorstarbuzzBeverage
+headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzCondimentDecorator
 edge [ arrowhead = "empty", style = "none"  ]
 headfirstdecoratorstarbuzzCondimentDecorator -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzDarkRoast -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzHouseBlend -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
 headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzMocha
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzDarkRoast
 edge [ arrowhead = "vee", style = "dashed" 
  ]
 headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzCondimentDecorator
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzEspresso
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzCondimentDecorator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzCondimentDecorator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzHouseBlend
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzSoy
+headfirstdecoratorstarbuzzHouseBlend -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "dashed" 
  ]
 headfirstdecoratorioInputTest -> headfirstdecoratorioLowerCaseInputStream
@@ -106,7 +106,13 @@ edge [ arrowhead = "vee", style = "dashed"
 headfirstdecoratorstarbuzzEspresso -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzMocha
+headfirstdecoratorstarbuzzCondimentDecorator -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzSoy
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzHouseBlend
 edge [ arrowhead = "vee", style = "dashed" 
  ]
 headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzWhip
@@ -115,29 +121,23 @@ edge [ arrowhead = "vee", style = "dashed"
 headfirstdecoratorstarbuzzDarkRoast -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-headfirstdecoratorstarbuzzHouseBlend -> headfirstdecoratorstarbuzzBeverage
+headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzCondimentDecorator
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzBeverage
+headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzCondimentDecorator
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzDarkRoast
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-headfirstdecoratorstarbuzzCondimentDecorator -> headfirstdecoratorstarbuzzBeverage
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzCondimentDecorator
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzEspresso
 edge [ arrowhead = "vee", style = "none" 
 , label = "decorates" ]
 headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "none" 
+, label = "decorates" ]
+headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "none" 
 , label = "decorates" ]
 headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "none" 
 , label = "decorates" ]
 headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzBeverage
-edge [ arrowhead = "vee", style = "none" 
-, label = "decorates" ]
-headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzBeverage
 }

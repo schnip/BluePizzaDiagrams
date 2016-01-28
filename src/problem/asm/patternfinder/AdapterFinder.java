@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import problem.asm.storage.ClassVolume;
+import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
 
 public class AdapterFinder implements IFindPatterns {
@@ -18,12 +19,29 @@ public class AdapterFinder implements IFindPatterns {
 	@Override
 	public void intake(MetaDataLibrary mdl) {
 		for (ClassVolume cv : mdl.getClassVolume()) {
+			String[] inters = cv.getInterfaces();
+			String choseninter = "";
+			if (inters.length > 0) choseninter = inters[0];
 			this.comp = new ArrayList<String>();
-			
+			if (hasAdaptee(mdl, cv)) {
+				
+			}
 		}
 		
 	}
 	
+	public boolean hasAdaptee(MetaDataLibrary mdl, ClassVolume cv) {
+		ArrayList<String> fields = new ArrayList<String>();
+		for (FieldPage fp : cv.getFields()) {
+			fields.add(fp.getName());
+		}
+		for (ClassVolume c : mdl.getClassVolume()) {
+			for (String field : fields) {
+				if (field.equals(c.getName()));
+			}
+		}
+		return false;
+	}
 	
 	
 
