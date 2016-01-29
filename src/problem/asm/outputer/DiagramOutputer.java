@@ -197,7 +197,7 @@ public class DiagramOutputer implements IOutputData {
 	}
 	
 	private String parseStringForT(String s) {
-		System.out.println("pineapple time!!! " + s);
+		//System.out.println("pineapple time!!! " + s);
 		if (s.equals("()TE;")) {
 			return "TE";
 		}
