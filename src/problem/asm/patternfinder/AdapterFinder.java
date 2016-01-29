@@ -19,6 +19,7 @@ public class AdapterFinder implements IFindPatterns {
 	@Override
 	public void intake(MetaDataLibrary mdl) {
 		for (ClassVolume cv : mdl.getClassVolume()) {
+			System.out.println("classes:   " + cv.getName());
 			String[] inters = cv.getInterfaces();
 			String choseninter = "";
 			if (inters.length > 0)
@@ -38,7 +39,10 @@ public class AdapterFinder implements IFindPatterns {
 		for (FieldPage fp : cv.getFields()) {
 			fields.add(fp.getType());
 		}
+		
 		for (String field : fields) {
+			System.out.println("field:  " + field);
+			System.out.println("cvname: " + cv.getName());
 			if (StU.ehhEquals(field, cv.getName())) {
 				adaptee = field;
 				return true;

@@ -10,34 +10,10 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemclientApp [
-label = "{problem.client.App||+\<init\> : void\l+main : void\l}"
+javautilCalendar [
+label = "{java.util.Calendar|ERA : int\lYEAR : int\lMONTH : int\lWEEK_OF_YEAR : int\lWEEK_OF_MONTH : int\lDATE : int\lDAY_OF_MONTH : int\lDAY_OF_YEAR : int\lDAY_OF_WEEK : int\lDAY_OF_WEEK_IN_MONTH : int\lAM_PM : int\lHOUR : int\lHOUR_OF_DAY : int\lMINUTE : int\lSECOND : int\lMILLISECOND : int\lZONE_OFFSET : int\lDST_OFFSET : int\lFIELD_COUNT : int\lSUNDAY : int\lMONDAY : int\lTUESDAY : int\lWEDNESDAY : int\lTHURSDAY : int\lFRIDAY : int\lSATURDAY : int\lJANUARY : int\lFEBRUARY : int\lMARCH : int\lAPRIL : int\lMAY : int\lJUNE : int\lJULY : int\lAUGUST : int\lSEPTEMBER : int\lOCTOBER : int\lNOVEMBER : int\lDECEMBER : int\lUNDECIMBER : int\lAM : int\lPM : int\lALL_STYLES : int\lSHORT : int\lLONG : int\lfields : int[]\lisSet : boolean[]\lstamp : int[]\ltime : long\lisTimeSet : boolean\lareFieldsSet : boolean\lareAllFieldsSet : boolean\llenient : boolean\lzone : java.util.TimeZone\lsharedZone : boolean\lfirstDayOfWeek : int\lminimalDaysInFirstWeek : int\lcachedLocaleData : java.util.Locale;[I>;\lUNSET : int\lCOMPUTED : int\lMINIMUM_USER_STAMP : int\lALL_FIELDS : int\lnextStamp : int\lcurrentSerialVersion : int\lserialVersionOnStream : int\lserialVersionUID : long\lERA_MASK : int\lYEAR_MASK : int\lMONTH_MASK : int\lWEEK_OF_YEAR_MASK : int\lWEEK_OF_MONTH_MASK : int\lDAY_OF_MONTH_MASK : int\lDATE_MASK : int\lDAY_OF_YEAR_MASK : int\lDAY_OF_WEEK_MASK : int\lDAY_OF_WEEK_IN_MONTH_MASK : int\lAM_PM_MASK : int\lHOUR_MASK : int\lHOUR_OF_DAY_MASK : int\lMINUTE_MASK : int\lSECOND_MASK : int\lMILLISECOND_MASK : int\lZONE_OFFSET_MASK : int\lDST_OFFSET_MASK : int\lFIELD_NAME : java.lang.String[]\l$assertionsDisabled : boolean\l|\<init\> : void\l\<init\> : void\l+getInstance : java.util.Calendar\l+getInstance : java.util.Calendar\l+getInstance : java.util.Calendar\l+getInstance : java.util.Calendar\lcreateCalendar : java.util.Calendar\l+getAvailableLocales : java.util.Locale[]\lcomputeTime : void\lcomputeFields : void\l+getTime : java.util.Date\l+setTime : void\l+getTimeInMillis : long\l+setTimeInMillis : void\l+get : int\linternalGet : int\linternalSet : void\l+set : void\l+set : void\l+set : void\l+set : void\l+clear : void\l+clear : void\l+isSet : boolean\l+getDisplayName : java.lang.String\l+getDisplayNames : java.lang.String;Ljava.lang.Integer\lgetDisplayNamesImpl : java.lang.String;Ljava.lang.Integer\lcheckDisplayNameParams : boolean\lgetFieldStrings : java.lang.String[]\lcomplete : void\lisExternallySet : boolean\lgetSetStateFields : int\lsetFieldsComputed : void\lsetFieldsNormalized : void\lisPartiallyNormalized : boolean\lisFullyNormalized : boolean\lsetUnnormalized : void\lisFieldSet : boolean\lselectFields : int\laggregateStamp : int\l+equals : boolean\l+hashCode : int\l+before : boolean\l+after : boolean\l+compareTo : int\l+add : void\l+roll : void\l+roll : void\l+setTimeZone : void\l+getTimeZone : java.util.TimeZone\lgetZone : java.util.TimeZone\lsetZoneShared : void\l+setLenient : void\l+isLenient : boolean\l+setFirstDayOfWeek : void\l+getFirstDayOfWeek : int\l+setMinimalDaysInFirstWeek : void\l+getMinimalDaysInFirstWeek : int\l+isWeekDateSupported : boolean\l+getWeekYear : int\l+setWeekDate : void\l+getWeeksInWeekYear : int\l+getMinimum : int\l+getMaximum : int\l+getGreatestMinimum : int\l+getLeastMaximum : int\l+getActualMinimum : int\l+getActualMaximum : int\l+clone : java.lang.Object\lgetFieldName : java.lang.String\l+toString : java.lang.String\lappendValue : void\lsetWeekCountData : void\lupdateTime : void\lcompareTo : int\lgetMillisOf : long\ladjustStamp : void\linvalidateWeekFields : void\lwriteObject : void\lreadObject : void\l+compareTo : int\l\<clinit\> : void\l}"
 ]
-problemclientIteratorToEnumerationAdapter [
-label = "{problem.client.IteratorToEnumerationAdapter|itr : TE\l|+\<init\> : TE)V\l+hasMoreElements : boolean\l+nextElement : TE\l}"
-]
-problemlibLinearTransformer [
-label = "{problem.lib.LinearTransformer|enumTion : TT\l|+\<init\> : TT)V\l+transform : void\l}"
-]
-javautilEnumeration [
-label = "{java.util.Enumeration||+hasMoreElements : boolean\l+nextElement : TE\l}"
-]
-javautilIterator [
-label = "{java.util.Iterator||+hasNext : boolean\l+next : TE\l+remove : void\l}"
-]
-edge [ arrowhead = "empty", style = "dashed" 
- ]
-problemclientIteratorToEnumerationAdapter -> javautilEnumeration
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemlibLinearTransformer -> javautilEnumeration
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientApp -> problemlibLinearTransformer
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientIteratorToEnumerationAdapter -> javautilIterator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientApp -> problemclientIteratorToEnumerationAdapter
+javautilCalendar -> javautilCalendar
 }
