@@ -52,14 +52,14 @@ public class AdapterFinder implements IFindPatterns {
 	private void testThirdCombo(ClassVolume pAdapter, ClassVolume pAdaptee, ClassVolume pTarget) {
 //		System.out.println("the third circle");
 		for (MethodBook mb : pAdapter.getMethods()) {
-			System.out.println(mb.getName());
+//			System.out.println(mb.getName());
 			int passable = 0;
 			if (mb.getName().equals("<init>")) {
 				passable++;
 			}
 			for (MethodCallParagraph mcp : pAdapter.getMethodCall()) {
 				for (MethodBook mbee : pAdaptee.getMethods()) {
-					System.out.println("  " + mcp.getName() + " " + mcp.getMethodName());
+//					System.out.println("  " + mcp.getName() + " " + mcp.getMethodName());
 					if (mbee.getName().equals(mcp.getName()) && mb.getName().equals(mcp.getMethodName()) && StU.ehhEquals(pAdaptee.getName(), mcp.getOwner())) {
 						passable++;
 					}
