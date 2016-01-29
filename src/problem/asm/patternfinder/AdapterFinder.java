@@ -14,7 +14,6 @@ public class AdapterFinder implements IFindPatterns {
 
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
-	// private List<String> comp;
 	private String adaptee;
 
 	@Override
@@ -24,7 +23,6 @@ public class AdapterFinder implements IFindPatterns {
 			String choseninter = "";
 			if (inters.length > 0)
 				choseninter = inters[0];
-			// this.comp = new ArrayList<String>();
 			if (hasAdaptee(mdl, cv)) {
 				classToSpecial.put(choseninter, "target");
 				classToSpecial.put(StU.toDot(cv.getName()), "adapter");
@@ -40,19 +38,17 @@ public class AdapterFinder implements IFindPatterns {
 		for (FieldPage fp : cv.getFields()) {
 			fields.add(fp.getType());
 		}
-		for (ClassVolume c : mdl.getClassVolume()) {
-			if (!c.getName().equals(cv.getName())) {
-				for (String field : fields) {
-					// System.out.println("field: " + field);
-					// System.out.println("cname: " + c.getName());
-					if (StU.ehhEquals(field, c.getName())) {
-						System.out.println("ffdkj");
-						adaptee = field;
-						return true;
-					}
-				}
+		for (String field : fields) {
+			if (StU.ehhEquals(field, cv.getName())) {
+				adaptee = field;
+				return true;
 			}
 		}
+		return false;
+	}
+
+	public boolean sameMethods(ClassVolume cv, MetaDataLibrary mdl) {
+
 		return false;
 	}
 

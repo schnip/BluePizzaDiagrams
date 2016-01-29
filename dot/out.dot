@@ -14,36 +14,28 @@ problemclientApp [
 label = "{problem.client.App||+\<init\> : void\l+main : void\l}"
 ]
 problemclientIteratorToEnumerationAdapter [
-fillcolor=red, style=filled,
-label = "{problem.client.IteratorToEnumerationAdapter
-\<\<adapter\>\>\l|itr : TE\l|+\<init\> : TE)V\l+hasMoreElements : boolean\l+nextElement : TE\l}"
+label = "{problem.client.IteratorToEnumerationAdapter|itr : TE\l|+\<init\> : TE)V\l+hasMoreElements : boolean\l+nextElement : TE\l}"
 ]
 problemlibLinearTransformer [
-fillcolor=red, style=filled,
-label = "{problem.lib.LinearTransformer
-\<\<adapter\>\>\l|enumTion : TT\l|+\<init\> : TT)V\l+transform : void\l}"
+label = "{problem.lib.LinearTransformer|enumTion : TT\l|+\<init\> : TT)V\l+transform : void\l}"
 ]
 javautilEnumeration [
-fillcolor=red, style=filled,
-label = "{java.util.Enumeration
-\<\<adaptee\>\>\l||+hasMoreElements : boolean\l+nextElement : TE\l}"
+label = "{java.util.Enumeration||+hasMoreElements : boolean\l+nextElement : TE\l}"
 ]
 javautilIterator [
-fillcolor=red, style=filled,
-label = "{java.util.Iterator
-\<\<adaptee\>\>\l||+hasNext : boolean\l+next : TE\l+remove : void\l}"
+label = "{java.util.Iterator||+hasNext : boolean\l+next : TE\l+remove : void\l}"
 ]
 edge [ arrowhead = "empty", style = "dashed" 
  ]
 problemclientIteratorToEnumerationAdapter -> javautilEnumeration
 edge [ arrowhead = "vee", style = "dashed" 
-, label = "adapts" ]
+ ]
 problemlibLinearTransformer -> javautilEnumeration
 edge [ arrowhead = "vee", style = "dashed" 
  ]
 problemclientApp -> problemlibLinearTransformer
 edge [ arrowhead = "vee", style = "dashed" 
-, label = "adapts" ]
+ ]
 problemclientIteratorToEnumerationAdapter -> javautilIterator
 edge [ arrowhead = "vee", style = "dashed" 
  ]
