@@ -41,6 +41,7 @@ public class AdapterFinder implements IFindPatterns {
 	}
 
 	private void testSecondCombo(ClassVolume pAdapter, ClassVolume pAdaptee, ClassVolume pTarget) {
+//		System.out.println("the second circle");
 		for (FieldPage fp : pAdapter.getFields()) {
 			if (StU.ehhEquals(fp.getType(), pAdaptee.getName())) {
 				testThirdCombo(pAdapter, pAdaptee, pTarget);
@@ -49,11 +50,19 @@ public class AdapterFinder implements IFindPatterns {
 	}
 
 	private void testThirdCombo(ClassVolume pAdapter, ClassVolume pAdaptee, ClassVolume pTarget) {
+//		System.out.println("the third circle");
 		for (MethodBook mb : pAdapter.getMethods()) {
+			System.out.println(mb.getName());
 			int passable = 0;
-			for (MethodCallParagraph mcp : pAdaptee.getMethodCall()) {
-				if (StU.ehhEquals(mcp.getOwner(), pAdaptee.getName()) && StU.ehhEquals(mb.getName(), mcp.getMethodName())) {
-					passable++;
+			if (mb.getName().equals("<init>")) {
+				passable++;
+			}
+			for (MethodCallParagraph mcp : pAdapter.getMethodCall()) {
+				for (MethodBook mbee : pAdaptee.getMethods()) {
+					System.out.println("  " + mcp.getName() + " " + mcp.getMethodName());
+					if (mbee.getName().equals(mcp.getName()) && mb.getName().equals(mcp.getMethodName()) && StU.ehhEquals(pAdaptee.getName(), mcp.getOwner())) {
+						passable++;
+					}
 				}
 			}
 			if (passable <= 0) {
