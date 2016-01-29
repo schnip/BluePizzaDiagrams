@@ -1,59 +1,69 @@
 package problem.asm.patternfinder;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
+import problem.asm.storage.MethodBook;
+import problem.asm.storage.MethodCallParagraph;
 import problem.asm.storage.StU;
 
 public class AdapterFinder implements IFindPatterns {
 
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
-	private String adaptee;
+	//private MetaDataLibrary mdl;
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
-		for (ClassVolume cv : mdl.getClassVolume()) {
-			System.out.println("classes:   " + cv.getName());
-			String[] inters = cv.getInterfaces();
-			String choseninter = "";
-			if (inters.length > 0)
-				choseninter = inters[0];
-			if (hasAdaptee(mdl, cv)) {
-				classToSpecial.put(choseninter, "target");
-				classToSpecial.put(StU.toDot(cv.getName()), "adapter");
-				classToSpecial.put(adaptee, "adaptee");
-				edgeToLabel.put(StU.toClean(cv.getName()) + " -> " + StU.toClean(adaptee), "adapts");
+		//this.mdl = mdl;
+		for (ClassVolume pAdapter : mdl.getClassVolume()) {
+			for (ClassVolume pAdaptee : mdl.getClassVolume()) {
+				for (ClassVolume pTarget : mdl.getClassVolume()) {
+					testFirstCombo(pAdapter, pAdaptee, pTarget);
+				}
 			}
 		}
-
 	}
-
-	public boolean hasAdaptee(MetaDataLibrary mdl, ClassVolume cv) {
-		ArrayList<String> fields = new ArrayList<String>();
-		for (FieldPage fp : cv.getFields()) {
-			fields.add(fp.getType());
+	
+	private void testFirstCombo(ClassVolume pAdapter, ClassVolume pAdaptee, ClassVolume pTarget) {
+		if (StU.ehhEquals(pAdapter.getName(), pAdaptee.getName()) || StU.ehhEquals(pAdapter.getName(), pTarget.getName()) || StU.ehhEquals(pAdaptee.getName(), pTarget.getName())) {
+			return;
 		}
-		
-		for (String field : fields) {
-			System.out.println("field:  " + field);
-			System.out.println("cvname: " + cv.getName());
-			if (StU.ehhEquals(field, cv.getName())) {
-				adaptee = field;
-				return true;
+		for (String s : pAdapter.getInterfaces()) {
+			if (StU.ehhEquals(s, pTarget.getName())) {
+				testSecondCombo(pAdapter, pAdaptee, pTarget);
 			}
 		}
-		return false;
 	}
 
-	public boolean sameMethods(ClassVolume cv, MetaDataLibrary mdl) {
+	private void testSecondCombo(ClassVolume pAdapter, ClassVolume pAdaptee, ClassVolume pTarget) {
+		for (FieldPage fp : pAdapter.getFields()) {
+			if (StU.ehhEquals(fp.getType(), pAdaptee.getName())) {
+				testThirdCombo(pAdapter, pAdaptee, pTarget);
+			}
+		}
+	}
 
-		return false;
+	private void testThirdCombo(ClassVolume pAdapter, ClassVolume pAdaptee, ClassVolume pTarget) {
+		for (MethodBook mb : pAdapter.getMethods()) {
+			int passable = 0;
+			for (MethodCallParagraph mcp : pAdaptee.getMethodCall()) {
+				if (StU.ehhEquals(mcp.getOwner(), pAdaptee.getName()) && StU.ehhEquals(mb.getName(), mcp.getMethodName())) {
+					passable++;
+				}
+			}
+			if (passable <= 0) {
+				return;
+			}	
+		}
+		classToSpecial.put(StU.toDot(pTarget.getName()), "target");
+		classToSpecial.put(StU.toDot(pAdapter.getName()), "adapter");
+		classToSpecial.put(StU.toDot(pAdaptee.getName()), "adaptee");
+		edgeToLabel.put(StU.toArrow(pAdapter.getName(), pAdaptee.getName()), "\\<\\<adapts\\>\\>");
 	}
 
 	@Override

@@ -26,5 +26,9 @@ public class StU {
 		}
 		return false;
 	}
+	
+	public static String toArrow(String from, String to) {
+		return toClean(from) + " -> " + toClean(to);
+	}
 
 }
