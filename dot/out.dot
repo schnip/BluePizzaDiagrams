@@ -10,43 +10,166 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemclientApp [
-label = "{problem.client.App||+\<init\> : void\l+main : void\l}"
+headfirstdecoratorioInputTest [
+label = "{headfirst.decorator.io.InputTest||+\<init\> : void\l+main : void\l}"
 ]
-problemclientIteratorToEnumerationAdapter [
-fillcolor=red, style=filled,
-label = "{problem.client.IteratorToEnumerationAdapter
-\<\<adapter\>\>\l|itr : TE\l|+\<init\> : TE)V\l+hasMoreElements : boolean\l+nextElement : TE\l}"
+headfirstdecoratorioLowerCaseInputStream [
+label = "{headfirst.decorator.io.LowerCaseInputStream||+\<init\> : void\l+read : int\l+read : int\l}"
 ]
-problemlibLinearTransformer [
-label = "{problem.lib.LinearTransformer|enumTion : TT\l|+\<init\> : TT)V\l+transform : void\l}"
+headfirstdecoratorstarbuzzBeverage [
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Beverage
+\<\<component\>\>\l|description : java.lang.String\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
 ]
-javautilEnumeration [
-fillcolor=red, style=filled,
-label = "{java.util.Enumeration
-\<\<target\>\>\l||+hasMoreElements : boolean\l+nextElement : TE\l}"
+headfirstdecoratorstarbuzzCondimentDecorator [
+label = "{headfirst.decorator.starbuzz.CondimentDecorator||+\<init\> : void\l+getDescription : java.lang.String\l}"
 ]
-javautilIterator [
-fillcolor=red, style=filled,
-label = "{java.util.Iterator
-\<\<adaptee\>\>\l||+hasNext : boolean\l+next : TE\l+remove : void\l+forEachRemaining : -TE)V\l}"
+headfirstdecoratorstarbuzzDarkRoast [
+label = "{headfirst.decorator.starbuzz.DarkRoast||+\<init\> : void\l+cost : double\l}"
 ]
-edge [ arrowhead = "empty", style = "dashed" 
- ]
-problemclientIteratorToEnumerationAdapter -> javautilEnumeration
+headfirstdecoratorstarbuzzDecaf [
+label = "{headfirst.decorator.starbuzz.Decaf||+\<init\> : void\l+cost : double\l}"
+]
+headfirstdecoratorstarbuzzEspresso [
+label = "{headfirst.decorator.starbuzz.Espresso||+\<init\> : void\l+cost : double\l}"
+]
+headfirstdecoratorstarbuzzHouseBlend [
+label = "{headfirst.decorator.starbuzz.HouseBlend||+\<init\> : void\l+cost : double\l}"
+]
+headfirstdecoratorstarbuzzMilk [
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Milk
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+]
+headfirstdecoratorstarbuzzMocha [
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Mocha
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+]
+headfirstdecoratorstarbuzzSoy [
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Soy
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+]
+headfirstdecoratorstarbuzzStarbuzzCoffee [
+label = "{headfirst.decorator.starbuzz.StarbuzzCoffee||+\<init\> : void\l+main : void\l}"
+]
+headfirstdecoratorstarbuzzWhip [
+fillcolor=green, style=filled,
+label = "{headfirst.decorator.starbuzz.Whip
+\<\<decorator\>\>\l|beverage : headfirst.decorator.starbuzz.Beverage\l|+\<init\> : void\l+getDescription : java.lang.String\l+cost : double\l}"
+]
+javaioInputStream [
+fillcolor=green, style=filled,
+label = "{java.io.InputStream
+\<\<component\>\>\l|MAX_SKIP_BUFFER_SIZE : int\l|+\<init\> : void\l+read : int\l+read : int\l+read : int\l+skip : long\l+available : int\l+close : void\l+mark : void\l+reset : void\l+markSupported : boolean\l}"
+]
+javaioFilterInputStream [
+fillcolor=green, style=filled,
+label = "{java.io.FilterInputStream
+\<\<decorator\>\>\l|in : java.io.InputStream\l|\<init\> : void\l+read : int\l+read : int\l+read : int\l+skip : long\l+available : int\l+close : void\l+mark : void\l+reset : void\l+markSupported : boolean\l}"
+]
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzEspresso -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzDecaf -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzCondimentDecorator -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none" , label = "decorates" ]
+javaioFilterInputStream -> javaioInputStream
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzDarkRoast -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzHouseBlend -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "empty", style = "none"  ]
+headfirstdecoratorioLowerCaseInputStream -> javaioFilterInputStream
 edge [ arrowhead = "vee", style = "dashed" 
-, label = "\<\<adapts\>\>" ]
-problemclientIteratorToEnumerationAdapter -> javautilIterator
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemclientApp -> problemlibLinearTransformer
+headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzCondimentDecorator
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemclientApp -> problemclientIteratorToEnumerationAdapter
+headfirstdecoratorstarbuzzHouseBlend -> headfirstdecoratorstarbuzzBeverage
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemlibLinearTransformer -> javautilEnumeration
+headfirstdecoratorioInputTest -> javaioInputStream
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-javautilIterator -> javautilIterator
+javaioFilterInputStream -> javaioFilterInputStream
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorioInputTest -> headfirstdecoratorioLowerCaseInputStream
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzWhip
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorioLowerCaseInputStream -> javaioFilterInputStream
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzEspresso
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzMocha
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzDarkRoast
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzEspresso -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzDecaf -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzCondimentDecorator -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorioLowerCaseInputStream -> javaioInputStream
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzHouseBlend
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzStarbuzzCoffee -> headfirstdecoratorstarbuzzSoy
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzDarkRoast -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzCondimentDecorator
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+javaioInputStream -> javaioInputStream
+edge [ arrowhead = "vee", style = "none" 
+, label = "decorates" ]
+headfirstdecoratorstarbuzzMilk -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "none" 
+, label = "decorates" ]
+javaioFilterInputStream -> javaioInputStream
+edge [ arrowhead = "vee", style = "none" 
+, label = "decorates" ]
+headfirstdecoratorstarbuzzMocha -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "none" 
+, label = "decorates" ]
+headfirstdecoratorstarbuzzWhip -> headfirstdecoratorstarbuzzBeverage
+edge [ arrowhead = "vee", style = "none" 
+, label = "decorates" ]
+headfirstdecoratorstarbuzzSoy -> headfirstdecoratorstarbuzzBeverage
 }

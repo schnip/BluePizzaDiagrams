@@ -15,6 +15,7 @@ import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
 import problem.asm.storage.MethodBook;
+import problem.asm.storage.StU;
 import problem.asm.storage.UseSentence;
 
 public class DiagramOutputer implements IOutputData {
@@ -64,7 +65,10 @@ public class DiagramOutputer implements IOutputData {
 					p.writeAttributes(v.getName().replace('/', '.'), writer);
 				}
 				
-				writer.print("label = \"{" + v.getName().replace('/', '.'));
+				writer.print("label = \"{");
+				
+				
+				writer.print(StU.toDot(v.getName()));
 				
 				// Print any patterns this class participates in
 				for (IFindPatterns p : this.patternfinders) {
@@ -84,6 +88,7 @@ public class DiagramOutputer implements IOutputData {
 				
 				// Save interface data
 				for (String s : v.getInterfaces()) {
+					System.out.println(s);
 					if (m.contains(s)) {
 						this.interfaces.add(v.getName().replaceAll("/", "") + " -> " + s.replaceAll("/", ""));
 					}
@@ -93,11 +98,6 @@ public class DiagramOutputer implements IOutputData {
 				for (FieldPage fp : v.getFields()) {
 					String type = Type.getType(fp.getDesc()).getClassName();
 					if (fp.getSignature() != null) {
-//						System.out.println("fp sig:     " + fp.getSignature());
-//						System.out.println("fp name:    " + fp.getName());
-//						System.out.println("fp access:  " + fp.getAccess());
-//						System.out.println("fp desc:    " + fp.getDesc());
-//						System.out.println("fp value    " + fp.getValue());
 						type = parseStringForT(fp.getSignature());
 					}
 					writer.print(fp.getName() + " : " + type + "\\l");
