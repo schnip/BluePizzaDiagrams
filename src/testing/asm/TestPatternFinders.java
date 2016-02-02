@@ -224,4 +224,82 @@ public class TestPatternFinders {
 		}
 		assertEquals(4, count);
 	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testAdapterSingleComponent() throws IOException {
+		String [] args = {"-d", "problem.client.App", "problem.client.IteratorToEnumerationAdapter", "problem.lib.LinearTransformer",
+				"java.util.Enumeration", "java.util.Iterator"};
+	
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		if (content.contains("\\<\\<adapter\\>\\>\\")) {
+			//fail();
+		} else {
+			// We're all good
+			fail();
+		}
+	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testAdaptsTwotimes() throws IOException {
+		String [] args = {"-d", "problem.client.App", "problem.client.IteratorToEnumerationAdapter", "problem.lib.LinearTransformer",
+				"java.util.Enumeration", "java.util.Iterator"};
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		String checkString = "adapts";
+		int lastIndex = 0;
+		int count = 0;
+		while(lastIndex != -1){
+
+		    lastIndex = content.indexOf(checkString,lastIndex);
+
+		    if(lastIndex != -1){
+		        count ++;
+		        lastIndex += checkString.length();
+		    }
+		}
+		assertEquals(1, count);
+	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testAdaptsArrow() throws IOException {
+		String [] args = {"-d", "problem.client.App", "problem.client.IteratorToEnumerationAdapter", "problem.lib.LinearTransformer",
+				"java.util.Enumeration", "java.util.Iterator"};
+	
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		if (content.contains("problemclientIteratorToEnumerationAdapter -> javautilIterator")) {
+			if (content.contains("edge [ arrowhead = \"vee\", style = \"dashed\""));
+			
+		} else {
+			// We're all good
+			fail();
+		}
+		
+		
+	}
+	
+	public void testAdapterColoring() throws IOException {
+		String [] args = {"-d", "problem.client.App", "problem.client.IteratorToEnumerationAdapter", "problem.lib.LinearTransformer",
+				"java.util.Enumeration", "java.util.Iterator"};
+	
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		String checkString = "fillcolor=red";
+		int lastIndex = 0;
+		int count = 0;
+		while(lastIndex != -1){
+
+		    lastIndex = content.indexOf(checkString,lastIndex);
+
+		    if(lastIndex != -1){
+		        count ++;
+		        lastIndex += checkString.length();
+		    }
+		}
+		assertEquals(3, count);
+	}
 }
