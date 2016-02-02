@@ -7,7 +7,7 @@ import java.util.Set;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
-import problem.asm.patternfinder.IFindPatterns;
+import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -30,7 +30,7 @@ public class DiagramOutputer implements IOutputData {
 
 	@Override
 	public void outputData(MetaDataLibrary m) {
-		StU.loadClasses("bin/problem/asm/patternfinder", patternfinders, IFindPatterns.class);
+		StU.loadClasses("bin/problem/asm/patternfinder", patternfinders);
 		for (IFindPatterns s : this.patternfinders) {
 			s.intake(m);
 		}

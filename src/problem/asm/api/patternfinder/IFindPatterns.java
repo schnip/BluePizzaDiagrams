@@ -1,4 +1,4 @@
-package problem.asm.patternfinder;
+package problem.asm.api.patternfinder;
 
 import java.io.PrintWriter;
 

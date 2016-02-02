@@ -1,9 +1,10 @@
-package problem.asm.patternfinder;
+package problem.asm.impl.patternfinder;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
