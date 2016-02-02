@@ -30,7 +30,7 @@ public class DiagramOutputer implements IOutputData {
 
 	@Override
 	public void outputData(MetaDataLibrary m) {
-		StU.loadClasses("bin/problem/asm/patternfinder", patternfinders);
+		StU.loadClasses("bin/problem/asm/impl/patternfinder", patternfinders);
 		for (IFindPatterns s : this.patternfinders) {
 			s.intake(m);
 		}
