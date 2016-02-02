@@ -1,5 +1,11 @@
 package problem.asm.storage;
 
+import java.util.Set;
+
+import problem.asm.patternfinder.AdapterFinder;
+import problem.asm.patternfinder.DecoratorFinder;
+import problem.asm.patternfinder.SingletonFinder;
+
 public class StU {
 	
 	public static String toDot(String s) {
@@ -29,6 +35,15 @@ public class StU {
 	
 	public static String toArrow(String from, String to) {
 		return toClean(from) + " -> " + toClean(to);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static void loadClasses(String packagepath, Set patternfinders, Class typeWanted) {
+		// TODO Auto-generated method stub
+		patternfinders.add(new SingletonFinder());
+		patternfinders.add(new AdapterFinder());
+		patternfinders.add(new DecoratorFinder());
+//		URL resource = ClassLoader.getSystemClassLoader().getResource(packagepath);
 	}
 
 }
