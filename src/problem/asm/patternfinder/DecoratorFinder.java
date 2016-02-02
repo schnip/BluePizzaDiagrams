@@ -25,7 +25,9 @@ public class DecoratorFinder implements IFindPatterns {
 		this.mdl = mdl;
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			this.comp = new ArrayList<String>();
+//			System.out.println("cvog:   " + cv.getName());
 				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv, cv.getSuperName())) {
+//					System.out.println("cv name:   " + cv.getName());
 					//System.out.println("grape");
 					if (constructorTakesType(cv)) {
 						List<String> component = null;
