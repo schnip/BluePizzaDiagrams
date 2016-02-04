@@ -3,6 +3,7 @@ package problem.asm.impl.patternfinder;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.storage.ClassVolume;
@@ -15,6 +16,7 @@ public class CompositeFinder implements IFindPatterns {
 	
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private MetaDataLibrary mdl;
+	private Set<String> componentSet;
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
@@ -25,10 +27,11 @@ public class CompositeFinder implements IFindPatterns {
 				classToSpecial.put(cv.getName(), "component");
 			}
 		}
+		componentSet = classToSpecial.keySet();
 		
 		// Find the composites
 		for (ClassVolume cv : mdl.getClassVolume()) {
-			for (String potentialComponent : classToSpecial.keySet()) {
+			for (String potentialComponent : componentSet) {
 				if (isExtension(cv, potentialComponent))
 					if (hasTwoMethodsTaking(cv, potentialComponent))
 						if (hasCollectionOf(cv, potentialComponent))
@@ -38,7 +41,7 @@ public class CompositeFinder implements IFindPatterns {
 		
 		// Find the leaves
 		for (ClassVolume cv : mdl.getClassVolume()) {
-			for (String potentialComponent : classToSpecial.keySet()) {
+			for (String potentialComponent : componentSet) {
 				if (isExtension(cv, potentialComponent))
 					StU.putIfAbsent(cv.getName(), "leaf", classToSpecial);
 			}
