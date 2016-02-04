@@ -10,42 +10,294 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemfoodtreefoodBanana [
-fillcolor=yellow, style=filled,
-label = "{problem.food.treefood.Banana
-\<\<leaf\>\>\l||+\<init\> : void\l+IAMABANANANNANANANA : void\l}"
+problemasmDesignParser [
+label = "{problem.asm.DesignParser||+\<init\> : void\l+main : void\l+findStart : java.lang.StringLjava.lang.String;)I\l+chopStart : java.lang.String\l+getArg : java.lang.StringLjava.lang.String;)Ljava.lang.String;\l}"
 ]
-problemfoodtreefoodBowl [
-fillcolor=yellow, style=filled,
-label = "{problem.food.treefood.Bowl
-\<\<composite\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+slupFrom : void\l}"
+problemasmFirstASM [
+label = "{problem.asm.FirstASM||+\<init\> : void\l+main : void\l}"
 ]
-problemfoodtreefoodTray [
-fillcolor=yellow, style=filled,
-label = "{problem.food.treefood.Tray
-\<\<component\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+flipTray : void\l}"
+problemasmoutputerConsoleOutputer [
+label = "{problem.asm.outputer.ConsoleOutputer||+\<init\> : void\l+outputData : void\l}"
 ]
-problemfoodtreefoodYogurt [
-fillcolor=yellow, style=filled,
-label = "{problem.food.treefood.Yogurt
-\<\<leaf\>\>\l||+\<init\> : void\l+splatOnTheFloor : void\l}"
+problemasmoutputerDiagramOutputer [
+label = "{problem.asm.outputer.DiagramOutputer|filePath : java.lang.String\lsubclasses : java.lang.String\linterfaces : java.lang.String\luses : java.lang.String\lassociates : java.lang.String\lpatternfinders : problem.asm.api.patternfinder.IFindPatterns\l|+\<init\> : void\l+outputData : void\lspecialSnowflake : java.lang.String\l+labelEdge : void\l}"
+]
+problemasmoutputerIOutputData [
+label = "{problem.asm.outputer.IOutputData||+outputData : void\l}"
+]
+problemasmstorageClassVolume [
+label = "{problem.asm.storage.ClassVolume|methods : problem.asm.storage.MethodBook\lfields : problem.asm.storage.FieldPage\luses : problem.asm.storage.UseSentence\lmethodcalls : problem.asm.storage.MethodCallParagraph\lversion : int\laccess : int\lname : java.lang.String\lsignature : java.lang.String\lsuperName : java.lang.String\linterfaces : java.lang.String[]\l|+\<init\> : void\l+addMethod : void\l+addField : void\l+getVersion : int\l+setVersion : void\l+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getSignature : java.lang.String\l+setSignature : void\l+getSuperName : java.lang.String\l+setSuperName : void\l+getInterfaces : java.lang.String[]\l+setInterfaces : void\l+getMethods : problem.asm.storage.MethodBook\l+getFields : problem.asm.storage.FieldPage\l+addUse : void\l+getUses : problem.asm.storage.UseSentence\l+addMethodCall : void\l+getMethodCall : problem.asm.storage.MethodCallParagraph\l}"
+]
+problemasmstorageFieldPage [
+fillcolor=green, style=filled,
+label = "{problem.asm.storage.FieldPage
+\<\<decorator\>\>\l|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lvalue : java.lang.Object\l|+\<init\> : void\l+getAccess : int\l+setAccess : void\l+toString : java.lang.String\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getValue : java.lang.Object\l+setValue : void\l+getType : java.lang.String\l}"
+]
+problemasmstorageMetaDataLibrary [
+label = "{problem.asm.storage.MetaDataLibrary|classvolume : problem.asm.storage.ClassVolume\l|+\<init\> : void\l+addClass : void\l+getClassVolume : problem.asm.storage.ClassVolume\l+addMethod : void\l+addField : void\l+contains : boolean\l+addUse : void\l+addMethodCall : void\l+parseClass : void\l+getClassByString : problem.asm.storage.ClassVolume\l}"
+]
+problemasmstorageMethodBook [
+label = "{problem.asm.storage.MethodBook|access : int\lname : java.lang.String\ldesc : java.lang.String\lsignature : java.lang.String\lexceptions : java.lang.String[]\largTypes : java.lang.String\l|+getAccess : int\l+setAccess : void\l+getName : java.lang.String\l+setName : void\l+getDesc : java.lang.String\l+setDesc : void\l+getSignature : java.lang.String\l+setSignature : void\l+getExceptions : java.lang.String[]\l+setExceptions : void\l+\<init\> : java.lang.String)V\l+getArgTypes : java.lang.String\l+setArgTypes : java.lang.String)V\l+getReturnType : void\l}"
+]
+problemasmstorageStaticLibraryHolder [
+label = "{problem.asm.storage.StaticLibraryHolder|mdl : problem.asm.storage.MetaDataLibrary\lclassname : java.lang.String\l|+\<init\> : void\l+initializeLibrary : void\l+addClass : void\l+addMethod : void\l+addField : void\l+addUse : void\l+getLibrary : problem.asm.storage.MetaDataLibrary\l+setClassname : void\l+addMethodCall : void\l+parseClass : void\l+setLibrary : void\l}"
+]
+problemasmvisitorClassDeclarationVisitor [
+label = "{problem.asm.visitor.ClassDeclarationVisitor||+\<init\> : void\l+\<init\> : void\l+visit : void\l}"
+]
+problemasmvisitorMethodInternalsVisitor [
+label = "{problem.asm.visitor.MethodInternalsVisitor|methodName : java.lang.String\lmethodArgs : java.lang.String\l|+\<init\> : void\l+\<init\> : void\l+\<init\> : java.lang.String)V\l+visitMethodInsn : void\l+visitTypeInsn : void\l}"
+]
+problemasmimplpatternfinderAdapterFinder [
+label = "{problem.asm.impl.patternfinder.AdapterFinder|classToSpecial : java.lang.String;Ljava.lang.String\ledgeToLabel : java.lang.String;Ljava.lang.String\l|+\<init\> : void\l+intake : void\ltestFirstCombo : void\ltestSecondCombo : void\ltestThirdCombo : void\l+getName : java.lang.String\l+write : void\l+writeAttributes : void\l+labelEdge : void\l}"
+]
+problemasmimplpatternfinderDecoratorFinder [
+label = "{problem.asm.impl.patternfinder.DecoratorFinder|classToSpecial : java.lang.String;Ljava.lang.String\ledgeToLabel : java.lang.String;Ljava.lang.String\lcomp : java.lang.String\lmdl : problem.asm.storage.MetaDataLibrary\l|+\<init\> : void\l+intake : void\l+constructorTakesType : boolean\l+superConstructorTakesTypeLooperHelper : boolean\l+hasSuperClassAsField : boolean\l+hasInterfaceAsField : boolean\l+getName : java.lang.String\l+write : void\l+writeAttributes : void\l+labelEdge : void\l+superChain : boolean\l}"
+]
+problemasmapipatternfinderIFindPatterns [
+label = "{problem.asm.api.patternfinder.IFindPatterns||+intake : void\l+getName : java.lang.String\l+write : void\l+writeAttributes : void\l+labelEdge : void\l}"
+]
+problemasmimplpatternfinderSingletonFinder [
+label = "{problem.asm.impl.patternfinder.SingletonFinder|singletons : java.lang.String\l|+\<init\> : void\l+intake : void\lcheckPrivateStaticSameClass : boolean\lcheckPCandgetter : boolean\l+write : void\l+getName : java.lang.String\l+writeAttributes : void\l+labelEdge : void\l}"
+]
+problemasmstorageMethodCallParagraph [
+label = "{problem.asm.storage.MethodCallParagraph|opcode : int\lowner : java.lang.String\lname : java.lang.String\ldesc : java.lang.String\litf : boolean\lmethodName : java.lang.String\lmethodArgs : java.lang.String\l|+\<init\> : java.lang.String)V\l+getOpcode : int\l+getOwner : java.lang.String\l+getName : java.lang.String\l+getDesc : java.lang.String\l+isItf : boolean\l+getMethodName : java.lang.String\l+getMethodArgs : java.lang.String\l}"
+]
+problemasmstorageStU [
+label = "{problem.asm.storage.StU||+\<init\> : void\l+toDot : java.lang.String\l+toSlash : java.lang.String\l+toClean : java.lang.String\l+ehhEquals : boolean\l+ehhContains : java.lang.StringLjava.lang.String;)Z\l+toArrow : java.lang.String\l+loadClasses : void\l+parseStringForT : java.lang.String\l+putIfAbsent : void\l}"
+]
+orgobjectwebasmClassVisitor [
+label = "{org.objectweb.asm.ClassVisitor|api : int\lcv : org.objectweb.asm.ClassVisitor\l|+\<init\> : void\l+\<init\> : void\l+visit : void\l+visitSource : void\l+visitOuterClass : void\l+visitAnnotation : org.objectweb.asm.AnnotationVisitor\l+visitTypeAnnotation : org.objectweb.asm.AnnotationVisitor\l+visitAttribute : void\l+visitInnerClass : void\l+visitField : org.objectweb.asm.FieldVisitor\l+visitMethod : org.objectweb.asm.MethodVisitor\l+visitEnd : void\l}"
+]
+problemasmvisitorClassFieldVisitor [
+label = "{problem.asm.visitor.ClassFieldVisitor||+\<init\> : void\l+\<init\> : void\l+visitField : org.objectweb.asm.FieldVisitor\l}"
+]
+problemasmvisitorClassMethodVisitor [
+label = "{problem.asm.visitor.ClassMethodVisitor||+\<init\> : void\l+\<init\> : void\l+visitMethod : org.objectweb.asm.MethodVisitor\l}"
 ]
 edge [ arrowhead = "empty", style = "none"  ]
-problemfoodtreefoodBanana -> problemfoodtreefoodTray
+problemasmvisitorClassDeclarationVisitor -> orgobjectwebasmClassVisitor
 edge [ arrowhead = "empty", style = "none"  ]
-problemfoodtreefoodBowl -> problemfoodtreefoodTray
+problemasmvisitorClassMethodVisitor -> orgobjectwebasmClassVisitor
 edge [ arrowhead = "empty", style = "none"  ]
-problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
+problemasmvisitorClassFieldVisitor -> orgobjectwebasmClassVisitor
+edge [ arrowhead = "empty", style = "dashed" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmoutputerIOutputData
+edge [ arrowhead = "empty", style = "dashed" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmapipatternfinderIFindPatterns
+edge [ arrowhead = "empty", style = "dashed" 
+ ]
+problemasmimplpatternfinderSingletonFinder -> problemasmapipatternfinderIFindPatterns
+edge [ arrowhead = "empty", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmapipatternfinderIFindPatterns
+edge [ arrowhead = "empty", style = "dashed" 
+ ]
+problemasmoutputerConsoleOutputer -> problemasmoutputerIOutputData
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemfoodtreefoodBanana -> problemfoodtreefoodTray
+problemasmoutputerDiagramOutputer -> problemasmstorageMethodBook
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
+problemasmimplpatternfinderAdapterFinder -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderSingletonFinder -> problemasmimplpatternfinderSingletonFinder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorMethodInternalsVisitor -> problemasmstorageMethodCallParagraph
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMethodBook -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorMethodInternalsVisitor -> problemasmstorageStaticLibraryHolder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageStU -> problemasmstorageStU
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmstorageStU
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmstorageStU
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmstorageMethodCallParagraph
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmvisitorClassMethodVisitor
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmstorageMethodCallParagraph
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderSingletonFinder -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderSingletonFinder -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassMethodVisitor -> orgobjectwebasmClassVisitor
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageFieldPage -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassMethodVisitor -> problemasmvisitorMethodInternalsVisitor
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmDesignParser -> problemasmoutputerConsoleOutputer
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageStaticLibraryHolder -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerConsoleOutputer -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmimplpatternfinderAdapterFinder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmDesignParser -> problemasmoutputerIOutputData
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerConsoleOutputer -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerConsoleOutputer -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerIOutputData -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassFieldVisitor -> orgobjectwebasmClassVisitor
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmstorageStaticLibraryHolder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderSingletonFinder -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerConsoleOutputer -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassDeclarationVisitor -> orgobjectwebasmClassVisitor
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassDeclarationVisitor -> problemasmstorageStaticLibraryHolder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassFieldVisitor -> problemasmstorageStaticLibraryHolder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmapipatternfinderIFindPatterns -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageStaticLibraryHolder -> problemasmstorageMethodCallParagraph
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmvisitorClassFieldVisitor
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderSingletonFinder -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmimplpatternfinderDecoratorFinder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmDesignParser -> problemasmoutputerDiagramOutputer
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmstorageStU
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageStaticLibraryHolder -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderAdapterFinder -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassDeclarationVisitor -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassFieldVisitor -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmDesignParser -> problemasmstorageStaticLibraryHolder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassMethodVisitor -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageStaticLibraryHolder -> problemasmstorageMethodBook
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmoutputerDiagramOutputer
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmvisitorClassMethodVisitor -> problemasmstorageStaticLibraryHolder
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmDesignParser -> problemasmDesignParser
+edge [ arrowhead = "vee", style = "dashed" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmvisitorClassDeclarationVisitor
 edge [ arrowhead = "vee", style = "none" 
  ]
-problemfoodtreefoodTray -> problemfoodtreefoodTray
+problemasmstorageClassVolume -> problemasmstorageMethodCallParagraph
 edge [ arrowhead = "vee", style = "none" 
  ]
-problemfoodtreefoodBowl -> problemfoodtreefoodTray
+problemasmstorageStaticLibraryHolder -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "none" 
+ ]
+problemasmoutputerDiagramOutputer -> problemasmapipatternfinderIFindPatterns
+edge [ arrowhead = "vee", style = "none" 
+ ]
+orgobjectwebasmClassVisitor -> orgobjectwebasmClassVisitor
+edge [ arrowhead = "vee", style = "none" 
+ ]
+problemasmimplpatternfinderDecoratorFinder -> problemasmstorageMetaDataLibrary
+edge [ arrowhead = "vee", style = "none" 
+ ]
+problemasmstorageMetaDataLibrary -> problemasmstorageClassVolume
+edge [ arrowhead = "vee", style = "none" 
+ ]
+problemasmstorageClassVolume -> problemasmstorageFieldPage
+edge [ arrowhead = "vee", style = "none" 
+ ]
+problemasmstorageClassVolume -> problemasmstorageMethodBook
 }
