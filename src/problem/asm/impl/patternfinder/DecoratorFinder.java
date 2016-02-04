@@ -35,7 +35,9 @@ public class DecoratorFinder implements IFindPatterns {
 						component = this.comp;
 						for (String c : component) {
 							classToSpecial.put(StU.toDot(cv.getName()), "decorator");
-							classToSpecial.put(c, "component");
+//							classToSpecial.put(c, "component");
+							// Being a decorator is more important than being a component
+							StU.putIfAbsent(c, "component", classToSpecial);
 							edgeToLabel.put(cv.getName().replace("/", "").replace(".", "") + " -> " + c.replace("/", "").replace(".", ""), "decorates");
 						}
 					}
@@ -143,9 +145,15 @@ public class DecoratorFinder implements IFindPatterns {
 	}
 	
 	public boolean superChain(ClassVolume cv, MetaDataLibrary mdl) {
+//		System.out.println("chocolate");
 		for (String s : classToSpecial.keySet()) {
-			if (StU.ehhEquals(cv.getName(), s) && classToSpecial.get(s).equals("decorator")) {
-				return true;
+//			System.out.println(" " + cv.getName());
+//			System.out.println(" " + s);
+			if (StU.ehhEquals(cv.getName(), s)) {
+				System.out.println("hrmmmf");
+				System.out.println(s + " " + classToSpecial.get(s));
+				if (classToSpecial.get(s).equals("decorator"))
+					return true;
 			}
 		}
 		if (mdl.contains(cv.getSuperName())) {
