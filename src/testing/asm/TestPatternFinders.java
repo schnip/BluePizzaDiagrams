@@ -282,6 +282,7 @@ public class TestPatternFinders {
 		
 	}
 	
+	@SuppressWarnings("resource")
 	public void testAdapterColoring() throws IOException {
 		String [] args = {"-d", "problem.client.App", "problem.client.IteratorToEnumerationAdapter", "problem.lib.LinearTransformer",
 				"java.util.Enumeration", "java.util.Iterator"};
