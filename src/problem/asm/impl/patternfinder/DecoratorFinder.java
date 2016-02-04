@@ -27,7 +27,7 @@ public class DecoratorFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			this.comp = new ArrayList<String>();
 //			System.out.println("cvog:   " + cv.getName());
-				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv, cv.getSuperName())) {
+				if (hasInterfaceAsField(cv) || hasSuperClassAsField(cv, cv.getName())) {
 //					System.out.println("cv name:   " + cv.getName());
 					//System.out.println("grape");
 					if (constructorTakesType(cv)) {
@@ -52,14 +52,17 @@ public class DecoratorFinder implements IFindPatterns {
 	}
 	
 	public boolean constructorTakesType(ClassVolume cv) {
-		//System.out.println("yah");
+//		System.out.println("yah");
 		for (MethodBook mb : cv.getMethods()) {
 			if (mb.getName().equals("<init>")) {
+//				System.out.println("Found the constructors");
 				for (String arg : mb.getArgTypes()) {
-					String comp = cv.getSuperName();
+//					System.out.println("the constructors have arg");
+					String comp = cv.getName();
 					String[] intcomp = cv.getInterfaces();
 					if (superConstructorTakesTypeLooperHelper(comp, arg) || StU.ehhContains(Arrays.asList(intcomp), arg)) {
 						this.comp.add(arg);
+//						System.out.println("fine");
 						return true;
 					}
 				}
@@ -82,13 +85,8 @@ public class DecoratorFinder implements IFindPatterns {
 	}
 	
 	public boolean hasSuperClassAsField(ClassVolume cv, String superName) {
-		//System.out.println(" pasta " + cv.getName());
-		//String comp = cv.getSuperName();
 		for (FieldPage fp : cv.getFields()) {
-			//System.out.println("jello");
-			//System.out.println("peanut" + superName.replace('/', '.'));
-			//System.out.println("salt  " + fp.getType());
-			if (fp.getType().equals(superName.replace('/', '.'))) {
+			if (StU.ehhEquals(fp.getType(), superName)) {
 				//System.out.println("jamjam");
 				return true;
 			}
