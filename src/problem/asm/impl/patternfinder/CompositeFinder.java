@@ -93,7 +93,7 @@ public class CompositeFinder implements IFindPatterns {
 	public void write(String className, PrintWriter writer) {
 		if (StU.ehhContains(classToSpecial.keySet(), className)) {
 			writer.println();
-			writer.print("\\<\\<" + classToSpecial.get(StU.toSlash(className)) + "\\>\\>\\l");
+			writer.print("\\<\\<" + classToSpecial.get(StU.toClean(className)) + "\\>\\>\\l");
 		}
 	}
 

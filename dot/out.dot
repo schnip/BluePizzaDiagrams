@@ -10,42 +10,42 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemfoodtreefoodTray [
-fillcolor=yellow, style=filled,
-label = "{problem.food.treefood.Tray
-\<\<null\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+flipTray : void\l}"
-]
 problemfoodtreefoodBanana [
 fillcolor=yellow, style=filled,
 label = "{problem.food.treefood.Banana
-\<\<null\>\>\l||+\<init\> : void\l+IAMABANANANNANANANA : void\l}"
+\<\<leaf\>\>\l||+\<init\> : void\l+IAMABANANANNANANANA : void\l}"
 ]
 problemfoodtreefoodBowl [
 fillcolor=yellow, style=filled,
 label = "{problem.food.treefood.Bowl
-\<\<null\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+slupFrom : void\l}"
+\<\<composite\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+slupFrom : void\l}"
+]
+problemfoodtreefoodTray [
+fillcolor=yellow, style=filled,
+label = "{problem.food.treefood.Tray
+\<\<component\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+flipTray : void\l}"
 ]
 problemfoodtreefoodYogurt [
 fillcolor=yellow, style=filled,
 label = "{problem.food.treefood.Yogurt
-\<\<null\>\>\l||+\<init\> : void\l+splatOnTheFloor : void\l}"
+\<\<leaf\>\>\l||+\<init\> : void\l+splatOnTheFloor : void\l}"
 ]
 edge [ arrowhead = "empty", style = "none"  ]
+problemfoodtreefoodBanana -> problemfoodtreefoodTray
+edge [ arrowhead = "empty", style = "none"  ]
 problemfoodtreefoodBowl -> problemfoodtreefoodTray
 edge [ arrowhead = "empty", style = "none"  ]
-problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
-edge [ arrowhead = "empty", style = "none"  ]
-problemfoodtreefoodBanana -> problemfoodtreefoodTray
-edge [ arrowhead = "vee", style = "dashed" 
- ]
 problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
 edge [ arrowhead = "vee", style = "dashed" 
  ]
 problemfoodtreefoodBanana -> problemfoodtreefoodTray
-edge [ arrowhead = "vee", style = "none" 
+edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemfoodtreefoodBowl -> problemfoodtreefoodTray
+problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
 edge [ arrowhead = "vee", style = "none" 
  ]
 problemfoodtreefoodTray -> problemfoodtreefoodTray
+edge [ arrowhead = "vee", style = "none" 
+ ]
+problemfoodtreefoodBowl -> problemfoodtreefoodTray
 }
