@@ -11,16 +11,24 @@ fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
 problemfoodtreefoodTray [
-label = "{problem.food.treefood.Tray|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+flipTray : void\l}"
+fillcolor=yellow, style=filled,
+label = "{problem.food.treefood.Tray
+\<\<null\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+flipTray : void\l}"
 ]
 problemfoodtreefoodBanana [
-label = "{problem.food.treefood.Banana||+\<init\> : void\l+IAMABANANANNANANANA : void\l}"
+fillcolor=yellow, style=filled,
+label = "{problem.food.treefood.Banana
+\<\<null\>\>\l||+\<init\> : void\l+IAMABANANANNANANANA : void\l}"
 ]
 problemfoodtreefoodBowl [
-label = "{problem.food.treefood.Bowl|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+slupFrom : void\l}"
+fillcolor=yellow, style=filled,
+label = "{problem.food.treefood.Bowl
+\<\<null\>\>\l|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+slupFrom : void\l}"
 ]
 problemfoodtreefoodYogurt [
-label = "{problem.food.treefood.Yogurt||+\<init\> : void\l+splatOnTheFloor : void\l}"
+fillcolor=yellow, style=filled,
+label = "{problem.food.treefood.Yogurt
+\<\<null\>\>\l||+\<init\> : void\l+splatOnTheFloor : void\l}"
 ]
 edge [ arrowhead = "empty", style = "none"  ]
 problemfoodtreefoodBowl -> problemfoodtreefoodTray

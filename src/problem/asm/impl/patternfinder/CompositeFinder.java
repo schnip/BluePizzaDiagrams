@@ -47,7 +47,6 @@ public class CompositeFinder implements IFindPatterns {
 					StU.putIfAbsent(cv.getName(), "leaf", classToSpecial);
 			}
 		}
-		System.out.println(classToSpecial.toString());
 	}
 
 	private boolean hasCollectionOf(ClassVolume cv, String potentialComponent) {
