@@ -34,12 +34,17 @@ public class DecoratorFinder implements IFindPatterns {
 						List<String> component = null;
 						component = this.comp;
 						for (String c : component) {
-							classToSpecial.put(cv.getName().replace('/', '.'), "decorator");
+							classToSpecial.put(StU.toDot(cv.getName()), "decorator");
 							classToSpecial.put(c, "component");
 							edgeToLabel.put(cv.getName().replace("/", "").replace(".", "") + " -> " + c.replace("/", "").replace(".", ""), "decorates");
 						}
 					}
 				}
+		}
+		for (ClassVolume cv : mdl.getClassVolume()) {
+			if (superChain(cv, mdl)) {
+				classToSpecial.put(StU.toDot(cv.getName()), "decorator");
+			}
 		}
 		//System.out.println("classToSpecial:     " + this.classToSpecial.toString());
 		//System.out.println("edgeToLabel:        " + this.edgeToLabel.toString());
@@ -137,6 +142,18 @@ public class DecoratorFinder implements IFindPatterns {
 			writer.print(", label = \"" + edgeToLabel.get(edgeDescription) + "\"");
 		}
 
+	}
+	
+	public boolean superChain(ClassVolume cv, MetaDataLibrary mdl) {
+		for (String s : classToSpecial.keySet()) {
+			if (StU.ehhEquals(cv.getName(), s) && classToSpecial.get(s).equals("decorator")) {
+				return true;
+			}
+		}
+		if (mdl.contains(cv.getSuperName())) {
+			return superChain(mdl.getClassByString(cv.getSuperName()), mdl);
+		}
+		return false;
 	}
 
 }
