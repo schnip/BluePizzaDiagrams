@@ -47,6 +47,7 @@ public class CompositeFinder implements IFindPatterns {
 					StU.putIfAbsent(cv.getName(), "leaf", classToSpecial);
 			}
 		}
+		System.out.println(classToSpecial.toString());
 	}
 
 	private boolean hasCollectionOf(ClassVolume cv, String potentialComponent) {
@@ -91,7 +92,7 @@ public class CompositeFinder implements IFindPatterns {
 
 	@Override
 	public void write(String className, PrintWriter writer) {
-		if (classToSpecial.keySet().contains(className)) {
+		if (StU.ehhContains(classToSpecial.keySet(), className)) {
 			writer.println();
 			writer.print("\\<\\<" + classToSpecial.get(className) + "\\>\\>\\l");
 		}
@@ -99,7 +100,7 @@ public class CompositeFinder implements IFindPatterns {
 
 	@Override
 	public void writeAttributes(String className, PrintWriter writer) {
-		if (classToSpecial.keySet().contains(className)) {
+		if (StU.ehhContains(classToSpecial.keySet(), className)) {
 			writer.print("fillcolor=yellow, style=filled,");
 			writer.println();
 		}

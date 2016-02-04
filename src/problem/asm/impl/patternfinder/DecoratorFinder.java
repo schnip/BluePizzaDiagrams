@@ -122,7 +122,7 @@ public class DecoratorFinder implements IFindPatterns {
 
 	@Override
 	public void write(String className, PrintWriter writer) {
-		if (classToSpecial.keySet().contains(className)) {
+		if (StU.ehhContains(classToSpecial.keySet(), className)) {
 			writer.println();
 			writer.print("\\<\\<" + classToSpecial.get(className) + "\\>\\>\\l");
 		}
@@ -130,7 +130,7 @@ public class DecoratorFinder implements IFindPatterns {
 
 	@Override
 	public void writeAttributes(String className, PrintWriter writer) {
-		if (classToSpecial.keySet().contains(className)) {
+		if (StU.ehhContains(classToSpecial.keySet(), className)) {
 			writer.print("fillcolor=green, style=filled,");
 			writer.println();
 		}

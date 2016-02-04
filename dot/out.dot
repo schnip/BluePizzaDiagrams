@@ -10,146 +10,34 @@ edge [
 fontname = "Bitstream Vera Sans"
 fontsize = 8
 ]
-problemclientAbstractSprite [
-label = "{problem.client.AbstractSprite|dx : double\ldy : double\lshape : java.awt.Shape\lsprites : problem.client.ISprite\l|+\<init\> : void\lcomputeNewBoundsAfterMoving : java.awt.geom.Rectangle2D\l+getShape : java.awt.Shape\l+iterator : problem.client.ISprite\l+addSprite : void\l+removeSprite : void\l+getChild : problem.client.ISprite\l+move : void\l}"
+problemfoodtreefoodTray [
+label = "{problem.food.treefood.Tray|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+flipTray : void\l}"
 ]
-problemclientAnimationPanel [
-label = "{problem.client.AnimationPanel|serialVersionUID : long\lsprites : problem.client.ISprite\lanimating : boolean\lsleepTime : long\l|+\<init\> : void\l+add : void\l+getSize : java.awt.Dimension\l+animate : void\l+reset : void\lpaintComponent : void\laccess$0 : boolean\laccess$1 : java.util.List\laccess$2 : long\l}"
+problemfoodtreefoodBanana [
+label = "{problem.food.treefood.Banana||+\<init\> : void\l+IAMABANANANNANANANA : void\l}"
 ]
-problemclientAnimatorApp [
-label = "{problem.client.AnimatorApp||+\<init\> : void\l+main : void\l}"
+problemfoodtreefoodBowl [
+label = "{problem.food.treefood.Bowl|contents : problem.food.treefood.Tray\l|+\<init\> : void\l+addFood : void\l+removeFood : void\l+slupFrom : void\l}"
 ]
-problemclientApp [
-label = "{problem.client.App||+\<init\> : void\l+main : void\l}"
-]
-problemclientCircleSprite [
-label = "{problem.client.CircleSprite||+\<init\> : void\l+move : void\l}"
-]
-problemclientComplexSprite [
-label = "{problem.client.ComplexSprite|spriteList : problem.client.ISprite\l|+\<init\> : void\l+move : void\l+iterator : problem.client.ISprite\l+addSprite : void\l+removeSprite : void\l+getChild : problem.client.ISprite\l}"
-]
-problemclientComplexSpriteIterator [
-label = "{problem.client.ComplexSpriteIterator|stack : java.util.Iteratorproblem.client.ISprite>;\l|+\<init\> : problem.client.ISprite)V\l+hasNext : boolean\l+next : problem.client.ISprite\l+remove : void\l+next : java.lang.Object\l}"
-]
-problemclientISprite [
-label = "{problem.client.ISprite||+move : void\l+getShape : java.awt.Shape\l+addSprite : void\l+removeSprite : void\l+getChild : problem.client.ISprite\l}"
-]
-problemclientIteratorToEnumerationAdapter [
-label = "{problem.client.IteratorToEnumerationAdapter|itr : TE\l|+\<init\> : TE)V\l+hasMoreElements : boolean\l+nextElement : TE\l}"
-]
-problemclientMainWindow [
-label = "{problem.client.MainWindow|frame : javax.swing.JFrame\lactionPanel : javax.swing.JPanel\lanimationPanel : problem.client.AnimationPanel\lmoveButton : javax.swing.JButton\lcreateButton : javax.swing.JButton\lresetButton : javax.swing.JButton\l|+\<init\> : void\lcreateWidgets : void\lassignActions : void\l+show : void\laccess$0 : problem.client.AnimationPanel\laccess$1 : javax.swing.JButton\laccess$2 : javax.swing.JButton\l}"
-]
-problemclientNullIterator [
-label = "{problem.client.NullIterator||+\<init\> : void\l+hasNext : boolean\l+next : problem.client.ISprite\l+remove : void\l+next : java.lang.Object\l}"
-]
-problemclientRecCircRecSprite [
-label = "{problem.client.RecCircRecSprite||+\<init\> : void\l}"
-]
-problemclientRectangleSprite [
-label = "{problem.client.RectangleSprite||+\<init\> : void\l+move : void\l}"
-]
-problemclientSpriteFactory [
-label = "{problem.client.SpriteFactory|DX : double\lDY : double\lWIDTH : double\lHEIGHT : double\lrandom : java.util.Random\lsprites : java.lang.Class+Lproblem.client.ISprite>;\l|\<clinit\> : void\l+\<init\> : void\l+computeRandomLocation : java.awt.geom.Point2D\l+createRandomSprite : problem.client.ISprite\l}"
-]
-problemclientTowerSprite [
-label = "{problem.client.TowerSprite||+\<init\> : void\l}"
+problemfoodtreefoodYogurt [
+label = "{problem.food.treefood.Yogurt||+\<init\> : void\l+splatOnTheFloor : void\l}"
 ]
 edge [ arrowhead = "empty", style = "none"  ]
-problemclientComplexSprite -> problemclientAbstractSprite
+problemfoodtreefoodBowl -> problemfoodtreefoodTray
 edge [ arrowhead = "empty", style = "none"  ]
-problemclientRecCircRecSprite -> problemclientComplexSprite
+problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
 edge [ arrowhead = "empty", style = "none"  ]
-problemclientCircleSprite -> problemclientAbstractSprite
-edge [ arrowhead = "empty", style = "none"  ]
-problemclientTowerSprite -> problemclientComplexSprite
-edge [ arrowhead = "empty", style = "none"  ]
-problemclientRectangleSprite -> problemclientAbstractSprite
-edge [ arrowhead = "empty", style = "dashed" 
- ]
-problemclientAbstractSprite -> problemclientISprite
+problemfoodtreefoodBanana -> problemfoodtreefoodTray
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemclientComplexSpriteIterator -> problemclientISprite
+problemfoodtreefoodYogurt -> problemfoodtreefoodBowl
 edge [ arrowhead = "vee", style = "dashed" 
  ]
-problemclientRecCircRecSprite -> problemclientComplexSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientAnimatorApp -> problemclientMainWindow
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientCircleSprite -> problemclientAbstractSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientNullIterator -> problemclientNullIterator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientRectangleSprite -> problemclientAbstractSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientAbstractSprite -> problemclientNullIterator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientRectangleSprite -> problemclientRectangleSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientCircleSprite -> problemclientCircleSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientApp -> problemclientIteratorToEnumerationAdapter
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientTowerSprite -> problemclientTowerSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientComplexSprite -> problemclientAbstractSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientRecCircRecSprite -> problemclientRecCircRecSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientISprite -> problemclientISprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientComplexSpriteIterator -> problemclientComplexSpriteIterator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientTowerSprite -> problemclientComplexSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientAnimationPanel -> problemclientAnimationPanel
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientMainWindow -> problemclientMainWindow
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientRecCircRecSprite -> problemclientTowerSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientComplexSprite -> problemclientComplexSpriteIterator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientTowerSprite -> problemclientRectangleSprite
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientAnimationPanel -> problemclientComplexSpriteIterator
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientSpriteFactory -> problemclientSpriteFactory
-edge [ arrowhead = "vee", style = "dashed" 
- ]
-problemclientRecCircRecSprite -> problemclientCircleSprite
+problemfoodtreefoodBanana -> problemfoodtreefoodTray
 edge [ arrowhead = "vee", style = "none" 
  ]
-problemclientMainWindow -> problemclientAnimationPanel
+problemfoodtreefoodBowl -> problemfoodtreefoodTray
 edge [ arrowhead = "vee", style = "none" 
  ]
-problemclientAbstractSprite -> problemclientISprite
-edge [ arrowhead = "vee", style = "none" 
- ]
-problemclientComplexSprite -> problemclientISprite
-edge [ arrowhead = "vee", style = "none" 
- ]
-problemclientAnimationPanel -> problemclientISprite
+problemfoodtreefoodTray -> problemfoodtreefoodTray
 }
