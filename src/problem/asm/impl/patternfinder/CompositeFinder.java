@@ -2,6 +2,7 @@ package problem.asm.impl.patternfinder;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class CompositeFinder implements IFindPatterns {
 				classToSpecial.put(cv.getName(), "component");
 			}
 		}
-		componentSet = classToSpecial.keySet();
+		componentSet = new HashSet<String>(classToSpecial.keySet());
 		
 		// Find the composites
 		for (ClassVolume cv : mdl.getClassVolume()) {
