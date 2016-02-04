@@ -58,7 +58,7 @@ public class CompositeFinder implements IFindPatterns {
 	private boolean hasTwoMethodsTaking(ClassVolume cv, String potentialComponent) {
 		int count = 0;
 		for (MethodBook mb : cv.getMethods()) {
-			if (StU.ehhEquals(potentialComponent, mb.getArgTypes().get(0)) && mb.getArgTypes().size() == 1)
+			if (mb.getArgTypes().size() == 1 && StU.ehhEquals(potentialComponent, mb.getArgTypes().get(0)))
 				count++;
 		}
 		return count >= 2;
