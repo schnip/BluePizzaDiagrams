@@ -3,6 +3,7 @@ package problem.asm.storage;
 import java.io.File;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Map;
 import java.util.Set;
 
 public class StU {
@@ -58,6 +59,13 @@ public class StU {
 			return "TE";
 		}
 		return s.substring(s.indexOf('<')).replace("<L", "").replace("<", "").replace(";>;", "").replace('/', '.');
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void putIfAbsent(Object key, Object value, Map m) {
+		if (m.get(key) == null) {
+			m.put(key, value);
+		}
 	}
 
 }
