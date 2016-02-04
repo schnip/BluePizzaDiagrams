@@ -3,18 +3,20 @@ package problem.client;
 import java.awt.Dimension;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class AbstractSprite implements ISprite {
 	protected double dx;
 	protected double dy;
 	protected Shape shape;
-	
+	protected ArrayList<ISprite> sprites;
 
 	// Subclasses need to chain this constructor
 	public AbstractSprite(double x, double y, double width, double height) {
 		this.dx = SpriteFactory.DX;
 		this.dy = SpriteFactory.DY;
+		this.sprites = new ArrayList<ISprite>();
 	}
 
 	
@@ -50,7 +52,7 @@ public abstract class AbstractSprite implements ISprite {
 	public void addSprite(ISprite s) {
 		// TODO Auto-generated method stub
 		// Doesn't do anything
-		throw new UnsupportedOperationException();
+		this.sprites.add(s);
 
 	}
 
@@ -58,7 +60,7 @@ public abstract class AbstractSprite implements ISprite {
 	public void removeSprite(ISprite s) {
 		// TODO Auto-generated method stub
 		// Doesn't do anything
-		throw new UnsupportedOperationException();
+		this.sprites.add(s);
 
 	}
 	
