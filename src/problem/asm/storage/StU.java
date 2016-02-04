@@ -44,12 +44,20 @@ public class StU {
 
 			ClassLoader cl = new URLClassLoader(new URL[]{cp.toURI().toURL()});
 			for (File classfile : f.listFiles()) {
-				Class c = cl.loadClass(f.getAbsolutePath().replace(cp.getAbsolutePath(), "").replace('\\', '.').substring(1) + "." + classfile.getName().replace(".class", ""));
+				Class c = cl.loadClass(f.getAbsolutePath().replace(cp.getAbsolutePath(), "").replace('/', '.').replace('\\', '.').substring(1) + "." + classfile.getName().replace(".class", ""));
 				dump.add(c.newInstance());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static String parseStringForT(String s) {
+		//System.out.println("pineapple time!!! " + s);
+		if (s.equals("()TE;")) {
+			return "TE";
+		}
+		return s.substring(s.indexOf('<')).replace("<L", "").replace("<", "").replace(";>;", "").replace('/', '.');
 	}
 
 }

@@ -93,7 +93,7 @@ public class DiagramOutputer implements IOutputData {
 				for (FieldPage fp : v.getFields()) {
 					String type = Type.getType(fp.getDesc()).getClassName();
 					if (fp.getSignature() != null) {
-						type = parseStringForT(fp.getSignature());
+						type = StU.parseStringForT(fp.getSignature());
 					}
 					writer.print(fp.getName() + " : " + type + "\\l");
 					
@@ -112,7 +112,7 @@ public class DiagramOutputer implements IOutputData {
 					}
 					String returnType = Type.getReturnType(mb.getDesc()).getClassName();
 					if (mb.getSignature() != null) {
-						returnType = parseStringForT(mb.getSignature());
+						returnType = StU.parseStringForT(mb.getSignature());
 					}
 					
 					writer.print(symbol + specialSnowflake(mb.getName()) + " : " + returnType + "\\l");
@@ -191,13 +191,7 @@ public class DiagramOutputer implements IOutputData {
 		return ret;
 	}
 	
-	private String parseStringForT(String s) {
-		//System.out.println("pineapple time!!! " + s);
-		if (s.equals("()TE;")) {
-			return "TE";
-		}
-		return s.substring(s.indexOf('<')).replace("<L", "").replace("<", "").replace(";>;", "").replace('/', '.');
-	}
+	
 	
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
 		for (IFindPatterns ifp : patternfinders) {
