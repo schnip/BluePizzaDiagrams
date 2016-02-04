@@ -51,5 +51,13 @@ public class StU {
 			e.printStackTrace();
 		}
 	}
+	
+	public static String parseStringForT(String s) {
+		//System.out.println("pineapple time!!! " + s);
+		if (s.equals("()TE;")) {
+			return "TE";
+		}
+		return s.substring(s.indexOf('<')).replace("<L", "").replace("<", "").replace(";>;", "").replace('/', '.');
+	}
 
 }
