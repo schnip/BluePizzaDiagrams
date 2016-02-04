@@ -44,7 +44,7 @@ public class StU {
 
 			ClassLoader cl = new URLClassLoader(new URL[]{cp.toURI().toURL()});
 			for (File classfile : f.listFiles()) {
-				Class c = cl.loadClass(f.getAbsolutePath().replace(cp.getAbsolutePath(), "").replace('\\', '.').substring(1) + "." + classfile.getName().replace(".class", ""));
+				Class c = cl.loadClass(f.getAbsolutePath().replace(cp.getAbsolutePath(), "").replace('/', '.').replace('\\', '.').substring(1) + "." + classfile.getName().replace(".class", ""));
 				dump.add(c.newInstance());
 			}
 		} catch (Exception e) {
