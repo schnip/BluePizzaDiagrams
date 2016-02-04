@@ -108,7 +108,6 @@ public class CompositeFinder implements IFindPatterns {
 	@Override
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
 		// No edges need to be labeled
-
 	}
 
 }
