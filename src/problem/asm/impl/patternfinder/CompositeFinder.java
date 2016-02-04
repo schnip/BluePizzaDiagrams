@@ -25,7 +25,7 @@ public class CompositeFinder implements IFindPatterns {
 		// Find the components
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			if (checkForTwoSelfMethods(cv) && checkForContainsSelfCollection(cv)) {
-				classToSpecial.put(cv.getName(), "component");
+				classToSpecial.put(StU.toClean(cv.getName()), "component");
 			}
 		}
 		componentSet = new HashSet<String>(classToSpecial.keySet());
@@ -36,7 +36,7 @@ public class CompositeFinder implements IFindPatterns {
 				if (isExtension(cv, potentialComponent))
 					if (hasTwoMethodsTaking(cv, potentialComponent))
 						if (hasCollectionOf(cv, potentialComponent))
-							StU.putIfAbsent(cv.getName(), "composite", classToSpecial);
+							StU.putIfAbsent(StU.toClean(cv.getName()), "composite", classToSpecial);
 			}
 		}
 		
@@ -44,7 +44,7 @@ public class CompositeFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			for (String potentialComponent : componentSet) {
 				if (isExtension(cv, potentialComponent))
-					StU.putIfAbsent(cv.getName(), "leaf", classToSpecial);
+					StU.putIfAbsent(StU.toClean(cv.getName()), "leaf", classToSpecial);
 			}
 		}
 	}
