@@ -303,4 +303,81 @@ public class TestPatternFinders {
 		}
 		assertEquals(3, count);
 	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testCompositeSingleComponent() throws IOException {
+		String [] args = {"-d", "problem.food.treefood.Banana", "problem.food.treefood.Bowl", "problem.food.treefood.Tray",
+		"problem.food.treefood.Yogurt"};
+	
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		if (content.contains("\\<\\<composite\\>\\>\\")) {
+			//fail();
+		} else {
+			// We're all good
+			fail();
+		}
+	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void test2Leaves() throws IOException {
+		String [] args = {"-d", "problem.food.treefood.Banana", "problem.food.treefood.Bowl", "problem.food.treefood.Tray",
+		"problem.food.treefood.Yogurt"};
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		String checkString = "leaf";
+		int lastIndex = 0;
+		int count = 0;
+		while(lastIndex != -1){
+
+		    lastIndex = content.indexOf(checkString,lastIndex);
+
+		    if(lastIndex != -1){
+		        count ++;
+		        lastIndex += checkString.length();
+		    }
+		}
+		assertEquals(2, count);
+	}
+	
+	@SuppressWarnings("resource")
+	@Test
+	public void testComponent() throws IOException {
+		String [] args = {"-d", "problem.food.treefood.Banana", "problem.food.treefood.Bowl", "problem.food.treefood.Tray",
+		"problem.food.treefood.Yogurt"};
+	
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		if (content.contains("problemfoodtreefoodTray -> problemfoodtreefoodTray")) {
+			if (content.contains("edge [ arrowhead = \"vee\", style = \"none\""));
+			
+		} else {
+			// We're all good
+			fail();
+		}	
+	}
+	
+	@SuppressWarnings("resource")
+	public void testCompositeColoring() throws IOException {
+		String [] args = {"-d", "problem.food.treefood.Banana", "problem.food.treefood.Bowl", "problem.food.treefood.Tray",
+				"problem.food.treefood.Yogurt"};
+		
+		DesignParser.main(args);
+		String content = new Scanner(new File("dot/out.dot")).useDelimiter("\\Z").next();
+		String checkString = "fillcolor=yellow";
+		int lastIndex = 0;
+		int count = 0;
+		while(lastIndex != -1){
+
+		    lastIndex = content.indexOf(checkString,lastIndex);
+
+		    if(lastIndex != -1){
+		        count ++;
+		        lastIndex += checkString.length();
+		    }
+		}
+		assertEquals(4, count);
+	}
 }
