@@ -44,11 +44,13 @@ public class LandingPage extends JFrame {
 
 	public void createMenu() {
 		this.add(this.landingPanel);
+		this.loadConfig.addActionListener(new fileChoose());
 		this.landingPanel.add(this.loadConfig);
 		this.landingPanel.add(this.analyze);
 		this.landingPanel.add(this.landingLabel);
 		this.landingPanel.add(this.loadingBar);
 
+	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 
 	}
@@ -60,6 +62,8 @@ public class LandingPage extends JFrame {
 
 	class fileChoose implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			fileChooser.setMultiSelectionEnabled(false);
+			fileChooser.setDialogTitle("Choose a File!");
 			int returnVal = fileChooser.showOpenDialog(LandingPage.this);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
