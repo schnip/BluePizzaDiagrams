@@ -1,5 +1,7 @@
 package problem.asm.ui;
 
+import org.json.simple.parser.JSONParser;
+
 public class Launcher {
 
 	public static void main(String[] args) {
@@ -8,7 +10,7 @@ public class Launcher {
 	}
 
 	public static void parseAndDo(String configPath) {
-		// TODO Auto-generated method stub
+		JSONParser parser = new JSONParser();
 		
 	}
 
