@@ -41,6 +41,10 @@ public class DesignParser {
 				iod = new SDOutputer("sd/out.sd", getArg(options, "--method="), getArg(options, "--class="), startArgs);
 			}
 		}
+		
+		if (findStart(options, "--config=") >= 0) {
+			
+		}
 
 		iod.outputData(StaticLibraryHolder.getLibrary());
 	}
