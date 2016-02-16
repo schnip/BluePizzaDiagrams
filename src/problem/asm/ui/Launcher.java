@@ -8,11 +8,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import problem.asm.outputer.DiagramOutputer;
+import problem.asm.outputer.IOutputData;
 import problem.asm.storage.StaticLibraryHolder;
 
 public class Launcher {
 	
-	private static String ouputDir;
+	private static String outputDir;
 	private static String dotPath;
 	private static String diagramType;
 	private static Set<String> phases;
@@ -34,12 +36,18 @@ public class Launcher {
 			}
 			diagramType = (String) obj.get("type");
 			dotPath = (String) obj.get("dot-path");
-			ouputDir = (String) obj.get("output-dir");
+			outputDir = (String) obj.get("output-dir");
 			phases = new HashSet<String>();
 			if (null != obj.get("phases")) {
 				for (Object o : (JSONArray) obj.get("phases")) {
 					phases.add((String) o);
 				}
+			}
+			
+			// Take action if file output
+			if ("file".equals(obj.get("output-type"))) {
+				IOutputData iod = new DiagramOutputer(outputDir, phases);
+				iod.outputData(StaticLibraryHolder.getLibrary());
 			}
 			
 		} catch (Exception e) {
