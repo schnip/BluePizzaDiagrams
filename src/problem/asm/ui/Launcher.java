@@ -30,6 +30,8 @@ public class Launcher {
 				StaticLibraryHolder.parseClass((String) o);
 			}
 			diagramType = (String) obj.get("type");
+			dotPath = (String) obj.get("dot-path");
+			ouputDir = (String) obj.get("output-dir");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
