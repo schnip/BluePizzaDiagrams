@@ -9,6 +9,7 @@ import problem.asm.outputer.DiagramOutputer;
 import problem.asm.outputer.IOutputData;
 import problem.asm.outputer.SDOutputer;
 import problem.asm.storage.StaticLibraryHolder;
+import problem.asm.ui.Launcher;
 
 public class DesignParser {
 	public static void main(String[] args) throws IOException {
@@ -43,7 +44,8 @@ public class DesignParser {
 		}
 		
 		if (findStart(options, "--config=") >= 0) {
-			
+			Launcher.parseAndDo(getArg(options, "--config="));
+			return;
 		}
 
 		iod.outputData(StaticLibraryHolder.getLibrary());
