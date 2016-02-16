@@ -43,6 +43,9 @@ public class Launcher {
 					phases.add((String) o);
 				}
 			}
+			if (!diagramType.equals("uml")) {
+				throw new UnsupportedOperationException();
+			}
 			
 			// Take action if file output
 			if ("file".equals(obj.get("output-type"))) {

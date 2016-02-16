@@ -78,5 +78,13 @@ public class LandingPage extends JFrame {
 			}
 		}
 	}
+	
+	public void finishLoadingBar(PatternCollection patC, IMakeResults r) {
+		
+	}
+	
+	public void addToLoadingBar() {
+		
+	}
 
 }

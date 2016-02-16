@@ -32,7 +32,7 @@ public class DiagramOutputer implements IOutputData {
 	}
 	
 	public DiagramOutputer(String s, Set<String> rp) {
-		filePath = s;
+		this(s);
 		restrictedPatterns = rp;
 	}
 
