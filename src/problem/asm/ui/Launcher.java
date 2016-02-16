@@ -46,7 +46,7 @@ public class Launcher {
 			
 			// Take action if file output
 			if ("file".equals(obj.get("output-type"))) {
-				IOutputData iod = new DiagramOutputer(outputDir, phases);
+				IOutputData iod = new DiagramOutputer(outputDir + "out.dot", phases);
 				iod.outputData(StaticLibraryHolder.getLibrary());
 			}
 			
