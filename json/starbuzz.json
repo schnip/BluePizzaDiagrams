@@ -1,3 +1,5 @@
 {
+	"type":"uml",
+	"dot-path":"dot",
 	"classes":["headfirst.decorator.starbuzz.Beverage", "headfirst.decorator.starbuzz.CondimentDecorator", "headfirst.decorator.starbuzz.DarkRoast", "headfirst.decorator.starbuzz.Decaf", "headfirst.decorator.starbuzz.Espresso", "headfirst.decorator.starbuzz.HouseBlend", "headfirst.decorator.starbuzz.Milk", "headfirst.decorator.starbuzz.Mocha", "headfirst.decorator.starbuzz.Soy", "headfirst.decorator.starbuzz.StarbuzzCoffee", "headfirst.decorator.starbuzz.Whip"]
 }
