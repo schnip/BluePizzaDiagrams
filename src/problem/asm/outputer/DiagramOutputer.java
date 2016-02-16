@@ -3,6 +3,7 @@ package problem.asm.outputer;
 import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
@@ -23,16 +24,24 @@ public class DiagramOutputer implements IOutputData {
 	private Set<String> uses = new HashSet<String>();
 	private Set<String> associates = new HashSet<String>();
 	private Set<IFindPatterns> patternfinders = new HashSet<IFindPatterns>();
+	private Set<String> restrictedPatterns;
 
 	public DiagramOutputer(String s) {
 		filePath = s;
+		restrictedPatterns = new TreeSet<String>();
+	}
+	
+	public DiagramOutputer(String s, Set<String> rp) {
+		filePath = s;
+		restrictedPatterns = rp;
 	}
 
 	@Override
 	public void outputData(MetaDataLibrary m) {
 		StU.loadClasses("bin/problem/asm/impl/patternfinder", patternfinders);
 		for (IFindPatterns s : this.patternfinders) {
-			s.intake(m);
+			if (restrictedPatterns.size() <= 0 || restrictedPatterns.contains(s.getName()))
+				s.intake(m);
 		}
 		
 		try {
