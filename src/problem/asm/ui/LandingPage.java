@@ -68,37 +68,20 @@ public class LandingPage extends JFrame implements Runnable{
 		});
 		
 		
-		
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
-		
-
+		this.pack();
 	}
 
 	public String getConfigPath() {
 
+		createMenu();
+		while (this.selectedFile == null) {
+			
+		}
 		return this.selectedFile.toString();
-	}
-
-//	class fileChoose implements ActionListener {
-//		public void actionPerformed(ActionEvent e) {
-//			fileChooser.setMultiSelectionEnabled(false);
-//			fileChooser.setDialogTitle("Choose a File!");
-//			int returnVal = fileChooser.showOpenDialog(LandingPage.this);
-//			if (returnVal == JFileChooser.APPROVE_OPTION) {
-//				File file = fileChooser.getSelectedFile();
-//				try {
-//					// return the file path
-//					LandingPage.this.selectedFile = file;
-//				} catch (Exception ex) {
-//					System.out.println("problem accessing file" + file.getAbsolutePath());
-//				}
-//			} else {
-//				System.out.println("File access cancelled by user.");
-//			}
-//		}
-//	}
+	}	
 	
 	public void finishLoadingBar(PatternCollection patC, IMakeResults r) {
 		
