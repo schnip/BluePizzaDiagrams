@@ -1,5 +1,5 @@
 package problem.asm.api.patternfinder;
 
-public class PatternInstance {
+public class PatternInstance implements IPatternInstance {
 
 }

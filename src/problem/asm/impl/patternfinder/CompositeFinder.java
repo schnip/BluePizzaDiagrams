@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import problem.asm.api.patternfinder.IFindPatterns;
+import problem.asm.api.patternfinder.IPatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -108,6 +109,12 @@ public class CompositeFinder implements IFindPatterns {
 	@Override
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
 		// No edges need to be labeled
+	}
+
+	@Override
+	public Iterable<IPatternInstance> getInstances() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

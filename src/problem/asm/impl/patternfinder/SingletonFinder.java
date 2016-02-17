@@ -8,6 +8,7 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
 import problem.asm.api.patternfinder.IFindPatterns;
+import problem.asm.api.patternfinder.IPatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -96,6 +97,12 @@ public class SingletonFinder implements IFindPatterns {
 	@Override
 	public void labelEdge(String edgeDescription, PrintWriter writer) {
 		// This does nothing		
+	}
+
+	@Override
+	public Iterable<IPatternInstance> getInstances() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

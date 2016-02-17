@@ -17,4 +17,6 @@ public interface IFindPatterns {
 	
 	public void labelEdge(String edgeDescription, PrintWriter writer);
 	
+	public Iterable<IPatternInstance> getInstances();
+	
 }

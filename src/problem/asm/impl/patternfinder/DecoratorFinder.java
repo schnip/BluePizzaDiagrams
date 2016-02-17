@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import problem.asm.api.patternfinder.IFindPatterns;
+import problem.asm.api.patternfinder.IPatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -160,6 +161,12 @@ public class DecoratorFinder implements IFindPatterns {
 			return superChain(mdl.getClassByString(cv.getSuperName()), mdl);
 		}
 		return false;
+	}
+
+	@Override
+	public Iterable<IPatternInstance> getInstances() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
