@@ -24,6 +24,8 @@ public class LandingPage extends JFrame implements Runnable{
 	JProgressBar loadingBar;
 	JFileChooser fileChooser;
 	File selectedFile;
+	
+	boolean analyzeToRun;
 
 	static final int MIN = 0;
 	static final int MAX = 100;
@@ -38,6 +40,7 @@ public class LandingPage extends JFrame implements Runnable{
 		this.loadingBar.setMaximum(MAX);
 		this.fileChooser = new JFileChooser();
 		this.selectedFile = null;
+		this.analyzeToRun = false;
 	}
 
 	public void createMenu() {
@@ -67,6 +70,16 @@ public class LandingPage extends JFrame implements Runnable{
 			}
 		});
 		
+		this.analyze.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				LandingPage.this.analyzeToRun = true;
+			}
+		
+		});
+		
 		
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
@@ -75,15 +88,18 @@ public class LandingPage extends JFrame implements Runnable{
 	}
 
 	public String getConfigPath() {
-
 		createMenu();
-		while (this.selectedFile == null) {
-			
+		this.selectedFile = null;
+		if (this.selectedFile == null) System.out.println("null it is");
+		while (this.selectedFile == null || !this.analyzeToRun) {
+			System.out.println("");
 		}
+		System.out.println("about to return selected file");
 		return this.selectedFile.toString();
 	}	
 	
 	public void finishLoadingBar(PatternCollection patC, IMakeResults r) {
+		this.loadingBar.setValue(MAX);
 		
 	}
 	
