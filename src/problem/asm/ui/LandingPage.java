@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-public class LandingPage extends JFrame {
+public class LandingPage extends JFrame implements Runnable{
 
 	/**
 	 * 
@@ -19,7 +19,6 @@ public class LandingPage extends JFrame {
 	private static final long serialVersionUID = 1L;
 	JButton loadConfig;
 	JButton analyze;
-	// JFrame landingFrame;
 	JPanel landingPanel;
 	JLabel landingLabel;
 	JProgressBar loadingBar;
@@ -32,7 +31,6 @@ public class LandingPage extends JFrame {
 	public LandingPage() {
 		this.loadConfig = new JButton("Load Config");
 		this.analyze = new JButton("Analyze");
-		// this.landingFrame = new JFrame();
 		this.landingPanel = new JPanel();
 		this.landingLabel = new JLabel();
 		this.loadingBar = new JProgressBar();
@@ -44,47 +42,76 @@ public class LandingPage extends JFrame {
 
 	public void createMenu() {
 		this.add(this.landingPanel);
-		this.loadConfig.addActionListener(new fileChoose());
 		this.landingPanel.add(this.loadConfig);
 		this.landingPanel.add(this.analyze);
 		this.landingPanel.add(this.landingLabel);
 		this.landingPanel.add(this.loadingBar);
-
+		
+		this.loadConfig.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				fileChooser.setMultiSelectionEnabled(false);
+				fileChooser.setDialogTitle("Choose a File!");
+				int returnVal = fileChooser.showOpenDialog(LandingPage.this);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					File file = fileChooser.getSelectedFile();
+					try {
+						// return the file path
+						LandingPage.this.selectedFile = file;
+					} catch (Exception ex) {
+						System.out.println("problem accessing file" + file.getAbsolutePath());
+					}
+				} else {
+					System.out.println("File access cancelled by user.");
+				}
+			}
+		});
+		
+		
+		
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
+		
+		
 
 	}
 
 	public String getConfigPath() {
 
-		return "";
+		return this.selectedFile.toString();
 	}
 
-	class fileChoose implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			fileChooser.setMultiSelectionEnabled(false);
-			fileChooser.setDialogTitle("Choose a File!");
-			int returnVal = fileChooser.showOpenDialog(LandingPage.this);
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				File file = fileChooser.getSelectedFile();
-				try {
-					// return the file path
-					LandingPage.this.selectedFile = file;
-				} catch (Exception ex) {
-					System.out.println("problem accessing file" + file.getAbsolutePath());
-				}
-			} else {
-				System.out.println("File access cancelled by user.");
-			}
-		}
-	}
+//	class fileChoose implements ActionListener {
+//		public void actionPerformed(ActionEvent e) {
+//			fileChooser.setMultiSelectionEnabled(false);
+//			fileChooser.setDialogTitle("Choose a File!");
+//			int returnVal = fileChooser.showOpenDialog(LandingPage.this);
+//			if (returnVal == JFileChooser.APPROVE_OPTION) {
+//				File file = fileChooser.getSelectedFile();
+//				try {
+//					// return the file path
+//					LandingPage.this.selectedFile = file;
+//				} catch (Exception ex) {
+//					System.out.println("problem accessing file" + file.getAbsolutePath());
+//				}
+//			} else {
+//				System.out.println("File access cancelled by user.");
+//			}
+//		}
+//	}
 	
 	public void finishLoadingBar(PatternCollection patC, IMakeResults r) {
 		
 	}
 	
 	public void addToLoadingBar() {
-		
+		int currentVal = this.loadingBar.getValue();
+		this.loadingBar.setValue(currentVal + 1);
+	}
+
+	@Override
+	public void run() {
+		System.out.println("run method being called :)");
 	}
 
 }
