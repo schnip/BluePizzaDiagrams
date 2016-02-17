@@ -24,6 +24,7 @@ public class PatternPage extends JFrame implements Runnable {
 	public void CreatePatternPage() {
 		this.add(menuPanel);
 		this.add(imagePanel);
+		
 	}
 	
 	
