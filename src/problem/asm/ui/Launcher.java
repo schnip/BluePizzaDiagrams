@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import problem.asm.api.patternfinder.IFindPatterns;
+import problem.asm.api.patternfinder.IPatternInstance;
 import problem.asm.outputer.DiagramOutputer;
 import problem.asm.outputer.IOutputData;
 import problem.asm.storage.MetaDataLibrary;
@@ -39,6 +40,11 @@ public class Launcher {
 		for (IFindPatterns s : patternfinders) {
 			if (phases.size() <= 0 || phases.contains(s.getName())) {
 				s.intake(mdl);
+				PatternCollection temp = new PatternCollection(s.getName());
+				for (IPatternInstance pi : s.getInstances()) {
+					temp.addSubCollection(new PatternCollection(pi.getTitle()));
+				}
+				ret.addSubCollection(temp);
 			}
 		}
 
