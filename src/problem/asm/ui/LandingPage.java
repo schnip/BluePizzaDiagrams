@@ -54,6 +54,7 @@ public class LandingPage extends JFrame implements Runnable{
 		this.loadConfig.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				fileChooser.setCurrentDirectory(new File("/home/nithin/workspace/CSSE374-Project"));
 				fileChooser.setMultiSelectionEnabled(false);
 				fileChooser.setDialogTitle("Choose a File!");
 				int returnVal = fileChooser.showOpenDialog(LandingPage.this);
@@ -77,9 +78,7 @@ public class LandingPage extends JFrame implements Runnable{
 			public void actionPerformed(ActionEvent e) {
 				LandingPage.this.analyzeToRun = true;
 			}
-		
 		});
-		
 		
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
@@ -102,6 +101,15 @@ public class LandingPage extends JFrame implements Runnable{
 	public void finishLoadingBar(PatternCollection patC, IMakeResults r) {
 		this.loadingBar.setValue(MAX);
 		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		this.setVisible(false);
+		this.dispose();
 	}
 	
 	public void addToLoadingBar() {

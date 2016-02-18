@@ -33,7 +33,7 @@ public class PatternPage extends JFrame implements Runnable {
 
 	}
 
-	public void CreatePatternPage() {
+	public void createPatternPage() {
 		this.add(menuPanel);
 		this.add(imagePanel);
 		DefaultMutableTreeNode root = createMenu(this.patC);
