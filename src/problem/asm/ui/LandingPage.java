@@ -41,6 +41,7 @@ public class LandingPage extends JFrame implements Runnable{
 		this.fileChooser = new JFileChooser();
 		this.selectedFile = null;
 		this.analyzeToRun = false;
+		
 	}
 
 	public void createMenu() {
