@@ -14,6 +14,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
+import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeData;
 import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeEditor;
 import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeRenderer;
 
@@ -25,20 +26,20 @@ public class PatternPage extends JFrame implements Runnable {
 	PatternCollection patC;
 	IMakeResults results;
 	JPanel menuPanel;
-	ImagePane imagePanel;
+//	ImagePane imagePanel;
 
 
 	public PatternPage(PatternCollection patC, IMakeResults r) {
 		this.patC = patC;
 		this.results = r;
 		this.menuPanel = new JPanel();
-		this.imagePanel = new ImagePane();
+//		this.imagePanel = new ImagePane();
 
 	}
 
 	public void createPatternPage() {
 		this.add(menuPanel);
-		this.add(imagePanel);
+//		this.add(imagePanel);
 		DefaultMutableTreeNode root = createMenu(this.patC);
 
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);
@@ -84,9 +85,10 @@ public class PatternPage extends JFrame implements Runnable {
 		this.setSize(400, 400);
 		this.setVisible(true);
 	}
-
+	
 	public DefaultMutableTreeNode createMenu(PatternCollection pc) {
-		DefaultMutableTreeNode node = new DefaultMutableTreeNode(pc.getTitle());
+		CheckBoxNodeData data = new CheckBoxNodeData(pc.getTitle(), false);
+		DefaultMutableTreeNode node = new DefaultMutableTreeNode(data);
 		for (PatternCollection n : pc.getSubCollection()) {
 			node.add(createMenu(n));
 		}
