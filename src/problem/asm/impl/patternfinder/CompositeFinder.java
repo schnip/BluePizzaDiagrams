@@ -3,11 +3,14 @@ package problem.asm.impl.patternfinder;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.api.patternfinder.IPatternInstance;
+import problem.asm.api.patternfinder.PatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -17,6 +20,7 @@ import problem.asm.storage.StU;
 public class CompositeFinder implements IFindPatterns {
 	
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
+	private List<IPatternInstance> patInst = new LinkedList<IPatternInstance>();
 	private MetaDataLibrary mdl;
 	private Set<String> componentSet;
 
@@ -27,6 +31,9 @@ public class CompositeFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			if (checkForTwoSelfMethods(cv) && checkForContainsSelfCollection(cv)) {
 				classToSpecial.put(StU.toClean(cv.getName()), "component");
+				IPatternInstance temp = new PatternInstance(StU.toDot(cv.getName()));
+				temp.addParticipant(StU.toDot(cv.getName()), "component");
+				patInst.add(temp);
 			}
 		}
 		componentSet = new HashSet<String>(classToSpecial.keySet());
@@ -36,16 +43,28 @@ public class CompositeFinder implements IFindPatterns {
 			for (String potentialComponent : componentSet) {
 				if (isExtension(cv, potentialComponent))
 					if (hasTwoMethodsTaking(cv, potentialComponent))
-						if (hasCollectionOf(cv, potentialComponent))
+						if (hasCollectionOf(cv, potentialComponent)) {
 							StU.putIfAbsent(StU.toClean(cv.getName()), "composite", classToSpecial);
+							for (IPatternInstance ipi : patInst) {
+								if (StU.ehhEquals(ipi.getTitle(), potentialComponent)) {
+									ipi.addParticipant(StU.toDot(cv.getName()), "composite");
+								}
+							}
+						}
 			}
 		}
 		
 		// Find the leaves
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			for (String potentialComponent : componentSet) {
-				if (isExtension(cv, potentialComponent))
+				if (isExtension(cv, potentialComponent)) {
 					StU.putIfAbsent(StU.toClean(cv.getName()), "leaf", classToSpecial);
+					for (IPatternInstance ipi : patInst) {
+						if (StU.ehhEquals(ipi.getTitle(), potentialComponent)) {
+							ipi.addParticipant(StU.toDot(cv.getName()), "leaf");
+						}
+					}
+				}
 			}
 		}
 	}
@@ -113,8 +132,7 @@ public class CompositeFinder implements IFindPatterns {
 
 	@Override
 	public Iterable<IPatternInstance> getInstances() {
-		// TODO Auto-generated method stub
-		return null;
+		return patInst;
 	}
 
 }

@@ -2,10 +2,13 @@ package problem.asm.impl.patternfinder;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.api.patternfinder.IPatternInstance;
+import problem.asm.api.patternfinder.PatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -17,11 +20,10 @@ public class AdapterFinder implements IFindPatterns {
 
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
-	//private MetaDataLibrary mdl;
+	private List<IPatternInstance> patInst = new LinkedList<IPatternInstance>();
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
-		//this.mdl = mdl;
 		for (ClassVolume pAdapter : mdl.getClassVolume()) {
 			for (ClassVolume pAdaptee : mdl.getClassVolume()) {
 				for (ClassVolume pTarget : mdl.getClassVolume()) {
@@ -74,6 +76,11 @@ public class AdapterFinder implements IFindPatterns {
 		classToSpecial.put(StU.toDot(pTarget.getName()), "target");
 		classToSpecial.put(StU.toDot(pAdapter.getName()), "adapter");
 		classToSpecial.put(StU.toDot(pAdaptee.getName()), "adaptee");
+		IPatternInstance temp = new PatternInstance(StU.toDot(pAdapter.getName()));
+		temp.addParticipant(StU.toDot(pTarget.getName()), "target");
+		temp.addParticipant(StU.toDot(pAdapter.getName()), "adapter");
+		temp.addParticipant(StU.toDot(pAdaptee.getName()), "adaptee");
+		patInst.add(temp);
 		edgeToLabel.put(StU.toArrow(pAdapter.getName(), pAdaptee.getName()), "\\<\\<adapts\\>\\>");
 	}
 
@@ -108,8 +115,7 @@ public class AdapterFinder implements IFindPatterns {
 
 	@Override
 	public Iterable<IPatternInstance> getInstances() {
-		// TODO Auto-generated method stub
-		return null;
+		return patInst;
 	}
 
 }

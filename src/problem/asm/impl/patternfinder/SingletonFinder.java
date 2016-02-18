@@ -2,6 +2,8 @@ package problem.asm.impl.patternfinder;
 
 import java.io.PrintWriter;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import org.objectweb.asm.Opcodes;
@@ -9,14 +11,17 @@ import org.objectweb.asm.Type;
 
 import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.api.patternfinder.IPatternInstance;
+import problem.asm.api.patternfinder.PatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
 import problem.asm.storage.MethodBook;
+import problem.asm.storage.StU;
 
 public class SingletonFinder implements IFindPatterns {
 	
 	private Set<String> singletons = new HashSet<String>();
+	private List<IPatternInstance> patInst = new LinkedList<IPatternInstance>();
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
@@ -25,6 +30,9 @@ public class SingletonFinder implements IFindPatterns {
 			boolean privateConstructor = checkPCandgetter(cv);
 			if (field && privateConstructor) {
 				this.singletons.add(cv.getName().replace("/", "."));
+				IPatternInstance temp = new PatternInstance(StU.toDot(cv.getName()));
+				temp.addParticipant(StU.toDot(cv.getName()), "singleton");
+				this.patInst.add(temp);
 			}
 		} 
 
@@ -101,8 +109,7 @@ public class SingletonFinder implements IFindPatterns {
 
 	@Override
 	public Iterable<IPatternInstance> getInstances() {
-		// TODO Auto-generated method stub
-		return null;
+		return patInst;
 	}
 
 }

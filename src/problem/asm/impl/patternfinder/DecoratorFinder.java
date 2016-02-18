@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ public class DecoratorFinder implements IFindPatterns {
 
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
+	private List<IPatternInstance> patInst = new LinkedList<IPatternInstance>();
 	private List<String> comp;
 	private MetaDataLibrary mdl;
 
@@ -165,8 +167,7 @@ public class DecoratorFinder implements IFindPatterns {
 
 	@Override
 	public Iterable<IPatternInstance> getInstances() {
-		// TODO Auto-generated method stub
-		return null;
+		return patInst;
 	}
 
 }

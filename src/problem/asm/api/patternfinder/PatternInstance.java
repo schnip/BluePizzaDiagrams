@@ -7,14 +7,16 @@ import java.util.Set;
 public class PatternInstance implements IPatternInstance {
 	
 	Map<String, String> classToProperty;
+	String title;
 	
-	public PatternInstance() {
+	public PatternInstance(String title) {
 		classToProperty = new HashMap<String, String>();
+		this.title = title;
 	}
 
 	@Override
 	public String getTitle() {
-		return "titlegoeshere";
+		return title;
 	}
 	
 	@Override
