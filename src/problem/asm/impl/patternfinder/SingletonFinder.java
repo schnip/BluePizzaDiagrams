@@ -109,6 +109,8 @@ public class SingletonFinder implements IFindPatterns {
 
 	@Override
 	public Iterable<IPatternInstance> getInstances() {
+		System.out.println("nah, im cool");
+		System.out.println("I have " + patInst.size() + " instances");
 		return patInst;
 	}
 
