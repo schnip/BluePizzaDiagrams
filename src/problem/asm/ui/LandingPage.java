@@ -34,7 +34,7 @@ public class LandingPage extends JFrame implements Runnable{
 		this.loadConfig = new JButton("Load Config");
 		this.analyze = new JButton("Analyze");
 		this.landingPanel = new JPanel();
-		this.landingLabel = new JLabel();
+		this.landingLabel = new JLabel("Loading");
 		this.loadingBar = new JProgressBar();
 		this.loadingBar.setMinimum(MIN);
 		this.loadingBar.setMaximum(MAX);
@@ -75,7 +75,6 @@ public class LandingPage extends JFrame implements Runnable{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				LandingPage.this.analyzeToRun = true;
 			}
 		
