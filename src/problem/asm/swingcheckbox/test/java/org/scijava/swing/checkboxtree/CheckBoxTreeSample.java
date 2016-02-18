@@ -98,6 +98,7 @@ public class CheckBoxTreeSample {
 			@Override
 			public void treeNodesChanged(final TreeModelEvent e) {
 				System.out.println(System.currentTimeMillis() + ": nodes changed");
+				
 			}
 
 			@Override

@@ -7,6 +7,11 @@ import javax.swing.JPanel;
 
 public class ImagePane extends JPanel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private ImageIconProxy imageProxy;
 	
 	public ImagePane(String path) {
@@ -18,11 +23,11 @@ public class ImagePane extends JPanel{
 	}
 	
 	public void loadImage() {
-		imageProxy.loadImage();
+		this.imageProxy.loadImage();
 	}
 	
 	public void disposeOfProxy() {
-		imageProxy.dispose();
+		this.imageProxy.dispose();
 	}
 	
 

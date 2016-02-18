@@ -26,20 +26,21 @@ public class PatternPage extends JFrame implements Runnable {
 	PatternCollection patC;
 	IMakeResults results;
 	JPanel menuPanel;
-//	ImagePane imagePanel;
+	ImagePane imagePanel;
 
 
 	public PatternPage(PatternCollection patC, IMakeResults r) {
 		this.patC = patC;
 		this.results = r;
 		this.menuPanel = new JPanel();
-//		this.imagePanel = new ImagePane();
+		this.imagePanel = new ImagePane("/BluePizzaDiagrams/dot/out.png");
 
 	}
 
 	public void createPatternPage() {
-		this.add(menuPanel);
-//		this.add(imagePanel);
+		this.setLayout(new BorderLayout());
+		this.add(menuPanel, BorderLayout.WEST);
+		this.add(imagePanel, BorderLayout.EAST);
 		DefaultMutableTreeNode root = createMenu(this.patC);
 
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);
@@ -82,13 +83,14 @@ public class PatternPage extends JFrame implements Runnable {
 		JScrollPane scrollPane = new JScrollPane(tree);
 		this.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(400, 400);
+		this.setSize(800, 800);
 		this.setVisible(true);
 	}
 	
 	public DefaultMutableTreeNode createMenu(PatternCollection pc) {
 		CheckBoxNodeData data = new CheckBoxNodeData(pc.getTitle(), false);
 		DefaultMutableTreeNode node = new DefaultMutableTreeNode(data);
+		System.out.println("collection size:    " + pc.getSubCollection().size());
 		for (PatternCollection n : pc.getSubCollection()) {
 			node.add(createMenu(n));
 		}
