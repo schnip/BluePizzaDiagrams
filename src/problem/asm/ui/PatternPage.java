@@ -1,8 +1,11 @@
 package problem.asm.ui;
 
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
@@ -22,14 +25,14 @@ public class PatternPage extends JFrame implements Runnable {
 	PatternCollection patC;
 	IMakeResults results;
 	JPanel menuPanel;
-	JPanel imagePanel;
+	ImagePane imagePanel;
 
 
 	public PatternPage(PatternCollection patC, IMakeResults r) {
 		this.patC = patC;
 		this.results = r;
 		this.menuPanel = new JPanel();
-		this.imagePanel = new JPanel();
+		this.imagePanel = new ImagePane();
 
 	}
 
@@ -75,8 +78,10 @@ public class PatternPage extends JFrame implements Runnable {
 				System.out.println(System.currentTimeMillis() + ": structure changed");
 			}
 		});
-
+		JScrollPane scrollPane = new JScrollPane(tree);
+		this.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(400, 400);
 		this.setVisible(true);
 	}
 

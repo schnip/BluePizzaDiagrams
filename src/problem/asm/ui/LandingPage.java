@@ -54,7 +54,7 @@ public class LandingPage extends JFrame implements Runnable{
 		this.loadConfig.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				fileChooser.setCurrentDirectory(new File("/home/nithin/workspace/CSSE374-Project"));
+				fileChooser.setCurrentDirectory(new File("/home/nithin/workspace/CSSE374-Project/BluePizzaDiagrams"));
 				fileChooser.setMultiSelectionEnabled(false);
 				fileChooser.setDialogTitle("Choose a File!");
 				int returnVal = fileChooser.showOpenDialog(LandingPage.this);
