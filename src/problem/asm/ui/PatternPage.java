@@ -50,7 +50,6 @@ public class PatternPage extends JFrame implements Runnable {
 
 		// listen for changes in the selection
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
-
 			@Override
 			public void valueChanged(final TreeSelectionEvent e) {
 				System.out.println(System.currentTimeMillis() + ": selection changed");
@@ -59,22 +58,18 @@ public class PatternPage extends JFrame implements Runnable {
 
 		// listen for changes in the model (including check box toggles)
 		treeModel.addTreeModelListener(new TreeModelListener() {
-
 			@Override
 			public void treeNodesChanged(final TreeModelEvent e) {
 				System.out.println(System.currentTimeMillis() + ": nodes changed");
 			}
-
 			@Override
 			public void treeNodesInserted(final TreeModelEvent e) {
 				System.out.println(System.currentTimeMillis() + ": nodes inserted");
 			}
-
 			@Override
 			public void treeNodesRemoved(final TreeModelEvent e) {
 				System.out.println(System.currentTimeMillis() + ": nodes removed");
 			}
-
 			@Override
 			public void treeStructureChanged(final TreeModelEvent e) {
 				System.out.println(System.currentTimeMillis() + ": structure changed");
@@ -83,7 +78,6 @@ public class PatternPage extends JFrame implements Runnable {
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-
 	}
 
 	public DefaultMutableTreeNode createMenu(PatternCollection pc) {
