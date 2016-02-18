@@ -91,8 +91,9 @@ public class LandingPage extends JFrame implements Runnable{
 		createMenu();
 		this.selectedFile = null;
 		if (this.selectedFile == null) System.out.println("null it is");
+//		boolean filler = false;
 		while (this.selectedFile == null || !this.analyzeToRun) {
-			System.out.println("");
+			System.out.print("");
 		}
 		System.out.println("about to return selected file");
 		return this.selectedFile.toString();

@@ -41,6 +41,8 @@ public class Launcher {
 			if (phases.size() <= 0 || phases.contains(s.getName())) {
 				s.intake(mdl);
 				PatternCollection temp = new PatternCollection(s.getName());
+				System.out.println(s.getName());
+				System.out.println("time for problems");
 				for (IPatternInstance pi : s.getInstances()) {
 					temp.addSubCollection(new PatternCollection(pi.getTitle()));
 				}
