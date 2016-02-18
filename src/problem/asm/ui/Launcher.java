@@ -30,7 +30,7 @@ public class Launcher {
 		parseAndDo(lp.getConfigPath());
 		lp.finishLoadingBar(null, null);
 		new PatternPage(generatPatC(StaticLibraryHolder.getLibrary()),
-				new ResultMaker(dotPath, StaticLibraryHolder.getLibrary(), outputDir, phases)).CreatePatternPage();
+				new ResultMaker(dotPath, StaticLibraryHolder.getLibrary(), outputDir, phases)).createPatternPage();
 	}
 
 	private static PatternCollection generatPatC(MetaDataLibrary mdl) {
