@@ -67,5 +67,21 @@ public class StU {
 			m.put(key, value);
 		}
 	}
+	
+	public static boolean isUnder(MetaDataLibrary mdl, String sub, String sup) {
+		if (ehhEquals(sub, sup))
+			return true;
+		if (mdl.contains(sub)) {
+			ClassVolume cv = mdl.getClassByString(sub);
+			if (isUnder(mdl, cv.getSuperName(), sup))
+				return true;
+			for (String s : cv.getInterfaces()) {
+				if (ehhEquals(s, sup)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 }

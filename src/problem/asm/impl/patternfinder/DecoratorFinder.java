@@ -10,6 +10,7 @@ import java.util.Map;
 
 import problem.asm.api.patternfinder.IFindPatterns;
 import problem.asm.api.patternfinder.IPatternInstance;
+import problem.asm.api.patternfinder.PatternInstance;
 import problem.asm.storage.ClassVolume;
 import problem.asm.storage.FieldPage;
 import problem.asm.storage.MetaDataLibrary;
@@ -49,6 +50,17 @@ public class DecoratorFinder implements IFindPatterns {
 		for (ClassVolume cv : mdl.getClassVolume()) {
 			if (superChain(cv, mdl)) {
 				classToSpecial.put(StU.toDot(cv.getName()), "decorator");
+			}
+		}
+		for (String sup : classToSpecial.keySet()) {
+			if (classToSpecial.get(sup).equals("component")) {
+				IPatternInstance temp = new PatternInstance(sup);
+				for (String sub : classToSpecial.keySet()) {
+					if (StU.isUnder(mdl, sub, sup)) {
+						temp.addParticipant(sub, "decorator");
+					}
+				}
+				temp.addParticipant(sup, "component");
 			}
 		}
 		//System.out.println("classToSpecial:     " + this.classToSpecial.toString());
