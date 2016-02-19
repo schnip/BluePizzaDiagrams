@@ -65,11 +65,11 @@ public class PatternPage extends JFrame implements Runnable {
 			@Override
 			public void valueChanged(final TreeSelectionEvent e) {
 				System.out.println(System.currentTimeMillis() + ": selection changed");
-				System.out.println("source:   " + e.getSource());
-				System.out.println("string:   " + e.toString());
-				System.out.println("path  :   " + e.getPath());
-				System.out.println(root.toString());
-				System.out.println(root.getFirstChild().toString());
+//				System.out.println("source:   " + e.getSource());
+//				System.out.println("string:   " + e.toString());
+//				System.out.println("path  :   " + e.getPath());
+//				System.out.println(root.toString());
+//				System.out.println(root.getFirstChild().toString());
 				putDataBackIn(patC, root);
 				String pathToNewImage = results.makeResult(patC);
 				imagePanel.consumeNewImage(pathToNewImage);
