@@ -1,8 +1,6 @@
 package problem.asm.ui;
 
-
 import java.awt.BorderLayout;
-import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,31 +17,15 @@ import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckB
 import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeEditor;
 import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeRenderer;
 
-public class PatternPage extends JFrame implements Runnable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	PatternCollection patC;
-	IMakeResults results;
-	JPanel menuPanel;
-	ImagePane imagePanel;
-	JPanel otherPanel;
+public class MenuPanel extends JPanel {
 	
-	HashMap<String, Boolean> isChecked;
-
-	public PatternPage(PatternCollection patC, IMakeResults r) {
+	PatternCollection patC;
+	
+	public MenuPanel(PatternCollection patC) {
 		this.patC = patC;
-		this.results = r;
-		this.menuPanel = new JPanel();
-		this.imagePanel = new ImagePane("/BluePizzaDiagrams/dot/out.png");
-		this.isChecked = new HashMap<String, Boolean>();
 	}
 
-	public void createPatternPage() {
-		this.setLayout(new BorderLayout());
-		this.add(menuPanel, BorderLayout.WEST);
-		this.add(imagePanel, BorderLayout.EAST);
+	public JTree createPatternPage() {
 
 		DefaultMutableTreeNode root = createMenu(this.patC);
 
@@ -62,9 +44,6 @@ public class PatternPage extends JFrame implements Runnable {
 			@Override
 			public void valueChanged(final TreeSelectionEvent e) {
 				System.out.println(System.currentTimeMillis() + ": selection changed");
-				System.out.println("source:   " + e.getSource());
-				System.out.println("string:   " + e.toString());
-				System.out.println("path  :   " + e.getPath());
 			}
 		});
 
@@ -72,7 +51,7 @@ public class PatternPage extends JFrame implements Runnable {
 		treeModel.addTreeModelListener(new TreeModelListener() {
 			@Override
 			public void treeNodesChanged(final TreeModelEvent e) {
-//				System.out.println(System.currentTimeMillis() + ": nodes changed");
+				System.out.println(System.currentTimeMillis() + ": nodes changed");
 				
 			}
 			@Override
@@ -88,16 +67,11 @@ public class PatternPage extends JFrame implements Runnable {
 				System.out.println(System.currentTimeMillis() + ": structure changed");
 			}
 		});
-		JScrollPane scrollPane = new JScrollPane(tree);
-		this.getContentPane().add(scrollPane, BorderLayout.CENTER);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(800, 800);
-		this.setVisible(true);
+		return tree;
 	}
 	
 	public DefaultMutableTreeNode createMenu(PatternCollection pc) {
 		CheckBoxNodeData data = new CheckBoxNodeData(pc.getTitle(), false);
-		this.isChecked.put(pc.getTitle(), false);
 		DefaultMutableTreeNode node = new DefaultMutableTreeNode(data);
 		System.out.println("collection size:    " + pc.getSubCollection().size());
 		for (PatternCollection n : pc.getSubCollection()) {
@@ -106,14 +80,5 @@ public class PatternPage extends JFrame implements Runnable {
 		return node;
 	}
 	
-	public HashMap<String, Boolean> getisChecked() {
-		return this.isChecked;
-	}
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }
