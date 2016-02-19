@@ -1,9 +1,7 @@
 package problem.asm.ui;
 
 import java.awt.BorderLayout;
-import java.io.File;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -33,6 +31,10 @@ public class ImagePane extends JPanel{
 	
 	public void disposeOfProxy() {
 		this.imageProxy.dispose();
+	}
+	
+	public void consumeNewImage(String newPath) {
+		// TODO write code that goes here
 	}
 	
 

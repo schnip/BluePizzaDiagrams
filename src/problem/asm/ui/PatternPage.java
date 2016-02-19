@@ -14,6 +14,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 
 import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeData;
 import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckBoxNodeEditor;
@@ -69,7 +70,21 @@ public class PatternPage extends JFrame implements Runnable {
 				System.out.println("path  :   " + e.getPath());
 				System.out.println(root.toString());
 				System.out.println(root.getFirstChild().toString());
+				putDataBackIn(patC, root);
+				String pathToNewImage = results.makeResult(patC);
+				imagePanel.consumeNewImage(pathToNewImage);
 				
+			}
+			
+			private void putDataBackIn(PatternCollection patC, TreeNode node) {
+				patC.setChecked(((CheckBoxNodeData) ((DefaultMutableTreeNode) node).getUserObject()).isChecked());
+				for (PatternCollection childC : patC.getSubCollection()) {
+					for (int i = 0; i < node.getChildCount(); i++) {
+						if (childC.getTitle().equals(node.getChildAt(i))) {
+							putDataBackIn(childC, node.getChildAt(i));
+						}
+					}
+				}
 			}
 		});
 
