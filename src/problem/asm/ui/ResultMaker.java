@@ -36,19 +36,15 @@ public class ResultMaker implements IMakeResults {
 			Set<String> newClasses = new HashSet<String>();
 			// Load the two sets
 			for (PatternCollection pattern : patC.getSubCollection()) {
-				boolean all = false;
+				boolean all = patC.isChecked();
 				if (pattern.isChecked()) {
 					newPhases.add(pattern.getTitle());
 					all = true;
 				}
 				for (PatternCollection instance : pattern.getSubCollection()) {
-					boolean allinst = false;
-					if (instance.isChecked() || all) {
-						allinst = true;
-					}
 					IFindPatterns ifp = loadAndGetPatternFinderByName(pattern.getTitle());
 					for (IPatternInstance ipi : ifp.getInstances()) {
-						if (ipi.getTitle().equals(instance.getTitle()) || allinst || all) {
+						if (ipi.getTitle().equals(instance.getTitle()) || all) {
 							newPhases.add(pattern.getTitle());
 							for (String inst : ipi.getParticipantClasses()) {
 								newClasses.add(inst);
