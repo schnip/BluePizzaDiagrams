@@ -70,7 +70,7 @@ public class PatternPage extends JFrame implements Runnable {
 //				System.out.println("path  :   " + e.getPath());
 				System.out.println(root.toString());
 //				System.out.println(root.getFirstChild().toString());
-				patC = putDataBackIn(patC, root);
+				putDataBackIn(patC, root);
 				System.out.println(patC.getTitle());
 				System.out.println(patC.toString());
 				String pathToNewImage = results.makeResult(patC);
@@ -78,16 +78,15 @@ public class PatternPage extends JFrame implements Runnable {
 				
 			}
 			
-			private PatternCollection putDataBackIn(PatternCollection patC, TreeNode node) {
+			private void putDataBackIn(PatternCollection patC, TreeNode node) {
 				patC.setChecked(((CheckBoxNodeData) ((DefaultMutableTreeNode) node).getUserObject()).isChecked());
 				for (PatternCollection childC : patC.getSubCollection()) {
 					for (int i = 0; i < node.getChildCount(); i++) {
 						if (childC.getTitle().equals(node.getChildAt(i))) {
-							patC.getSubCollection().set(patC.getSubCollection().indexOf(childC), putDataBackIn(childC, node.getChildAt(i)));
+							putDataBackIn(childC, node.getChildAt(i));
 						}
 					}
 				}
-				return patC;
 			}
 		});
 
