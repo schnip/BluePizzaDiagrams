@@ -27,6 +27,7 @@ public class ResultMaker implements IMakeResults {
 
 	@Override
 	public String makeResult(PatternCollection patC) {
+		System.out.println(patC.toString());
 		if (patC.isChecked()) {
 			IOutputData iod = new DiagramOutputer(path, phases);
 			iod.outputData(mdl);

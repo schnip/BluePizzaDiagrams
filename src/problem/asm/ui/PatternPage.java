@@ -68,11 +68,11 @@ public class PatternPage extends JFrame implements Runnable {
 //				System.out.println("source:   " + e.getSource());
 //				System.out.println("string:   " + e.toString());
 //				System.out.println("path  :   " + e.getPath());
-				System.out.println(root.toString());
+//				System.out.println(root.toString());
 //				System.out.println(root.getFirstChild().toString());
 				putDataBackIn(patC, root);
-				System.out.println(patC.getTitle());
-				System.out.println(patC.toString());
+//				System.out.println(patC.getTitle());
+//				System.out.println(patC.toString());
 				String pathToNewImage = results.makeResult(patC);
 				imagePanel.consumeNewImage(pathToNewImage);
 				
