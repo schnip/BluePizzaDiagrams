@@ -22,6 +22,7 @@ public class ResultMaker implements IMakeResults {
 		mdl = library;
 		this.dotPath = dotPath;
 		this.outputDir = outputDir;
+		this.phases = phases;
 		path = outputDir + "out.dot";
 	}
 
