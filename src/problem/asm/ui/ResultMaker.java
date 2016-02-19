@@ -66,6 +66,7 @@ public class ResultMaker implements IMakeResults {
 				newMdl.addClass(mdl.getClassByString(s));
 			}
 			IOutputData iod = new DiagramOutputer(path, newPhases);
+			System.out.println("the new metadatalibrary has this many classes: " + newMdl.getClassVolume().size());
 			iod.outputData(newMdl);
 		}
 		return runDot();
