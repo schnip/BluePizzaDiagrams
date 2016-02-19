@@ -45,7 +45,6 @@ public class ImageIconProxy extends ImageIcon implements Icon {
 		this.setCurrentImage(imgIcon);
 		
 		System.out.println("!@@!#!#$@$#@$#$@#$#@$#$#@@$#$#@!!#@#@!#@!#!");
-//		super.setImage(toret);
 		
 	}
 
