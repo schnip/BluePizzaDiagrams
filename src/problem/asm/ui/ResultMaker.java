@@ -44,7 +44,7 @@ public class ResultMaker implements IMakeResults {
 				for (PatternCollection instance : pattern.getSubCollection()) {
 					IFindPatterns ifp = loadAndGetPatternFinderByName(pattern.getTitle());
 					for (IPatternInstance ipi : ifp.getInstances()) {
-						if (ipi.getTitle().equals(instance.getTitle()) || all) {
+						if (ipi.getTitle().equals(instance.getTitle()) && (all || instance.isChecked() )) {
 							newPhases.add(pattern.getTitle());
 							for (String inst : ipi.getParticipantClasses()) {
 								newClasses.add(inst);
