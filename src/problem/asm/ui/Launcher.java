@@ -1,5 +1,6 @@
 package problem.asm.ui;
 
+import java.io.File;
 import java.io.FileReader;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +23,7 @@ public class Launcher {
 	private static String dotPath;
 	private static String diagramType;
 	private static String outputType;
+	private static String inputDir;
 	private static Set<String> phases;
 	private static LandingPage lp;
 
@@ -68,6 +70,7 @@ public class Launcher {
 			dotPath = (String) obj.get("dot-path");
 			outputDir = (String) obj.get("output-dir");
 			outputType = (String) obj.get("output-type");
+			inputDir = (String) obj.get("input-dir");
 //			System.out.println("The output directory is supposed to be " + outputDir);
 			phases = new HashSet<String>();
 			if (null != obj.get("phases")) {
@@ -75,6 +78,10 @@ public class Launcher {
 					phases.add((String) o);
 				}
 			}
+			if (null != inputDir) {
+				inputClassRec(new File(inputDir));
+			}
+			
 			if (!diagramType.equals("uml")) {
 				throw new UnsupportedOperationException();
 			}
@@ -89,6 +96,16 @@ public class Launcher {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+
+	private static void inputClassRec(File file) {
+		if (file.isFile()) {
+			StaticLibraryHolder.parseClass(StU.toDot(file.getPath()).replace(".class", ""));
+			return;
+		}
+		for (File f : file.listFiles()) {
+			inputClassRec(f);
 		}
 	}
 
