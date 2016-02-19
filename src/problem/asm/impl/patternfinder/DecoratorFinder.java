@@ -165,8 +165,8 @@ public class DecoratorFinder implements IFindPatterns {
 //			System.out.println(" " + cv.getName());
 //			System.out.println(" " + s);
 			if (StU.ehhEquals(cv.getName(), s)) {
-				System.out.println("hrmmmf");
-				System.out.println(s + " " + classToSpecial.get(s));
+//				System.out.println("hrmmmf");
+//				System.out.println(s + " " + classToSpecial.get(s));
 				if (classToSpecial.get(s).equals("decorator"))
 					return true;
 			}

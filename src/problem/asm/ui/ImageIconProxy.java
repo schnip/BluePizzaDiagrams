@@ -2,16 +2,12 @@ package problem.asm.ui;
 
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.ImageObserver;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class ImageIconProxy extends ImageIcon {
+public class ImageIconProxy extends ImageIcon implements Icon {
 
 	/**
 	 * 
@@ -34,19 +30,6 @@ public class ImageIconProxy extends ImageIcon {
 		this.imgPath = imgPath;
 		this.stopThread = false;
 	}
-
-	// public void loadImage() {
-	// if(this.currentImage != LOADING) {
-	// this.currentImage = LOADING;
-	// updateCallback();
-	// this.thread = new Thread(this);
-	// this.thread.start();
-	// }
-	// }
-
-	// public void dispose() {
-	// this.stopThread = true;
-	// }
 
 	public void consumeNewImage(String newPath) {
 		this.setCurrentImage(new ImageIcon(newPath));
