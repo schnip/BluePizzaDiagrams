@@ -30,6 +30,8 @@ public class PatternPage extends JFrame implements Runnable {
 	ImagePane imagePanel;
 	JPanel otherPanel;
 	
+	DefaultMutableTreeNode root;
+	
 	HashMap<String, Boolean> isChecked;
 
 	public PatternPage(PatternCollection patC, IMakeResults r) {
@@ -45,7 +47,7 @@ public class PatternPage extends JFrame implements Runnable {
 		this.add(menuPanel, BorderLayout.WEST);
 		this.add(imagePanel, BorderLayout.EAST);
 
-		DefaultMutableTreeNode root = createMenu(this.patC);
+		this.root = createMenu(this.patC);
 
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);
 		JTree tree = new JTree(treeModel);
@@ -65,6 +67,9 @@ public class PatternPage extends JFrame implements Runnable {
 				System.out.println("source:   " + e.getSource());
 				System.out.println("string:   " + e.toString());
 				System.out.println("path  :   " + e.getPath());
+				System.out.println(root.toString());
+				System.out.println(root.getFirstChild().toString());
+				
 			}
 		});
 
@@ -99,6 +104,8 @@ public class PatternPage extends JFrame implements Runnable {
 		CheckBoxNodeData data = new CheckBoxNodeData(pc.getTitle(), false);
 		this.isChecked.put(pc.getTitle(), false);
 		DefaultMutableTreeNode node = new DefaultMutableTreeNode(data);
+		System.out.println(node.toString());
+		
 		System.out.println("collection size:    " + pc.getSubCollection().size());
 		for (PatternCollection n : pc.getSubCollection()) {
 			node.add(createMenu(n));
