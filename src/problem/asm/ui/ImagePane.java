@@ -38,7 +38,7 @@ public class ImagePane extends JPanel{
 		// TODO write code that goes here
 		// This method takes the path and draws the image
 		this.imageProxy.consumeNewImage(newPath);
-		this.add(new JLabel(imageProxy), BorderLayout.LINE_START);
+//		this.add(new JLabel(imageProxy), BorderLayout.LINE_START);
 		this.repaint();
 	}
 	

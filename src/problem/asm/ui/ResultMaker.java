@@ -21,6 +21,7 @@ public class ResultMaker implements IMakeResults {
 	public ResultMaker(String dotPath, MetaDataLibrary library, String outputDir, Set<String> phases) {
 		mdl = library;
 		this.dotPath = dotPath;
+		this.outputDir = outputDir;
 		path = outputDir + "out.dot";
 	}
 

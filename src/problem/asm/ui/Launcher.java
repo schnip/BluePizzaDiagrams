@@ -68,6 +68,7 @@ public class Launcher {
 			dotPath = (String) obj.get("dot-path");
 			outputDir = (String) obj.get("output-dir");
 			outputType = (String) obj.get("output-type");
+//			System.out.println("The output directory is supposed to be " + outputDir);
 			phases = new HashSet<String>();
 			if (null != obj.get("phases")) {
 				for (Object o : (JSONArray) obj.get("phases")) {

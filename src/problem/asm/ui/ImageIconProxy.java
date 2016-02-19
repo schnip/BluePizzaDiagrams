@@ -32,6 +32,7 @@ public class ImageIconProxy extends ImageIcon implements Icon {
 	}
 
 	public void consumeNewImage(String newPath) {
+		System.out.println("path:   " + newPath);
 		this.setCurrentImage(new ImageIcon(newPath));
 	}
 
