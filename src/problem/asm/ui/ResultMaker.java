@@ -56,6 +56,9 @@ public class ResultMaker implements IMakeResults {
 					}
 				}
 			}
+			
+			System.out.println("the number of patterns is " + newPhases.toString());
+			System.out.println("the number of classes is " + newClasses.toString());
 
 			// Now that they have been loaded, make the new mdl and run the
 			// outputter on it
