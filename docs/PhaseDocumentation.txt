@@ -13,3 +13,7 @@ This project is made up of a number of distinct phases.  They are described as f
 
 - this phase is used to detect the composite pattern.  At the current time it can detect composite patterns when given classes or a directory of classes to find the composite pattern in.  It marks classes as <<Composite>>, <<component>> and <<Leaf>>.  The <<Composite>> is a class that extends the <<Component>> and can add and remove Components from itself.  Leaves are classes that extend a component but do not have this add/remove functionality and the component is a class extended by composites and contains a collection of itself.
 
+
+Adding your own pattern detection phases:
+
+1. Simply add your own implementation of the IFindPatterns interface.  If you implement the methods in the way you want, you will have developed your own pattern finder without having to add code in any other place.
