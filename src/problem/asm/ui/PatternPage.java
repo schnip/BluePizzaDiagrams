@@ -84,7 +84,8 @@ public class PatternPage extends JFrame implements Runnable {
 				patC.setChecked(cbnd.isChecked());
 				for (PatternCollection childC : patC.getSubCollection()) {
 					for (int i = 0; i < node.getChildCount(); i++) {
-						if (childC.getTitle().equals(node.getChildAt(i))) {
+						CheckBoxNodeData cbndC = (CheckBoxNodeData) ((DefaultMutableTreeNode) node.getChildAt(i)).getUserObject();
+						if (childC.getTitle().equals(cbndC.getText())) {
 							putDataBackIn(childC, node.getChildAt(i));
 						}
 					}
