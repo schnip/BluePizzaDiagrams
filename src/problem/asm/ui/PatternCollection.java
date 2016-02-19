@@ -37,7 +37,7 @@ public class PatternCollection {
 	
 	@Override
 	public String toString() {
-		String ret = getTitle();
+		String ret = getTitle() + ":" + this.checked;
 		ret = ret + " [";
 		for (PatternCollection patC : this.subpatterns) {
 			ret = patC.toString() + ", ";
