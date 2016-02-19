@@ -2,6 +2,7 @@ package problem.asm.ui;
 
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.io.File;
 
 import javax.swing.Icon;
@@ -23,25 +24,29 @@ public class ImageIconProxy extends ImageIcon implements Icon {
 	private String imgPath;
 	private JPanel returnPanel;
 	private Thread thread;
-	private boolean stopThread;
 
 	public ImageIconProxy(JPanel returnPanel, String imgPath) {
-		super(NOIMAGE.getImage());
+		super();
+//		super(NOIMAGE.getImage());
 		this.returnPanel = returnPanel;
-		this.imgPath = imgPath;
-		this.stopThread = false;
+		this.imgPath = "Resources/nothing_here_by_superangrybirdsfan64-d5ca8tm.png";
 	}
 
 	public void consumeNewImage(String newPath) {
-		System.out.println("path:   " + newPath);
 		String inp = new File(newPath).getAbsolutePath();
 		System.out.println("new abs path:     " + inp);
 		
 		ImageIcon imgIcon = new ImageIcon(inp);
 		
-		System.out.println("width:   " + imgIcon.getIconWidth());
+//		Image toret = imgIcon.getImage();
 		
+		System.out.println("width:   " + imgIcon.getIconWidth());
+		System.out.println("     " + imgIcon.getDescription());
 		this.setCurrentImage(imgIcon);
+		
+		System.out.println("!@@!#!#$@$#@$#$@#$#@$#$#@@$#$#@!!#@#@!#@!#!");
+//		super.setImage(toret);
+		
 	}
 
 	public int getIconHeight() {
@@ -61,7 +66,9 @@ public class ImageIconProxy extends ImageIcon implements Icon {
 	}
 
 	public void setCurrentImage(ImageIcon image) {
+		System.out.println("HASHCODE OF CURRENT IMAGE IS:   " + this.currentImage.hashCode());
 		this.currentImage = image;
+		System.out.println("HASHCODE OF CURRENT IMAGE IS (AFTER) :   " + this.currentImage.hashCode());
 	}
 	
 }

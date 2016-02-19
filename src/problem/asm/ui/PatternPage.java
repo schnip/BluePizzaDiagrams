@@ -71,6 +71,7 @@ public class PatternPage extends JFrame implements Runnable {
 				String pathToNewImage = results.makeResult(patC);
 				imagePanel.consumeNewImage(pathToNewImage);
 				imagePanel.repaint();
+				repaint();
 			}
 			
 			private void putDataBackIn(PatternCollection patC, TreeNode node) {
