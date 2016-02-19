@@ -40,7 +40,7 @@ public class PatternCollection {
 		String ret = getTitle() + ":" + this.checked;
 		ret = ret + " [";
 		for (PatternCollection patC : this.subpatterns) {
-			ret = patC.toString() + ", ";
+			ret = ret + patC.toString() + ", ";
 		}
 		ret = ret + "] ";
 		return ret;
