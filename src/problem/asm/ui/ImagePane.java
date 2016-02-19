@@ -20,12 +20,10 @@ public class ImagePane extends JPanel{
 	public ImagePane(String path) {
 		
 		this.setLayout(new BorderLayout());
-		
 		this.imageProxy = new ImageIconProxy(this, path);
-		
 		this.saveLabel = new JLabel(imageProxy);
-		this.add(this.saveLabel, BorderLayout.LINE_START);
 		
+		this.add(this.saveLabel, BorderLayout.LINE_START);
 	}
 	
 	public void consumeNewImage(String newPath) {
@@ -33,9 +31,16 @@ public class ImagePane extends JPanel{
 		this.setLayout(new BorderLayout());
 		this.imageProxy.consumeNewImage(newPath);
 //		this.remove(saveLabel);
-		saveLabel = new JLabel(imageProxy);
+		
+		saveLabel = new JLabel();
+		saveLabel.setIcon(imageProxy);
 		this.add(saveLabel, BorderLayout.LINE_START);
+		
 		System.out.println("****************************************** hihihihihih **********************************************");
+		
+		
+		
+		
 //		this.imageProxy = new ImageIconProxy(this, newPath);
 //		this.add(new JLabel(this.imageProxy), BorderLayout.LINE_START);
 //		this.saveLabel.setIcon(this.imageProxy);
