@@ -35,8 +35,7 @@ public class PatternPage extends JFrame implements Runnable {
 		this.patC = patC;
 		this.results = r;
 		this.menuPanel = new JPanel();
-		this.imagePanel = new ImagePane("/BluePizzaDiagrams/dot/out.png");
-//		this.otherPanel = new JPanel();
+		this.imagePanel = new ImagePane("dot/out.png");
 
 	}
 
@@ -44,10 +43,7 @@ public class PatternPage extends JFrame implements Runnable {
 		this.setLayout(new BorderLayout());
 		this.add(menuPanel, BorderLayout.WEST);
 		this.add(imagePanel, BorderLayout.EAST);
-		
-		
-//		otherPanel.add(new JLabel("Super label this project sucks"));
-//		this.add(otherPanel, BorderLayout.EAST);
+
 		DefaultMutableTreeNode root = createMenu(this.patC);
 
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);

@@ -20,8 +20,8 @@ public class ImageIconProxy extends ImageIcon implements Runnable, ImageObserver
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public static final ImageIcon NOIMAGE = new ImageIcon("/BluePizzaDiagrams/Resources/nothing_here_by_superangrybirdsfan64-d5ca8tm.png");
-	public static final ImageIcon LOADING = new ImageIcon("/BluePizzaDiagrams/Resources/spiffygif_114x114.gif");
+	public static final ImageIcon NOIMAGE = new ImageIcon("Resources/nothing_here_by_superangrybirdsfan64-d5ca8tm.png");
+	public static final ImageIcon LOADING = new ImageIcon("Resources/spiffygif_114x114.gif");
 
 	private ImageIcon currentImage = NOIMAGE;
 	private String imgPath;
