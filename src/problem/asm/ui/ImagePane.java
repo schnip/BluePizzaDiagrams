@@ -25,16 +25,7 @@ public class ImagePane extends JPanel{
 //		System.out.println(new File(".").getAbsolutePath());
 	}
 	
-//	public void loadImage() {
-//		this.imageProxy.loadImage();
-//	}
-	
-//	public void disposeOfProxy() {
-//		this.imageProxy.dispose();
-//	}
-	
 	public void consumeNewImage(String newPath) {
-		// TODO write code that goes here
 		// This method takes the path and draws the image
 		this.imageProxy.consumeNewImage(newPath);
 //		this.add(new JLabel(imageProxy), BorderLayout.LINE_START);

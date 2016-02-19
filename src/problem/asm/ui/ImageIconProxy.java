@@ -2,6 +2,7 @@ package problem.asm.ui;
 
 import java.awt.Component;
 import java.awt.Graphics;
+import java.io.File;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -33,7 +34,14 @@ public class ImageIconProxy extends ImageIcon implements Icon {
 
 	public void consumeNewImage(String newPath) {
 		System.out.println("path:   " + newPath);
-		this.setCurrentImage(new ImageIcon(newPath));
+		String inp = new File(newPath).getAbsolutePath();
+		System.out.println("new abs path:     " + inp);
+		
+		ImageIcon imgIcon = new ImageIcon(inp);
+		
+		System.out.println("width:   " + imgIcon.getIconWidth());
+		
+		this.setCurrentImage(imgIcon);
 	}
 
 	public int getIconHeight() {
