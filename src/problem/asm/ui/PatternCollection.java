@@ -34,5 +34,16 @@ public class PatternCollection {
 	public List<PatternCollection> getSubCollection() {
 		return subpatterns;
 	}
+	
+	@Override
+	public String toString() {
+		String ret = getTitle();
+		ret = ret + " [";
+		for (PatternCollection patC : this.subpatterns) {
+			ret = patC.toString() + ", ";
+		}
+		ret = ret + "] ";
+		return ret;
+	}
 
 }
