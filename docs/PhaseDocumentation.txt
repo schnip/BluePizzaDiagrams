@@ -1,0 +1,15 @@
+This project is made up of a number of distinct phases.  They are described as follows:
+
+1. Singleton :
+- This phase is used to detect singletons.  At the current time it cannot take in custom flags and uses fixed parameters to detect the singleton pattern when given classes or a directory to read from.  It will mark these classes in the UML with the <<Singleton>> tag.
+
+2. Decorator :
+- This phase is used to detect decorators.  At the current time it can detect the decorator pattern when given classes to detect these patterns in.  The class being decorated gets marked as a <<component>> and the decorators are marked as <<decorator>>.  This decorator detector is one distinct phase in the system.
+
+3. Adapter :
+- this phase is used to detect adapters.  At the current time it can detect adapter patterns when given classes or a directory of classes to find the adapter pattern in.  It marks classes as <<Adapter>>, <<Adaptee>> and <<target>>.  The <<adapter>> is the interface that adapts one class to another, the <<adaptee>> is the class being adapted and the <<target>> is the class being adapted too.
+
+4. Composite :
+
+- this phase is used to detect the composite pattern.  At the current time it can detect composite patterns when given classes or a directory of classes to find the composite pattern in.  It marks classes as <<Composite>>, <<component>> and <<Leaf>>.  The <<Composite>> is a class that extends the <<Component>> and can add and remove Components from itself.  Leaves are classes that extend a component but do not have this add/remove functionality and the component is a class extended by composites and contains a collection of itself.
+
