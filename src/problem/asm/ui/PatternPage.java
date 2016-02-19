@@ -4,6 +4,7 @@ package problem.asm.ui;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
@@ -27,6 +28,7 @@ public class PatternPage extends JFrame implements Runnable {
 	IMakeResults results;
 	JPanel menuPanel;
 	ImagePane imagePanel;
+	JPanel otherPanel;
 
 
 	public PatternPage(PatternCollection patC, IMakeResults r) {
@@ -34,6 +36,7 @@ public class PatternPage extends JFrame implements Runnable {
 		this.results = r;
 		this.menuPanel = new JPanel();
 		this.imagePanel = new ImagePane("/BluePizzaDiagrams/dot/out.png");
+//		this.otherPanel = new JPanel();
 
 	}
 
@@ -41,6 +44,10 @@ public class PatternPage extends JFrame implements Runnable {
 		this.setLayout(new BorderLayout());
 		this.add(menuPanel, BorderLayout.WEST);
 		this.add(imagePanel, BorderLayout.EAST);
+		
+		
+//		otherPanel.add(new JLabel("Super label this project sucks"));
+//		this.add(otherPanel, BorderLayout.EAST);
 		DefaultMutableTreeNode root = createMenu(this.patC);
 
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);

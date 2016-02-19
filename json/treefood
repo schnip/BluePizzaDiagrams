@@ -1,0 +1,7 @@
+{
+	"type":"uml",
+	"dot-path":"dot",
+	"output-dir":"dot/",
+	"classes":["problem.food.treefood.Banana", "problem.food.treefood.Bowl", "problem.food.treefood.Tray", "problem.food.treefood.Yogurt"],
+	"output-type":"file"
+}
