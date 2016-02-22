@@ -1,12 +1,15 @@
 package problem.asm.api.patternfinder;
 
 import java.io.PrintWriter;
+import java.util.Map;
 
 import problem.asm.storage.MetaDataLibrary;
 
 public interface IFindPatterns {
 
 	public void intake(MetaDataLibrary mdl);
+	
+	public void intakeOptions(Map<String, String> options);
 	
 	public String getName();
 	
