@@ -21,6 +21,7 @@ public class AdapterFinder implements IFindPatterns {
 	private Map<String, String> classToSpecial = new HashMap<String, String>();
 	private Map<String, String> edgeToLabel = new HashMap<String, String>();
 	private List<IPatternInstance> patInst = new LinkedList<IPatternInstance>();
+	private String adapterColor = "red";
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
@@ -100,7 +101,7 @@ public class AdapterFinder implements IFindPatterns {
 	@Override
 	public void writeAttributes(String className, PrintWriter writer) {
 		if (classToSpecial.keySet().contains(className)) {
-			writer.print("fillcolor=red, style=filled,");
+			writer.print("fillcolor=" + adapterColor + ", style=filled,");
 			writer.println();
 		}
 	}
@@ -121,7 +122,8 @@ public class AdapterFinder implements IFindPatterns {
 	@Override
 	public void intakeOptions(Map<String, String> options) {
 		// TODO Auto-generated method stub
-		
+		if (options.containsKey("adapterColor"))
+			adapterColor = options.get("adapterColor");
 	}
 
 }
