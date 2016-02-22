@@ -1,10 +1,6 @@
 package problem.asm.ui;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
@@ -19,6 +15,10 @@ import problem.asm.swingcheckbox.main.java.org.scijava.swing.checkboxtree.CheckB
 
 public class MenuPanel extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4376240570142689272L;
 	PatternCollection patC;
 	
 	public MenuPanel(PatternCollection patC) {

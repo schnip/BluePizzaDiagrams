@@ -56,6 +56,11 @@ public class CheckBoxNodeEditor extends AbstractCellEditor implements
 	TreeCellEditor
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6658617824065592441L;
+
 	private final CheckBoxNodeRenderer renderer = new CheckBoxNodeRenderer();
 
 	private final JTree theTree;

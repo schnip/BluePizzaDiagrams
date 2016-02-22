@@ -118,4 +118,10 @@ public class AdapterFinder implements IFindPatterns {
 		return patInst;
 	}
 
+	@Override
+	public void intakeOptions(Map<String, String> options) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

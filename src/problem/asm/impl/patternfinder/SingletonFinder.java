@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.objectweb.asm.Opcodes;
@@ -110,6 +111,12 @@ public class SingletonFinder implements IFindPatterns {
 	@Override
 	public Iterable<IPatternInstance> getInstances() {
 		return patInst;
+	}
+
+	@Override
+	public void intakeOptions(Map<String, String> options) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -2,13 +2,13 @@ package problem.asm.ui;
 
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.io.File;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+@SuppressWarnings("unused")
 public class ImageIconProxy extends ImageIcon implements Icon {
 
 	/**
@@ -22,7 +22,7 @@ public class ImageIconProxy extends ImageIcon implements Icon {
 
 	private ImageIcon currentImage = NOIMAGE;
 	private String imgPath;
-	private JPanel returnPanel;
+	private JPanel returnPanel;	
 	private Thread thread;
 
 	public ImageIconProxy(JPanel returnPanel, String imgPath) {

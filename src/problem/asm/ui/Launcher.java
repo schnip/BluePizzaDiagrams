@@ -2,7 +2,9 @@ package problem.asm.ui;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.json.simple.JSONArray;
@@ -25,6 +27,7 @@ public class Launcher {
 	private static String outputType;
 	private static String inputDir;
 	private static Set<String> phases;
+	private static Map<String, String> options;
 	private static LandingPage lp;
 
 	public static void main(String[] args) {
@@ -57,6 +60,7 @@ public class Launcher {
 		return ret;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void parseAndDo(String configPath) {
 		StaticLibraryHolder.initializeLibrary();
 		JSONParser parser = new JSONParser();
@@ -77,6 +81,11 @@ public class Launcher {
 				for (Object o : (JSONArray) obj.get("phases")) {
 					phases.add((String) o);
 				}
+			}
+			options = new HashMap<String, String>();
+			JSONObject rawopt = (JSONObject) obj.get("options");
+			for (Object entry : rawopt.entrySet()) {
+				options.put((String) ((Map.Entry) entry).getKey(), (String) rawopt.get(((Map.Entry) entry).getKey()));
 			}
 			if (null != inputDir) {
 				inputClassRec(new File(inputDir));

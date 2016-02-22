@@ -48,6 +48,10 @@ import javax.swing.JPanel;
  */
 public class CheckBoxNodePanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 494462277970671152L;
 	public final JLabel label = new JLabel();
 	public final JCheckBox check = new JCheckBox();
 
