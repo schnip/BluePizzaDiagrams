@@ -40,6 +40,7 @@ Similar to the singleton pattern detector, this pattern detector is capable of d
 
 Graphical User Interface (Milestone 7): 
 
+We developed a GUI for this final milestone that would allow users to select patterns in a given piece of code that they wish to look at diagrammatically.  We are still having trouble with image loading here but have all the basic framework set up to load the images.  The code for the GUI is decoupled from the rest of the program - our only issues lie in actually loading the image up to the panel.
 
 
 Stating who did what:
