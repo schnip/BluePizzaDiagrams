@@ -46,6 +46,7 @@ public class Launcher {
 		StU.loadClasses("bin/problem/asm/impl/patternfinder", patternfinders);
 		for (IFindPatterns s : patternfinders) {
 			if (phases.size() <= 0 || phases.contains(s.getName())) {
+				s.intakeOptions(options);
 				s.intake(mdl);
 				PatternCollection temp = new PatternCollection(s.getName());
 				System.out.println(s.getName());

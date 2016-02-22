@@ -23,6 +23,7 @@ public class SingletonFinder implements IFindPatterns {
 	
 	private Set<String> singletons = new HashSet<String>();
 	private List<IPatternInstance> patInst = new LinkedList<IPatternInstance>();
+	private boolean easyHolder = false;
 
 	@Override
 	public void intake(MetaDataLibrary mdl) {
@@ -44,13 +45,13 @@ public class SingletonFinder implements IFindPatterns {
 			if ((fp.getAccess() & Opcodes.ACC_PRIVATE) != 0) {
 				if ((fp.getAccess() & Opcodes.ACC_STATIC) != 0) {
 					if (Type.getType(fp.getDesc()).getClassName().equals(cv.getName().replace("/", "."))) {
-						System.out.println("sumthin");
+//						System.out.println("sumthin");
 						return true;
 					} 
 				}
 			}
 		}
-		return false;
+		return easyHolder;
 	}
 	
 	private boolean checkPCandgetter(ClassVolume cv) {
@@ -115,8 +116,8 @@ public class SingletonFinder implements IFindPatterns {
 
 	@Override
 	public void intakeOptions(Map<String, String> options) {
-		// TODO Auto-generated method stub
-		
+		if (options.get("singleton").equals("noPrivateField"))
+			this.easyHolder = true;
 	}
 
 }
